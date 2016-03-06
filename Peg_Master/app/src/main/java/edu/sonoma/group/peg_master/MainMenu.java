@@ -6,7 +6,6 @@ import android.view.View;
 import android.widget.Button;
 
 public class MainMenu extends AppCompatActivity {
-    private Button creditButton;
 
     private Button startButton, infoButton, optionsButton;
 
