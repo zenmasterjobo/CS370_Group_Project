@@ -1,6 +1,7 @@
 package edu.sonoma.group.peg_master;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.support.v4.app.FragmentTransaction;
 import android.content.Context;
 import android.net.Uri;
@@ -20,7 +21,6 @@ public class MainMenuFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
     }
 
     @Override
@@ -36,6 +36,13 @@ public class MainMenuFragment extends Fragment {
         startButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Intent intent = new Intent(getActivity(), overworld.class);
+                startActivity(intent);
+                //BoardFragment newFrag = new BoardFragment();
+                //FragmentTransaction transaction = getActivity().getSupportFragmentManager().beginTransaction();
+                //transaction.replace(R.id.fragment_container, newFrag);
+                //transaction.addToBackStack(null);
+                //transaction.commit();
             }
         });
         infoButton.setOnClickListener(new View.OnClickListener() {
