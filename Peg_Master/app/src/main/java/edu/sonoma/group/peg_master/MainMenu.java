@@ -1,11 +1,17 @@
 package edu.sonoma.group.peg_master;
+import android.media.MediaPlayer;
+import android.provider.MediaStore;
 import android.support.v4.app.FragmentManager;
 import android.net.Uri;
 
 import android.os.Bundle;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
+import android.view.View;
 import android.widget.Button;
+import android.widget.CompoundButton;
+import android.widget.Switch;
+import android.widget.TextView;
 
 import com.google.android.gms.appindexing.Action;
 import com.google.android.gms.appindexing.AppIndex;
@@ -13,7 +19,12 @@ import com.google.android.gms.common.api.GoogleApiClient;
 
 public class MainMenu extends AppCompatActivity {
 
+    //creating a media player instance for the sound file
+    MediaPlayer mainMenuSound;
+    Boolean mainSound = true;
+
     private Button startButton, infoButton, optionsButton;
+
     /**
      * ATTENTION: This was auto-generated to implement the App Indexing API.
      * See https://g.co/AppIndexing/AndroidStudio for more information.
@@ -32,11 +43,15 @@ public class MainMenu extends AppCompatActivity {
         // ATTENTION: This was auto-generated to implement the App Indexing API.
         // See https://g.co/AppIndexing/AndroidStudio for more information.
         client = new GoogleApiClient.Builder(this).addApi(AppIndex.API).build();
+        mainMenuSound = MediaPlayer.create(this, R.raw.windwaker);
     }
 
     @Override
     public void onStart() {
         super.onStart();
+        //start the music
+        mainMenuSound.start();
+
 
         // ATTENTION: This was auto-generated to implement the App Indexing API.
         // See https://g.co/AppIndexing/AndroidStudio for more information.
@@ -73,4 +88,17 @@ public class MainMenu extends AppCompatActivity {
         AppIndex.AppIndexApi.end(client, viewAction);
         client.disconnect();
     }
+
+    public void Sound(Boolean Status){
+        if(Status == true) {
+            //play the sound when the app opens
+            mainMenuSound.start();
+        }
+        if (Status == false){
+            ////pause the sound when the switch is flipped
+            mainMenuSound.pause();
+        }
+
+    }
+
 }
