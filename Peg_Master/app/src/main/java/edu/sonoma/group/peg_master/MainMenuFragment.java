@@ -11,12 +11,17 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.CompoundButton;
+import android.widget.Switch;
+import android.widget.TextView;
 
 
 public class MainMenuFragment extends Fragment {
 
 
     private Button startButton, infoButton, optionsButton;
+
+
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -32,6 +37,14 @@ public class MainMenuFragment extends Fragment {
         startButton = (Button) view.findViewById(R.id.Startbutton);
         infoButton = (Button) view.findViewById(R.id.Infobutton);
         optionsButton = (Button) view.findViewById(R.id.Optionsbutton);
+
+
+
+
+
+
+
+
 
         startButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -59,6 +72,12 @@ public class MainMenuFragment extends Fragment {
         optionsButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                OptionsFragment newFrag = new OptionsFragment();
+                FragmentTransaction transaction = getActivity().getSupportFragmentManager().beginTransaction();
+                transaction.replace(R.id.fragment_container, newFrag);
+                transaction.addToBackStack(null);
+                transaction.commit();
+
             }
         });
 
