@@ -3,6 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#0099cc"
+    android:id="@+id/fragment_container">
     tools:context="edu.sonoma.group.peg_master.overworld">
 
     <!-- The primary full-screen view. This can be replaced with whatever view
@@ -64,6 +65,9 @@
             android:id="@+id/level3"
             android:layout_gravity="center_horizontal"
             android:typeface="serif" />
+
+
+
     </FrameLayout>
 
 </FrameLayout>
