@@ -50,7 +50,7 @@ public class MainMenu extends AppCompatActivity {
     public void onStart() {
         super.onStart();
         //start the music
-        mainMenuSound.start();
+        //mainMenuSound.start();
 
 
         // ATTENTION: This was auto-generated to implement the App Indexing API.
