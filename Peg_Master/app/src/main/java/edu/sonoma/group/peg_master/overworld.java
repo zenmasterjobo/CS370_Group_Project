@@ -94,7 +94,6 @@ public class overworld extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
         setContentView(R.layout.activity_overworld);
 
 
@@ -174,7 +173,7 @@ public class overworld extends AppCompatActivity {
          mContentView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                toggle();
+                //toggle();
             }
         });
 
