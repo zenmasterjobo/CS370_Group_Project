@@ -2,6 +2,7 @@ package edu.sonoma.group.peg_master;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.media.Image;
 import android.support.v4.app.FragmentTransaction;
 import android.content.Context;
 import android.net.Uri;
@@ -12,6 +13,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.CompoundButton;
+import android.widget.ImageButton;
 import android.widget.Switch;
 import android.widget.TextView;
 
@@ -19,7 +21,8 @@ import android.widget.TextView;
 public class MainMenuFragment extends Fragment {
 
 
-    private Button startButton, infoButton, optionsButton;
+    //private Button infoButton, optionsButton;
+    private ImageButton startButton, infoButton, optionsButton;
 
 
 
@@ -34,9 +37,9 @@ public class MainMenuFragment extends Fragment {
 
         View view = inflater.inflate(R.layout.fragment_main_menu, container, false);
 
-        startButton = (Button) view.findViewById(R.id.Startbutton);
-        infoButton = (Button) view.findViewById(R.id.Infobutton);
-        optionsButton = (Button) view.findViewById(R.id.Optionsbutton);
+        startButton = (ImageButton) view.findViewById(R.id.Startbutton);
+        infoButton = (ImageButton) view.findViewById(R.id.Infobutton);
+        optionsButton = (ImageButton) view.findViewById(R.id.Optionsbutton);
 
 
 
