@@ -73,7 +73,7 @@
         android:id="@+id/CreateUser"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="80dp"
+        android:layout_marginTop="360dp"
         android:layout_gravity="center_horizontal|top"/>
 
     <Button
@@ -123,6 +123,6 @@
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_gravity="left|top"></FrameLayout>
+        android:layout_gravity="center_horizontal|top"></FrameLayout>
 
 </FrameLayout>
