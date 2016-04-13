@@ -52,6 +52,8 @@ public class UserTableManager extends DBHandler {
                     aUser.setName(myCursor.getString(0));
                     aUser.setScore(myCursor.getInt(1));
                     aUser.setPlayed(myCursor.getInt(2));
+                    aUser.setChestsOpened(myCursor.getInt(3));
+                    aUser.setNumStars(myCursor.getInt(4));
                     Log.d("UserTableManager",aUser.getName());
                     userList.add(aUser);
                 }while(myCursor.moveToNext());

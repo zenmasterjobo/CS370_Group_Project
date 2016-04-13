@@ -14,11 +14,15 @@ public class DBHandler extends SQLiteOpenHelper {
     public static final String COLUMN_NAME = "name";
     public static final String COLUMN_HISCORE = "hiscore";
     public static final String COLUMN_TIMEPLAYED = "timeplayed";
+    public static final String COLUMN_CHESTSOPENED = "chestsopened";
+    public static final String COLUMN_NUMSTARS = "numstars";
     public static final String CREATE_USER_TABLE = "CREATE TABLE IF NOT EXISTS "
-            + USER_TABLE_NAME
-            + " (" + COLUMN_NAME + " TEXT NOT NULL, "
+            + USER_TABLE_NAME + " ("
+            + COLUMN_NAME + " TEXT NOT NULL, "
             + COLUMN_HISCORE + " INT, "
-            + COLUMN_TIMEPLAYED + " INT);";
+            + COLUMN_TIMEPLAYED + " INT, "
+            + COLUMN_CHESTSOPENED + " INT, "
+            + COLUMN_NUMSTARS + " INT);";
 
 
 

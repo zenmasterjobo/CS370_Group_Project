@@ -7,6 +7,8 @@ public class User {
     private String userName;
     private int hiScore;
     private int timePlayed;
+    private int chestsOpened;
+    private int numStars;
 
     // constructor for user
     public User(){
@@ -37,4 +39,9 @@ public class User {
         return timePlayed;
     }
 
+    public void setChestsOpened(int chests){chestsOpened = chests;}
+    public int getChestsOpened(){return chestsOpened;}
+
+    public void setNumStars(int stars){numStars = stars;}
+    public int getNumStars(){return numStars;}
 }
