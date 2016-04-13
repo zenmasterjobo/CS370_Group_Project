@@ -16,6 +16,10 @@ import android.widget.CompoundButton;
 import android.widget.ImageButton;
 import android.widget.Switch;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import java.util.ArrayList;
+import java.util.List;
 
 
 public class MainMenuFragment extends Fragment {
@@ -23,12 +27,16 @@ public class MainMenuFragment extends Fragment {
 
     //private Button infoButton, optionsButton;
     private ImageButton startButton, infoButton, optionsButton;
-
+    private Button createUserButton,printUsersButton;
+    private DBHandler db;
+    private UserTableManager dbManager;
 
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        db = new DBHandler(getActivity().getApplicationContext());
+        dbManager = new UserTableManager(getActivity().getApplicationContext());
     }
 
     @Override
@@ -40,6 +48,9 @@ public class MainMenuFragment extends Fragment {
         startButton = (ImageButton) view.findViewById(R.id.Startbutton);
         infoButton = (ImageButton) view.findViewById(R.id.Infobutton);
         optionsButton = (ImageButton) view.findViewById(R.id.Optionsbutton);
+        createUserButton = (Button)view.findViewById(R.id.CreateUser);
+        printUsersButton = (Button)view.findViewById(R.id.PrintUsers);
+
 
 
 
@@ -80,6 +91,28 @@ public class MainMenuFragment extends Fragment {
                 transaction.replace(R.id.fragment_container, newFrag);
                 transaction.addToBackStack(null);
                 transaction.commit();
+
+            }
+        });
+
+        createUserButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                User testUser = new User();
+                testUser.setName("nick");
+                testUser.setPlayed(100);
+                testUser.setScore(69);
+                dbManager.addUserData(testUser);
+
+            }
+        });
+
+        printUsersButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                List<User>myUsers = new ArrayList<User>();
+                myUsers = dbManager.getAllUsers();
+                Toast.makeText(getActivity().getApplicationContext(), Integer.toString(myUsers.size()), Toast.LENGTH_LONG).show();
 
             }
         });
