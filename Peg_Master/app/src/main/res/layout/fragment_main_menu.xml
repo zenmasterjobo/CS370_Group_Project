@@ -65,6 +65,29 @@
         android:layout_marginRight="0dp"
         android:layout_marginBottom="0dp"
         android:layout_marginTop="90dp" />
+
+    <Button
+        android:text="CreateUser"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/CreateUser"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="360dp"
+        android:layout_gravity="center_horizontal|top"/>
+
+    <Button
+        android:text="PrintUsers"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/PrintUsers"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="400dp"
+        android:layout_gravity="center_horizontal|top"/>
+
+
+
     <!--
     <Button
         android:text="Start Game"
@@ -100,6 +123,6 @@
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_gravity="left|top"></FrameLayout>
+        android:layout_gravity="center_horizontal|top"></FrameLayout>
 
 </FrameLayout>
