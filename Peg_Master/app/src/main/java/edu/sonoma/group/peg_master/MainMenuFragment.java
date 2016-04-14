@@ -28,7 +28,7 @@ public class MainMenuFragment extends Fragment {
 
     //private Button infoButton, optionsButton;
     private ImageButton startButton, infoButton, optionsButton;
-    private Button createUserButton,printUsersButton;
+    private Button changeUsersButton;
     private DBHandler db;
     private UserTableManager dbManager;
     private String lastUser;
@@ -63,6 +63,19 @@ public class MainMenuFragment extends Fragment {
     }
 
     @Override
+    public void onActivityResult(int requestCode,int resultCode, Intent data){
+        if(requestCode ==1){
+            if(resultCode == Activity.RESULT_OK){
+                String userName = data.getStringExtra("name");
+                Toast.makeText(getActivity().getApplicationContext(), userName, Toast.LENGTH_LONG).show();
+
+                User newUser = new User(userName);
+                dbManager.addUserData(newUser);
+            }
+        }
+    }
+
+    @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
@@ -71,8 +84,8 @@ public class MainMenuFragment extends Fragment {
         startButton = (ImageButton) view.findViewById(R.id.Startbutton);
         infoButton = (ImageButton) view.findViewById(R.id.Infobutton);
         optionsButton = (ImageButton) view.findViewById(R.id.Optionsbutton);
-        createUserButton = (Button)view.findViewById(R.id.CreateUser);
-        printUsersButton = (Button)view.findViewById(R.id.PrintUsers);
+        //createUserButton = (Button)view.findViewById(R.id.CreateUser);
+        changeUsersButton = (Button)view.findViewById(R.id.ChangeUsers);
 
 
 
@@ -118,6 +131,7 @@ public class MainMenuFragment extends Fragment {
             }
         });
 
+        /*
         createUserButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -131,16 +145,15 @@ public class MainMenuFragment extends Fragment {
 
             }
         });
-
-        printUsersButton.setOnClickListener(new View.OnClickListener() {
+        */
+        changeUsersButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 List<User>myUsers = new ArrayList<User>();
                 myUsers = dbManager.getAllUsers();
                 Toast.makeText(getActivity().getApplicationContext(), Integer.toString(myUsers.size()), Toast.LENGTH_LONG).show();
-                // http://stackoverflow.com/questions/10407159/how-to-manage-startactivityforresult-on-android
                 Intent userIntent = new Intent(getActivity(),UserList.class);
-                getActivity().startActivityForResult(userIntent, 1);
+                startActivityForResult(userIntent, 1);
 
             }
         });

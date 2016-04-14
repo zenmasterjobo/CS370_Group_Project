@@ -12,10 +12,12 @@ public class User {
     private int numStars;
 
     // constructor for user
-    public User(){
-        userName = "";
+    public User(String name){
+        userName = name;
         hiScore = 0;
         timePlayed = 0;
+        chestsOpened = 0;
+        numStars = 0;
     }
 
     //getters and setters!

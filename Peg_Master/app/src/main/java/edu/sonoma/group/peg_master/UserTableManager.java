@@ -50,9 +50,8 @@ public class UserTableManager extends DBHandler {
             //if theres userdata create User obj to store data
             if(myCursor.moveToFirst()){
                 do {
-                    User aUser = new User();
+                    User aUser = new User(myCursor.getString(1));
                     aUser.setID(myCursor.getInt(0));
-                    aUser.setName(myCursor.getString(1));
                     aUser.setScore(myCursor.getInt(2));
                     aUser.setPlayed(myCursor.getInt(3));
                     aUser.setChestsOpened(myCursor.getInt(4));
