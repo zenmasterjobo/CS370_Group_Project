@@ -2,6 +2,7 @@ package edu.sonoma.group.peg_master;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.media.Image;
 import android.support.v4.app.FragmentTransaction;
 import android.content.Context;
@@ -44,10 +45,21 @@ public class MainMenuFragment extends Fragment {
         allUsers = dbManager.getAllUsers();
         //check if database is empty. if it is, prompt for new user.
         if(allUsers.size() < 1){
-            Toast.makeText(getActivity().getApplicationContext(), "CREATE A DAMN USER BRO", Toast.LENGTH_LONG).show();
-
-
+            Intent userIntent = new Intent(getActivity(),UserList.class);
+            getActivity().startActivityForResult(userIntent,1);
         }
+
+        //check for lastUser in SharedPreferences
+        SharedPreferences mPrefs = getActivity().getSharedPreferences("lastUser",0);
+        lastUser = mPrefs.getString("lastUser",null);
+        //if lastUser is null, popup window with list of usernames in db
+        /*
+        if(lastUser == null){
+            //
+            Intent userIntent = new Intent(getActivity(),UserList.class);
+            getActivity().startActivityForResult(userIntent,1);
+        }
+        */
     }
 
     @Override
@@ -126,6 +138,9 @@ public class MainMenuFragment extends Fragment {
                 List<User>myUsers = new ArrayList<User>();
                 myUsers = dbManager.getAllUsers();
                 Toast.makeText(getActivity().getApplicationContext(), Integer.toString(myUsers.size()), Toast.LENGTH_LONG).show();
+                // http://stackoverflow.com/questions/10407159/how-to-manage-startactivityforresult-on-android
+                Intent userIntent = new Intent(getActivity(),UserList.class);
+                getActivity().startActivityForResult(userIntent, 1);
 
             }
         });

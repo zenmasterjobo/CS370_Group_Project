@@ -37,6 +37,10 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="edu.sonoma.group.peg_master.overworld" />
         </activity>
+
+        <activity android:name=".UserList"
+            android:theme="@style/AppTheme.CustomTheme"></activity>
+
     </application>
 
 </manifest>
