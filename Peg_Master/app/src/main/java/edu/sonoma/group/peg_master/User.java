@@ -5,6 +5,7 @@ package edu.sonoma.group.peg_master;
  */
 public class User {
     private String userName;
+    private int userID;
     private int hiScore;
     private int timePlayed;
     private int chestsOpened;
@@ -25,6 +26,12 @@ public class User {
         return userName;
     }
 
+    public void setID(int ID){
+        userID = ID;
+    }
+    public int getID(){
+        return userID;
+    }
     public void setScore(int hiscore){
         hiScore= hiscore;
     }

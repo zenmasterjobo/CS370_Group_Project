@@ -28,6 +28,8 @@ public class UserTableManager extends DBHandler {
         values.put(COLUMN_NAME,userData.getName());
         values.put(COLUMN_HISCORE,userData.getScore());
         values.put(COLUMN_TIMEPLAYED, userData.getPlayed());
+        values.put(COLUMN_NUMSTARS,userData.getNumStars());
+        values.put(COLUMN_TIMEPLAYED,userData.getPlayed());
         //put data into db
         db.insert(USER_TABLE_NAME, null, values);
 
@@ -49,11 +51,12 @@ public class UserTableManager extends DBHandler {
             if(myCursor.moveToFirst()){
                 do {
                     User aUser = new User();
-                    aUser.setName(myCursor.getString(0));
-                    aUser.setScore(myCursor.getInt(1));
-                    aUser.setPlayed(myCursor.getInt(2));
-                    aUser.setChestsOpened(myCursor.getInt(3));
-                    aUser.setNumStars(myCursor.getInt(4));
+                    aUser.setID(myCursor.getInt(0));
+                    aUser.setName(myCursor.getString(1));
+                    aUser.setScore(myCursor.getInt(2));
+                    aUser.setPlayed(myCursor.getInt(3));
+                    aUser.setChestsOpened(myCursor.getInt(4));
+                    aUser.setNumStars(myCursor.getInt(5));
                     Log.d("UserTableManager",aUser.getName());
                     userList.add(aUser);
                 }while(myCursor.moveToNext());

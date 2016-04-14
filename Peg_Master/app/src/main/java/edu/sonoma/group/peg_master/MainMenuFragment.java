@@ -30,6 +30,8 @@ public class MainMenuFragment extends Fragment {
     private Button createUserButton,printUsersButton;
     private DBHandler db;
     private UserTableManager dbManager;
+    private String lastUser;
+    private List<User> allUsers;
 
 
     @Override
@@ -37,6 +39,15 @@ public class MainMenuFragment extends Fragment {
         super.onCreate(savedInstanceState);
         db = new DBHandler(getActivity().getApplicationContext());
         dbManager = new UserTableManager(getActivity().getApplicationContext());
+
+        //populate allUsers from db
+        allUsers = dbManager.getAllUsers();
+        //check if database is empty. if it is, prompt for new user.
+        if(allUsers.size() < 1){
+            Toast.makeText(getActivity().getApplicationContext(), "CREATE A DAMN USER BRO", Toast.LENGTH_LONG).show();
+
+
+        }
     }
 
     @Override
@@ -102,6 +113,8 @@ public class MainMenuFragment extends Fragment {
                 testUser.setName("nick");
                 testUser.setPlayed(100);
                 testUser.setScore(69);
+                testUser.setPlayed(100);
+                testUser.setChestsOpened(63);
                 dbManager.addUserData(testUser);
 
             }
