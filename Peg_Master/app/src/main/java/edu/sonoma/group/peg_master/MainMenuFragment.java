@@ -46,7 +46,7 @@ public class MainMenuFragment extends Fragment {
         //check if database is empty. if it is, prompt for new user.
         if(allUsers.size() < 1){
             Intent userIntent = new Intent(getActivity(),UserList.class);
-            getActivity().startActivityForResult(userIntent,1);
+            startActivityForResult(userIntent, 1);
         }
 
         //check for lastUser in SharedPreferences
@@ -67,10 +67,10 @@ public class MainMenuFragment extends Fragment {
         if(requestCode ==1){
             if(resultCode == Activity.RESULT_OK){
                 String userName = data.getStringExtra("name");
-                Toast.makeText(getActivity().getApplicationContext(), userName, Toast.LENGTH_LONG).show();
-
+                Toast.makeText(getActivity().getApplicationContext(), userName, Toast.LENGTH_SHORT).show();
                 User newUser = new User(userName);
                 dbManager.addUserData(newUser);
+
             }
         }
     }
@@ -149,11 +149,21 @@ public class MainMenuFragment extends Fragment {
         changeUsersButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                List<User>myUsers = new ArrayList<User>();
-                myUsers = dbManager.getAllUsers();
-                Toast.makeText(getActivity().getApplicationContext(), Integer.toString(myUsers.size()), Toast.LENGTH_LONG).show();
+                //List<User>myUsers = new ArrayList<User>();
+                //update list of users, then create array of user.getName()
+                allUsers = dbManager.getAllUsers();
+                String[] userStrings = new String[allUsers.size()];
+                int idx =0;
+                for(User aUser: allUsers){
+                    userStrings[idx] = aUser.getName();
+                    idx++;
+                }
                 Intent userIntent = new Intent(getActivity(),UserList.class);
+                userIntent.putExtra("allUsers", userStrings);
                 startActivityForResult(userIntent, 1);
+                Toast.makeText(getActivity().getApplicationContext(), Integer.toString(allUsers.size()), Toast.LENGTH_LONG).show();
+
+
 
             }
         });
