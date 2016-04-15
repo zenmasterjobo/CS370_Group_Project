@@ -10,7 +10,7 @@ public class DBHandler extends SQLiteOpenHelper {
     //db infooo
 
 
-    private static final int DATABASE_VERSION = 12;
+    private static final int DATABASE_VERSION = 17;
     private static final String DATABASE_NAME = "users.db";
     protected static final String USER_TABLE_NAME = "USER_TABLE";
     //USER TABLE

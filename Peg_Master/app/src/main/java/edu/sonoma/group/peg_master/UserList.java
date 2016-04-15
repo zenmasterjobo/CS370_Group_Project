@@ -8,27 +8,35 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.DisplayMetrics;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.EditText;
+import android.widget.ListView;
 import android.widget.Toast;
 
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 /**
  * Created by student on 4/14/16.
  */
 public class UserList extends AppCompatActivity{
-    private List<User> allUsers;
-    private DBHandler db;
-    private UserTableManager dbManager;
+    private List<String> allUsers;
+    private ListView userList;
+
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState){
 
+        userList = (ListView)findViewById(R.id.listView);
+
         //populate allUsers
-        db = new DBHandler(getApplicationContext());
-        dbManager = new UserTableManager(getApplicationContext());
-        allUsers = dbManager.getAllUsers();
+        //allUsers = Arrays.asList(getIntent().getExtras().getStringArray("allUsers"));
+
+        //array adapter to display into listview
+        //ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1,allUsers);
+        //userList.setAdapter(arrayAdapter);
 
 
         super.onCreate(savedInstanceState);
@@ -40,7 +48,7 @@ public class UserList extends AppCompatActivity{
         int width = dm.widthPixels;
         int height = dm.heightPixels;
 
-        getWindow().setLayout((int)(width *.8),(int)(height*.2));
+        getWindow().setLayout((int)(width *.8),(int)(height*.5));
 
     }
 
