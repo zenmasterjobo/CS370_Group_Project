@@ -47,31 +47,18 @@ public class MainMenu extends AppCompatActivity {
         client = new GoogleApiClient.Builder(this).addApi(AppIndex.API).build();
         mainMenuSound = MediaPlayer.create(this, R.raw.windwaker);
 
-        if(savedInstanceState != null && savedState == null)
-            savedState = (ContentFrameLayout)getSupportFragmentManager().getFragment(savedInstanceState, OptionsFragment);
+        //if(savedInstanceState != null && savedState == null){
+            //savedState = (ContentFrameLayout)getSupportFragmentManager().getFragment(savedInstanceState, OptionsFragment);
 
-        }
+//        }
 
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
 
     @Override
     public void onStart() {
         super.onStart();
         //start the music
-        //mainMenuSound.start();
+        mainMenuSound.start();
 
 
         // ATTENTION: This was auto-generated to implement the App Indexing API.

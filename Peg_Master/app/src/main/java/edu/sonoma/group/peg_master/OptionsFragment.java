@@ -27,28 +27,6 @@ public class OptionsFragment extends Fragment {
     private TextView switchStatus;
     private Bundle savedState;
     private Bundle savedState1;
-    //MediaPlayer mainMenuSound;
-    //@Override
-    //public void onCreate(Bundle savedInstanceState) {
-     //   super.onCreate(savedInstanceState);
-        /**
-         if (savedInstanceState != null) {
-         super.onCreate(savedInstanceState);
-         //Restore the frag state
-
-
-         }
-         **/
-    //}
-    /**
-     @Override
-     public void onSaveInstanceState(Bundle outState)
-     {
-     super.onSaveInstanceState(outState);
-     //save the frag state
-
-     }
-     */
 
 
     @Override
@@ -61,18 +39,21 @@ public class OptionsFragment extends Fragment {
         switch1 = (Switch) rootView.findViewById(R.id.switch1);
 
 
+        boolean enabled = GlobalApplicationClass.getUserSettings().isMusicEnabled();
+        switch1.setChecked(enabled);
+
+
         if(savedInstanceState != null && savedState == null)
         {
             //savedState = savedInstanceState.getBundle(BundleTagUtility.SWITCHSTATUS);
             //savedState = savedInstanceState.getBundle(BundleTagUtility.SWITCH1);
-            savedState = savedInstanceState.getBundle("MyBoolean");
+           // savedState = savedInstanceState.getBundle("MyBoolean");
 
         }
-        if(savedState != null){
+
             //switchStatus.setText(savedState.getCharSequence(BundleTagUtility.SWITCHSTATUS));
             //switch1.setChecked(savedState1.getBoolean(BundleTagUtility.SWITCH1));
-            switch1.setChecked(savedState1.getBoolean("MyBoolean"));
-        }
+
 
         //savedState = null;
 
@@ -86,14 +67,16 @@ public class OptionsFragment extends Fragment {
                 if (switch1.isChecked()) {
                     switchStatus.setText("Music is On");
                     ((MainMenu) getActivity()).Sound(true);
-                    //savedState = saveState();
-                    //onSaveInstanceState(savedState);
+                    GlobalApplicationClass.getUserSettings().setIsMusicEnabled(true);
+
                 }
                 else {
                     switchStatus.setText("Music is off");
                     ((MainMenu) getActivity()).Sound(false);
-                    savedState = saveState();
-                    onSaveInstanceState(savedState);
+                    GlobalApplicationClass.getUserSettings().setIsMusicEnabled(false);
+                    //savedState = saveState();
+                    //onSaveInstanceState(savedState);
+
                 }
             }
 
@@ -103,14 +86,18 @@ public class OptionsFragment extends Fragment {
         if (switch1.isChecked()){
             switchStatus.setText("Music is On");
             ((MainMenu) getActivity()).Sound(true);
+            GlobalApplicationClass.getUserSettings().setIsMusicEnabled(true);
             //savedState = saveState();
             //onSaveInstanceState(savedState);
+
         }
         else {
             switchStatus.setText("Music is Off");
             ((MainMenu) getActivity()).Sound(false);
-            savedState = saveState();
-            onSaveInstanceState(savedState);
+            GlobalApplicationClass.getUserSettings().setIsMusicEnabled(false);
+            //savedState = saveState();
+            //onSaveInstanceState(savedState);
+
         }
 
 
@@ -136,7 +123,7 @@ public class OptionsFragment extends Fragment {
     public void onSaveInstanceState(Bundle outState){
         super.onSaveInstanceState(outState);
         //outState.putBundle(BundleTagUtility.SWITCH1, (savedState != null) ? savedState : saveState());
-        outState.putBoolean("MyBoolean", false);
+        //outState.putBoolean("MyBoolean", false);
     }
 
 
