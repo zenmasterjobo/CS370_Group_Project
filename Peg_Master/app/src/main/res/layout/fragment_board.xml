@@ -2,7 +2,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="edu.sonoma.group.peg_master.BoardFragment">
+    tools:context="edu.sonoma.group.peg_master.BoardFragment"
+    android:visibility="visible">
 
     <TextView
         android:layout_width="wrap_content"
@@ -31,11 +32,11 @@
 
     <ImageButton
         android:id="@+id/chest1_1"
-        android:visibility="visible"
+        android:visibility="invisible"
         android:layout_height="100dp"
         android:layout_width="100dp"
         android:layout_gravity="center"
-        android:background="@drawable/gameChestDemo"
+        android:background="@drawable/gamechestdemo"
         android:clickable="true"
         android:adjustViewBounds="false"
         android:focusable="false"
@@ -46,11 +47,11 @@
 
     <ImageButton
         android:id="@+id/chest1_2"
-        android:visibility="visible"
+        android:visibility="invisible"
         android:layout_height="100dp"
         android:layout_width="100dp"
         android:layout_gravity="center"
-        android:background="@drawable/gameChestDemo"
+        android:background="@drawable/gamechestdemo"
         android:clickable="true"
         android:adjustViewBounds="false"
         android:focusable="false"
@@ -61,11 +62,11 @@
 
     <ImageButton
         android:id="@+id/chest1_3"
-        android:visibility="visible"
+        android:visibility="invisible"
         android:layout_height="100dp"
         android:layout_width="100dp"
         android:layout_gravity="center"
-        android:background="@drawable/gameChestDemo"
+        android:background="@drawable/gamechestdemo"
         android:clickable="true"
         android:adjustViewBounds="false"
         android:focusable="false"
@@ -79,7 +80,7 @@
         android:layout_width="100dp"
         android:layout_gravity="center"
         android:id="@+id/chest2_1"
-        android:background="@drawable/gameChestDemo"
+        android:background="@drawable/gamechestdemo"
         android:clickable="true"
         android:adjustViewBounds="false"
         android:visibility="visible"
@@ -94,7 +95,7 @@
         android:layout_width="100dp"
         android:layout_gravity="center"
         android:id="@+id/chest2_2"
-        android:background="@drawable/gameChestDemo"
+        android:background="@drawable/gamechestdemo"
         android:clickable="true"
         android:adjustViewBounds="false"
         android:visibility="visible"
@@ -109,7 +110,7 @@
         android:layout_width="100dp"
         android:layout_gravity="center"
         android:id="@+id/chest2_3"
-        android:background="@drawable/gameChestDemo"
+        android:background="@drawable/gamechestdemo"
         android:clickable="true"
         android:adjustViewBounds="false"
         android:visibility="visible"
@@ -124,10 +125,10 @@
         android:layout_width="100dp"
         android:layout_gravity="center"
         android:id="@+id/chest3_1"
-        android:background="@drawable/gameChestDemo"
+        android:background="@drawable/gamechestdemo"
         android:clickable="true"
         android:adjustViewBounds="false"
-        android:visibility="visible"
+        android:visibility="invisible"
         android:focusable="false"
         android:layout_marginLeft="0dp"
         android:layout_marginRight="125dp"
@@ -139,10 +140,10 @@
         android:layout_width="100dp"
         android:layout_gravity="center"
         android:id="@+id/chest3_2"
-        android:background="@drawable/gameChestDemo"
+        android:background="@drawable/gamechestdemo"
         android:clickable="true"
         android:adjustViewBounds="false"
-        android:visibility="visible"
+        android:visibility="invisible"
         android:focusable="false"
         android:layout_marginLeft="0dp"
         android:layout_marginRight="0dp"
@@ -154,10 +155,10 @@
         android:layout_width="100dp"
         android:layout_gravity="center"
         android:id="@+id/chest3_3"
-        android:background="@drawable/gameChestDemo"
+        android:background="@drawable/gamechestdemo"
         android:clickable="true"
         android:adjustViewBounds="false"
-        android:visibility="visible"
+        android:visibility="invisible"
         android:focusable="false"
         android:layout_marginLeft="125dp"
         android:layout_marginRight="0dp"
@@ -169,10 +170,10 @@
         android:layout_width="100dp"
         android:layout_gravity="center"
         android:id="@+id/chest4_1"
-        android:background="@drawable/gameChestDemo"
+        android:background="@drawable/gamechestdemo"
         android:clickable="true"
         android:adjustViewBounds="false"
-        android:visibility="visible"
+        android:visibility="invisible"
         android:focusable="false"
         android:layout_marginLeft="0dp"
         android:layout_marginRight="125dp"
@@ -184,10 +185,10 @@
         android:layout_width="100dp"
         android:layout_gravity="center"
         android:id="@+id/chest4_2"
-        android:background="@drawable/gameChestDemo"
+        android:background="@drawable/gamechestdemo"
         android:clickable="true"
         android:adjustViewBounds="false"
-        android:visibility="visible"
+        android:visibility="invisible"
         android:focusable="false"
         android:layout_marginLeft="0dp"
         android:layout_marginRight="0dp"
@@ -199,10 +200,10 @@
         android:layout_width="100dp"
         android:layout_gravity="center"
         android:id="@+id/chest4_3"
-        android:background="@drawable/gameChestDemo"
+        android:background="@drawable/gamechestdemo"
         android:clickable="true"
         android:adjustViewBounds="false"
-        android:visibility="visible"
+        android:visibility="invisible"
         android:focusable="false"
         android:layout_marginLeft="125dp"
         android:layout_marginRight="0dp"
@@ -212,7 +213,7 @@
     <TextView
         android:id="@+id/chest1_1number"
         android:text="1"
-        android:visibility="visible"
+        android:visibility="invisible"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
@@ -228,7 +229,7 @@
     <TextView
         android:id="@+id/chest1_2number"
         android:text="2"
-        android:visibility="visible"
+        android:visibility="invisible"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
@@ -245,7 +246,7 @@
     <TextView
         android:id="@+id/chest1_3number"
         android:text="3"
-        android:visibility="visible"
+        android:visibility="invisible"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
@@ -261,7 +262,7 @@
 
     <TextView
         android:id="@+id/chest2_1number"
-        android:text="4"
+        android:text="1"
         android:visibility="visible"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -278,7 +279,7 @@
 
     <TextView
         android:id="@+id/chest2_2number"
-        android:text="5"
+        android:text="2"
         android:visibility="visible"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -295,7 +296,7 @@
 
     <TextView
         android:id="@+id/chest2_3number"
-        android:text="6"
+        android:text="3"
         android:visibility="visible"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -313,7 +314,7 @@
     <TextView
         android:id="@+id/chest3_1number"
         android:text="7"
-        android:visibility="visible"
+        android:visibility="invisible"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
@@ -330,7 +331,7 @@
     <TextView
         android:id="@+id/chest3_2number"
         android:text="8"
-        android:visibility="visible"
+        android:visibility="invisible"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
@@ -347,7 +348,7 @@
     <TextView
         android:id="@+id/chest3_3number"
         android:text="9"
-        android:visibility="visible"
+        android:visibility="invisible"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
@@ -364,7 +365,7 @@
     <TextView
         android:id="@+id/chest4_1number"
         android:text="10"
-        android:visibility="visible"
+        android:visibility="invisible"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
@@ -381,7 +382,7 @@
     <TextView
         android:id="@+id/chest4_2number"
         android:text="11"
-        android:visibility="visible"
+        android:visibility="invisible"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
@@ -398,7 +399,7 @@
     <TextView
         android:id="@+id/chest4_3number"
         android:text="12"
-        android:visibility="visible"
+        android:visibility="invisible"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
@@ -414,8 +415,8 @@
 
     <TextView
         android:id="@+id/chest1_1left"
-        android:text="0"
-        android:visibility="visible"
+        android:text="  "
+        android:visibility="invisible"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
@@ -432,8 +433,8 @@
 
     <TextView
         android:id="@+id/chest1_1right"
-        android:text="1"
-        android:visibility="visible"
+        android:text="2"
+        android:visibility="invisible"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
@@ -450,7 +451,7 @@
 
     <TextView
         android:id="@+id/chest1_2left"
-        android:text="0"
+        android:text=""
         android:visibility="visible"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -469,7 +470,7 @@
     <TextView
         android:id="@+id/chest1_2right"
         android:text="1"
-        android:visibility="visible"
+        android:visibility="invisible"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
@@ -486,7 +487,7 @@
 
     <TextView
         android:id="@+id/chest1_3left"
-        android:text="0"
+        android:text=""
         android:visibility="visible"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -505,7 +506,7 @@
     <TextView
         android:id="@+id/chest1_3right"
         android:text="1"
-        android:visibility="visible"
+        android:visibility="invisible"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
@@ -522,7 +523,7 @@
 
     <TextView
         android:id="@+id/chest2_1left"
-        android:text="0"
+        android:text=""
         android:visibility="visible"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -558,7 +559,7 @@
 
     <TextView
         android:id="@+id/chest2_2left"
-        android:text="0"
+        android:text=""
         android:visibility="visible"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -576,7 +577,7 @@
 
     <TextView
         android:id="@+id/chest2_2right"
-        android:text="1"
+        android:text="3"
         android:visibility="visible"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -594,7 +595,7 @@
 
     <TextView
         android:id="@+id/chest2_3left"
-        android:text="0"
+        android:text="  "
         android:visibility="visible"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -612,7 +613,7 @@
 
     <TextView
         android:id="@+id/chest2_3right"
-        android:text="1"
+        android:text=""
         android:visibility="visible"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -630,7 +631,7 @@
 
     <TextView
         android:id="@+id/chest3_1left"
-        android:text="0"
+        android:text=""
         android:visibility="visible"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -649,7 +650,7 @@
     <TextView
         android:id="@+id/chest3_1right"
         android:text="1"
-        android:visibility="visible"
+        android:visibility="invisible"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
@@ -666,7 +667,7 @@
 
     <TextView
         android:id="@+id/chest3_2left"
-        android:text="0"
+        android:text=""
         android:visibility="visible"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -685,7 +686,7 @@
     <TextView
         android:id="@+id/chest3_2right"
         android:text="1"
-        android:visibility="visible"
+        android:visibility="invisible"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
@@ -702,7 +703,7 @@
 
     <TextView
         android:id="@+id/chest3_3left"
-        android:text="0"
+        android:text=""
         android:visibility="visible"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -721,7 +722,7 @@
     <TextView
         android:id="@+id/chest3_3right"
         android:text="1"
-        android:visibility="visible"
+        android:visibility="invisible"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
@@ -738,7 +739,7 @@
 
     <TextView
         android:id="@+id/chest4_1left"
-        android:text="0"
+        android:text=""
         android:visibility="visible"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -757,7 +758,7 @@
     <TextView
         android:id="@+id/chest4_1right"
         android:text="1"
-        android:visibility="visible"
+        android:visibility="invisible"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
@@ -774,7 +775,7 @@
 
     <TextView
         android:id="@+id/chest4_2left"
-        android:text="0"
+        android:text=""
         android:visibility="visible"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -793,7 +794,7 @@
     <TextView
         android:id="@+id/chest4_2right"
         android:text="1"
-        android:visibility="visible"
+        android:visibility="invisible"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
@@ -810,7 +811,7 @@
 
     <TextView
         android:id="@+id/chest4_3left"
-        android:text="0"
+        android:text=""
         android:visibility="visible"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -829,7 +830,7 @@
     <TextView
         android:id="@+id/chest4_3right"
         android:text="1"
-        android:visibility="visible"
+        android:visibility="invisible"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
