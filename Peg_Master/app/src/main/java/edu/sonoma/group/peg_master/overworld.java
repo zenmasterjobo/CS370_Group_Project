@@ -1,12 +1,17 @@
 package edu.sonoma.group.peg_master;
 
 import android.annotation.SuppressLint;
+import android.app.FragmentTransaction;
+import android.content.Intent;
+import android.support.v4.app.FragmentManager;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.MotionEvent;
 import android.view.View;
+import android.widget.Button;
+import android.widget.ImageButton;
 
 /**
  * An example full-screen activity that shows and hides the system UI (i.e.
@@ -83,19 +88,90 @@ public class overworld extends AppCompatActivity {
         }
     };
 
+    //level buttons
+    private Button lvl1Btn,lvl2Btn,lvl3Btn;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.activity_overworld);
 
+
+        //set them level buttons to the ones in the layout
+        lvl1Btn = (Button)findViewById(R.id.level1);
+        lvl2Btn = (Button)findViewById(R.id.level2);
+        lvl3Btn = (Button)findViewById(R.id.level3);
+
+        //btn onclicklisteners
+        lvl1Btn.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view){
+                //Create intent to switch to levelActivity
+                Intent intent = new Intent(overworld.this, levelActivity.class);
+
+                //make a bundle to transfer chest# for each level
+                int difficulty = 5;
+                Bundle numChests = new Bundle();
+                numChests.putInt("numChests",difficulty);
+
+                //put bundle in the intent for transfer. Use getIntent().getExtras().getString/int/...(key)
+                //inside activity to access this data.
+                intent.putExtras(numChests);
+
+                //switch activity
+                startActivity(intent);
+            }
+        });
+
+        lvl2Btn.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view){
+                //Create intent to switch to levelActivity
+                Intent intent = new Intent(overworld.this, levelActivity.class);
+
+                //make a bundle to transfer chest# for each level
+                int difficulty = 7;
+                Bundle numChests = new Bundle();
+                numChests.putInt("numChests",difficulty);
+
+                //put bundle in the intent for transfer. Use getIntent().getExtras().getString/int/...(key)
+                //inside activity to access this data.
+                intent.putExtras(numChests);
+
+                //switch activity
+                startActivity(intent);
+            }
+        });
+
+        lvl3Btn.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view){
+                //Create intent to switch to levelActivity
+                Intent intent = new Intent(overworld.this, levelActivity.class);
+
+                //make a bundle to transfer chest# for each level
+                int difficulty = 9;
+                Bundle numChests = new Bundle();
+                numChests.putInt("numChests",difficulty);
+
+                //put bundle in the intent for transfer. Use getIntent().getExtras().getString/int/...(key)
+                //inside activity to access this data.
+                intent.putExtras(numChests);
+
+                //switch activity
+                startActivity(intent);
+            }
+        });
+
+
+        //auto generated
         mVisible = true;
         mControlsView = findViewById(R.id.fullscreen_content_controls);
         mContentView = findViewById(R.id.fullscreen_content);
 
-
         // Set up the user interaction to manually show or hide the system UI.
-        mContentView.setOnClickListener(new View.OnClickListener() {
+         mContentView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 toggle();

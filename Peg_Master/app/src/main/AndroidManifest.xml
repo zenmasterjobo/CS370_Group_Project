@@ -27,7 +27,20 @@
             android:name=".overworld"
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:label="@string/title_activity_overworld"
-            android:theme="@style/FullscreenTheme"></activity>
+            android:theme="@style/FullscreenTheme" />
+        <activity
+            android:name=".levelActivity"
+            android:label="@string/title_activity_level"
+            android:parentActivityName=".overworld"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="edu.sonoma.group.peg_master.overworld" />
+        </activity>
+
+        <activity android:name=".UserList"
+            android:theme="@style/AppTheme.CustomTheme"></activity>
+
     </application>
 
 </manifest>

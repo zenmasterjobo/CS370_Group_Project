@@ -44,13 +44,16 @@ public class MainMenu extends AppCompatActivity {
         // See https://g.co/AppIndexing/AndroidStudio for more information.
         client = new GoogleApiClient.Builder(this).addApi(AppIndex.API).build();
         mainMenuSound = MediaPlayer.create(this, R.raw.windwaker);
+
+
+
     }
 
     @Override
     public void onStart() {
         super.onStart();
         //start the music
-        mainMenuSound.start();
+        //mainMenuSound.start();
 
 
         // ATTENTION: This was auto-generated to implement the App Indexing API.
