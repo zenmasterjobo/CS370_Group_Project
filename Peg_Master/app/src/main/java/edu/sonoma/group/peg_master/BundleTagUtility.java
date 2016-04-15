@@ -7,5 +7,5 @@ import java.lang.Boolean;
  */
 public class BundleTagUtility {
     public static final String SWITCHSTATUS = "switch_status";
-    public static final String SWITCH1 =  "Switch1";
+    public static final String SWITCH1 = "switch1";
 }

@@ -60,17 +60,18 @@ public class OptionsFragment extends Fragment {
         switchStatus = (TextView) rootView.findViewById(R.id.switchStatus);
         switch1 = (Switch) rootView.findViewById(R.id.switch1);
 
-        //if(savedInstanceState == null &&
-
 
         if(savedInstanceState != null && savedState == null)
         {
-            savedState = savedInstanceState.getBundle(BundleTagUtility.SWITCHSTATUS);
-            savedState1 = savedInstanceState.getBundle(BundleTagUtility.SWITCH1);
+            //savedState = savedInstanceState.getBundle(BundleTagUtility.SWITCHSTATUS);
+            //savedState = savedInstanceState.getBundle(BundleTagUtility.SWITCH1);
+            savedState = savedInstanceState.getBundle("MyBoolean");
+
         }
         if(savedState != null){
-            switchStatus.setText(savedState.getCharSequence(BundleTagUtility.SWITCHSTATUS));
-            switch1.setChecked(savedState1.getBoolean(BundleTagUtility.SWITCH1));
+            //switchStatus.setText(savedState.getCharSequence(BundleTagUtility.SWITCHSTATUS));
+            //switch1.setChecked(savedState1.getBoolean(BundleTagUtility.SWITCH1));
+            switch1.setChecked(savedState1.getBoolean("MyBoolean"));
         }
 
         //savedState = null;
@@ -85,10 +86,14 @@ public class OptionsFragment extends Fragment {
                 if (switch1.isChecked()) {
                     switchStatus.setText("Music is On");
                     ((MainMenu) getActivity()).Sound(true);
+                    //savedState = saveState();
+                    //onSaveInstanceState(savedState);
                 }
                 else {
                     switchStatus.setText("Music is off");
                     ((MainMenu) getActivity()).Sound(false);
+                    savedState = saveState();
+                    onSaveInstanceState(savedState);
                 }
             }
 
@@ -98,11 +103,17 @@ public class OptionsFragment extends Fragment {
         if (switch1.isChecked()){
             switchStatus.setText("Music is On");
             ((MainMenu) getActivity()).Sound(true);
+            //savedState = saveState();
+            //onSaveInstanceState(savedState);
         }
         else {
             switchStatus.setText("Music is Off");
             ((MainMenu) getActivity()).Sound(false);
+            savedState = saveState();
+            onSaveInstanceState(savedState);
         }
+
+
 
         return rootView;
     }
@@ -110,22 +121,22 @@ public class OptionsFragment extends Fragment {
     @Override
     public void onDestroyView(){
         super.onDestroyView();
-        savedState = saveState();
-        onSaveInstanceState(savedState);
-        //switchStatus = null;
+        switchStatus = null;
     }
 
     private Bundle saveState() {
         Bundle state = new Bundle();
-        state.putCharSequence(BundleTagUtility.SWITCHSTATUS, switchStatus.getText());
-        state.putBoolean(BundleTagUtility.SWITCH1, switch1.isChecked());
+       // state.putCharSequence(BundleTagUtility.SWITCHSTATUS, switchStatus.getText());
+        //state.putBoolean(BundleTagUtility.SWITCH1, switch1.isChecked());
+        state.putBoolean("MyBoolean", false);
         return state;
     }
 
     @Override
     public void onSaveInstanceState(Bundle outState){
         super.onSaveInstanceState(outState);
-        outState.putBundle(BundleTagUtility.SWITCHSTATUS, (savedState != null) ? savedState : saveState());
+        //outState.putBundle(BundleTagUtility.SWITCH1, (savedState != null) ? savedState : saveState());
+        outState.putBoolean("MyBoolean", false);
     }
 
 

@@ -7,6 +7,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.ContentFrameLayout;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CompoundButton;
@@ -22,6 +23,7 @@ public class MainMenu extends AppCompatActivity {
     //creating a media player instance for the sound file
     MediaPlayer mainMenuSound;
     Boolean mainSound = true;
+    private Bundle savedState;
 
     private Button startButton, infoButton, optionsButton;
 
@@ -44,7 +46,26 @@ public class MainMenu extends AppCompatActivity {
         // See https://g.co/AppIndexing/AndroidStudio for more information.
         client = new GoogleApiClient.Builder(this).addApi(AppIndex.API).build();
         mainMenuSound = MediaPlayer.create(this, R.raw.windwaker);
+
+        if(savedInstanceState != null && savedState == null)
+            savedState = (ContentFrameLayout)getSupportFragmentManager().getFragment(savedInstanceState, OptionsFragment);
+
+        }
+
     }
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     @Override
     public void onStart() {
