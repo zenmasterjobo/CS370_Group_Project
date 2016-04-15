@@ -5,14 +5,19 @@ package edu.sonoma.group.peg_master;
  */
 public class User {
     private String userName;
+    private int userID;
     private int hiScore;
     private int timePlayed;
+    private int chestsOpened;
+    private int numStars;
 
     // constructor for user
-    public User(){
-        userName = "";
+    public User(String name){
+        userName = name;
         hiScore = 0;
         timePlayed = 0;
+        chestsOpened = 0;
+        numStars = 0;
     }
 
     //getters and setters!
@@ -23,6 +28,12 @@ public class User {
         return userName;
     }
 
+    public void setID(int ID){
+        userID = ID;
+    }
+    public int getID(){
+        return userID;
+    }
     public void setScore(int hiscore){
         hiScore= hiscore;
     }
@@ -37,4 +48,9 @@ public class User {
         return timePlayed;
     }
 
+    public void setChestsOpened(int chests){chestsOpened = chests;}
+    public int getChestsOpened(){return chestsOpened;}
+
+    public void setNumStars(int stars){numStars = stars;}
+    public int getNumStars(){return numStars;}
 }

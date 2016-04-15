@@ -2,6 +2,7 @@ package edu.sonoma.group.peg_master;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.media.Image;
 import android.support.v4.app.FragmentTransaction;
 import android.content.Context;
@@ -27,9 +28,11 @@ public class MainMenuFragment extends Fragment {
 
     //private Button infoButton, optionsButton;
     private ImageButton startButton, infoButton, optionsButton;
-    private Button createUserButton,printUsersButton;
+    private Button changeUsersButton;
     private DBHandler db;
     private UserTableManager dbManager;
+    private String lastUser;
+    private List<User> allUsers;
 
 
     @Override
@@ -37,6 +40,39 @@ public class MainMenuFragment extends Fragment {
         super.onCreate(savedInstanceState);
         db = new DBHandler(getActivity().getApplicationContext());
         dbManager = new UserTableManager(getActivity().getApplicationContext());
+
+        //populate allUsers from db
+        allUsers = dbManager.getAllUsers();
+        //check if database is empty. if it is, prompt for new user.
+        if(allUsers.size() < 1){
+            Intent userIntent = new Intent(getActivity(),UserList.class);
+            startActivityForResult(userIntent, 1);
+        }
+
+        //check for lastUser in SharedPreferences
+        SharedPreferences mPrefs = getActivity().getSharedPreferences("lastUser",0);
+        lastUser = mPrefs.getString("lastUser",null);
+        //if lastUser is null, popup window with list of usernames in db
+        /*
+        if(lastUser == null){
+            //
+            Intent userIntent = new Intent(getActivity(),UserList.class);
+            getActivity().startActivityForResult(userIntent,1);
+        }
+        */
+    }
+
+    @Override
+    public void onActivityResult(int requestCode,int resultCode, Intent data){
+        if(requestCode ==1){
+            if(resultCode == Activity.RESULT_OK){
+                String userName = data.getStringExtra("name");
+                Toast.makeText(getActivity().getApplicationContext(), userName, Toast.LENGTH_SHORT).show();
+                User newUser = new User(userName);
+                dbManager.addUserData(newUser);
+
+            }
+        }
     }
 
     @Override
@@ -48,8 +84,8 @@ public class MainMenuFragment extends Fragment {
         startButton = (ImageButton) view.findViewById(R.id.Startbutton);
         infoButton = (ImageButton) view.findViewById(R.id.Infobutton);
         optionsButton = (ImageButton) view.findViewById(R.id.Optionsbutton);
-        createUserButton = (Button)view.findViewById(R.id.CreateUser);
-        printUsersButton = (Button)view.findViewById(R.id.PrintUsers);
+        //createUserButton = (Button)view.findViewById(R.id.CreateUser);
+        changeUsersButton = (Button)view.findViewById(R.id.ChangeUsers);
 
 
 
@@ -95,6 +131,7 @@ public class MainMenuFragment extends Fragment {
             }
         });
 
+        /*
         createUserButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -102,17 +139,31 @@ public class MainMenuFragment extends Fragment {
                 testUser.setName("nick");
                 testUser.setPlayed(100);
                 testUser.setScore(69);
+                testUser.setPlayed(100);
+                testUser.setChestsOpened(63);
                 dbManager.addUserData(testUser);
 
             }
         });
-
-        printUsersButton.setOnClickListener(new View.OnClickListener() {
+        */
+        changeUsersButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                List<User>myUsers = new ArrayList<User>();
-                myUsers = dbManager.getAllUsers();
-                Toast.makeText(getActivity().getApplicationContext(), Integer.toString(myUsers.size()), Toast.LENGTH_LONG).show();
+                //List<User>myUsers = new ArrayList<User>();
+                //update list of users, then create array of user.getName()
+                allUsers = dbManager.getAllUsers();
+                String[] userStrings = new String[allUsers.size()];
+                int idx =0;
+                for(User aUser: allUsers){
+                    userStrings[idx] = aUser.getName();
+                    idx++;
+                }
+                Intent userIntent = new Intent(getActivity(),UserList.class);
+                userIntent.putExtra("allUsers", userStrings);
+                startActivityForResult(userIntent, 1);
+                Toast.makeText(getActivity().getApplicationContext(), Integer.toString(allUsers.size()), Toast.LENGTH_LONG).show();
+
+
 
             }
         });

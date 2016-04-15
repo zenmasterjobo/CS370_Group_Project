@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent"
+    android:background="#ebe6aa">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Users on device"
+        android:id="@+id/textView"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true" />
+
+    <ListView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/listView"
+        android:layout_below="@+id/textView"
+        android:layout_above="@+id/textView2"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="+Add User"
+        android:id="@+id/textView2"
+        android:textSize="20dp"
+        android:layout_alignWithParentIfMissing="false"
+        android:layout_alignParentBottom="true"
+        android:layout_alignStart="@+id/listView"
+        android:clickable="true"
+        android:backgroundTint="@android:color/holo_blue_bright"
+        android:contextClickable="false"
+        android:onClick="addUser"
+        android:nestedScrollingEnabled="true" />
+</RelativeLayout>
