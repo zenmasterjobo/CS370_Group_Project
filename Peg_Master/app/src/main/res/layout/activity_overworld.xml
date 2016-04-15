@@ -52,7 +52,7 @@
             style="?android:attr/buttonStyleSmall"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="L3"
+            android:text="L2"
             android:id="@+id/level2"
             android:layout_gravity="left|center_vertical"
             android:typeface="serif" />
@@ -61,7 +61,7 @@
             style="?android:attr/buttonStyleSmall"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="L2"
+            android:text="L3"
             android:id="@+id/level3"
             android:layout_gravity="center_horizontal"
             android:typeface="serif" />
