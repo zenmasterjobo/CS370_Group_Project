@@ -85,7 +85,7 @@ public class MainMenuFragment extends Fragment {
         infoButton = (ImageButton) view.findViewById(R.id.Infobutton);
         optionsButton = (ImageButton) view.findViewById(R.id.Optionsbutton);
         //createUserButton = (Button)view.findViewById(R.id.CreateUser);
-        changeUsersButton = (Button)view.findViewById(R.id.ChangeUsers);
+        //changeUsersButton = (Button)view.findViewById(R.id.ChangeUsers);
 
 
 
@@ -146,6 +146,8 @@ public class MainMenuFragment extends Fragment {
             }
         });
         */
+
+        /*
         changeUsersButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -167,7 +169,7 @@ public class MainMenuFragment extends Fragment {
 
             }
         });
-
+    */
         return view;
     }
 

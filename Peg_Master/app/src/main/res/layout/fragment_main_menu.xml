@@ -66,7 +66,7 @@
         android:layout_marginBottom="0dp"
         android:layout_marginTop="90dp" />
 
-
+<!--
     <Button
         android:text="List/Add Users"
         android:layout_width="wrap_content"
@@ -76,7 +76,7 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="400dp"
         android:layout_gravity="center_horizontal|top"/>
-
+-->
 
 
     <!--
