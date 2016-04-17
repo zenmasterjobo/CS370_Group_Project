@@ -1,22 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    android:background="#0099cc"
-    android:id="@+id/fragment_container"
-    tools:context="edu.sonoma.group.peg_master.overworld">
+    tools:context="edu.sonoma.group.peg_master.overworld"
+    android:clickable="false">
 
     <!-- The primary full-screen view. This can be replaced with whatever view
          is needed to present your content, e.g. VideoView, SurfaceView,
          TextureView, etc. -->
 
-    <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    <ScrollView
         android:id="@+id/fullscreen_content"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-        <!-- everything you already have -->
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:context="edu.sonoma.group.peg_master.overworld"
+        android:fillViewport="false"
+        android:focusable="false">
+        <!-- everything you already have
 
-         <!-- This FrameLayout insets its children based on system windows using
+         This FrameLayout insets its children based on system windows using
          android:fitsSystemWindows. -->
 
             <LinearLayout
@@ -35,7 +39,7 @@
                     android:typeface="serif"
                     android:layout_gravity="center_horizontal"
                     android:layout_marginRight="100dp"
-                    android:layout_marginBottom="20dp" />
+                    android:layout_marginBottom="120dp" />
 
                 <Button
                     style="?android:attr/buttonStyleSmall"
@@ -46,7 +50,7 @@
                     android:typeface="serif"
                     android:layout_gravity="center_horizontal"
                     android:layout_marginLeft="0dp"
-                    android:layout_marginBottom="50dp" />
+                    android:layout_marginBottom="150dp" />
 
                 <Button
                     style="?android:attr/buttonStyleSmall"
@@ -57,7 +61,7 @@
                     android:typeface="serif"
                     android:layout_gravity="center_horizontal"
                     android:layout_marginLeft="80dp"
-                    android:layout_marginBottom="50dp" />
+                    android:layout_marginBottom="150dp" />
 
                 <Button
                     style="?android:attr/buttonStyleSmall"
@@ -68,7 +72,7 @@
                     android:typeface="serif"
                     android:layout_gravity="center_horizontal"
                     android:layout_marginLeft="50dp"
-                    android:layout_marginBottom="70dp" />
+                    android:layout_marginBottom="170dp" />
 
                 <Button
                     style="?android:attr/buttonStyleSmall"

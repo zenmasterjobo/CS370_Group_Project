@@ -8,7 +8,7 @@
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme"
+        android:theme="@style/AppTheme.NoActionBar"
         android:name="edu.sonoma.group.peg_master.GlobalApplicationClass">
         <activity android:name=".MainMenu">
             <intent-filter>
@@ -29,7 +29,7 @@
             android:name=".overworld"
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:label="@string/title_activity_overworld"
-            android:theme="@style/FullscreenTheme" />
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".levelActivity"
             android:label="@string/title_activity_level"
