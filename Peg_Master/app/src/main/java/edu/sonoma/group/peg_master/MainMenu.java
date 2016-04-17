@@ -58,7 +58,9 @@ public class MainMenu extends AppCompatActivity {
     public void onStart() {
         super.onStart();
         //start the music
-        mainMenuSound.start();
+        //mainMenuSound.start();
+        boolean enabled = GlobalApplicationClass.getUserSettings().isMusicEnabled();
+        Sound(enabled);
 
 
         // ATTENTION: This was auto-generated to implement the App Indexing API.
