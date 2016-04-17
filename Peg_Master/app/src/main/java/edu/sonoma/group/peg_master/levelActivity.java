@@ -21,7 +21,7 @@ public class levelActivity extends AppCompatActivity {
         numChests = getIntent().getExtras().getInt("numChests");
 
         String debugmsg = "numChests: " + Integer.toString(numChests);
-        Toast.makeText(this.getApplicationContext(),debugmsg,Toast.LENGTH_LONG).show();
+        //Toast.makeText(this.getApplicationContext(),debugmsg,Toast.LENGTH_LONG).show();
 
         //use numChests here on a class to represent result from algorithm? might have to do
         //on background thread
