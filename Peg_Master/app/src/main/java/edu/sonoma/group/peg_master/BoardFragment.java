@@ -16,6 +16,10 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import java.lang.reflect.Array;
+import java.util.ArrayList;
+import java.util.Arrays;
+
 /**
  * Created by admin on 3/24/16.
  */
@@ -28,9 +32,23 @@ public class BoardFragment extends Fragment {
             chest3_1left, chest3_1right, chest3_2left, chest3_2right, chest3_3left, chest3_3right,
             chest4_1left, chest4_1right, chest4_2left, chest4_2right, chest4_3left, chest4_3right;
 
+    private ArrayList<TextView> boardTextViews = new ArrayList<TextView>();
+    private ArrayList<ImageButton> boardButtons = new ArrayList<ImageButton>();
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+    }
+
+    public ArrayList<ImageButton> getBoardButtons(){
+        Log.d("boardButtons in func", "The length is: " + boardButtons.size());
+        return boardButtons;
+    }
+
+    public ArrayList<TextView> getBoardTextViews(){
+        Log.d("boardTextViews in func", "The length is: " + boardTextViews.size());
+        return boardTextViews;
     }
 
     @Override
@@ -188,7 +206,16 @@ public class BoardFragment extends Fragment {
 
             }
         });
-
+        boardTextViews.addAll(Arrays.asList(chest1_1number, chest1_2number, chest1_3number, chest2_1number, chest2_2number, chest2_3number, chest3_1number, chest3_2number, chest3_3number, chest4_1number, chest4_2number, chest4_3number,
+                chest1_1left, chest1_1right, chest1_2left, chest1_2right, chest1_3left, chest1_3right,
+                chest2_1left, chest2_1right, chest2_2left, chest2_2right, chest2_3left, chest2_3right,
+                chest3_1left, chest3_1right, chest3_2left, chest3_2right, chest3_3left, chest3_3right,
+                chest4_1left, chest4_1right, chest4_2left, chest4_2right, chest4_3left, chest4_3right));
+        boardButtons.addAll(
+                Arrays.asList(chest1_1, chest1_2, chest1_3, chest2_1, chest2_2, chest2_3, chest3_1,
+                        chest3_2, chest3_3, chest4_1, chest4_2, chest4_3));
+        Log.d("boardTextViews", "The length is: " + boardTextViews.size());
+        Log.d("boardButtons", "The length is: " + boardButtons.size());
         return rootView;
     }
 }

@@ -24,7 +24,14 @@ public class GameFactory {
     }
 
     public ArrayList<Chest> getBoard(){
-        return chests;
+        return this.chests;
     }
 
+    public void generateBoard(){
+
+    }
+
+    public void setBoard( ArrayList<Chest> chests){
+
+    }
 }

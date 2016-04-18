@@ -12,6 +12,10 @@ public class Key {
     }
 
     public Key(int number){
-        this.Key_Number = number;
+        Key_Number = number;
+    }
+
+    public String getNumber(){
+        return Key_Number.toString();
     }
 }
