@@ -50,10 +50,12 @@ public class Chest {
         if (leftKey == null){
             newKeyInHand = rightKey;
             leftKey = keyInHand;
+            rightKey = null;
         }
         else if (rightKey == null){
             newKeyInHand = leftKey;
             rightKey = keyInHand;
+            leftKey = null;
         }
         return newKeyInHand;
     }

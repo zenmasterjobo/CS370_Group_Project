@@ -28,8 +28,7 @@ public class levelActivity extends AppCompatActivity {
     private GameFactory gf;
     private Board board = new Board();
     private BoardFragment bf;
-    private Key kih = new Key(-1);
-
+    private Key kih;
     @Override
     protected void onStart(){
         super.onStart();
@@ -67,6 +66,7 @@ public class levelActivity extends AppCompatActivity {
         Key k2 = new Key(2);
         Key k3 = new Key(3);
         Key g = new Key(-1);
+        kih = new Key(-1);
         c1.setLeftKey(k2);
         c2.setLeftKey(k3);
         c3.setLeftKey(k1);
@@ -117,29 +117,73 @@ public class levelActivity extends AppCompatActivity {
         ArrayList<TextView> tVs = bf.getBoardTextViews();
 
         Map<String, ArrayList<ArrayList<TextView>>> chestKeys = bf.getChestKeysMap();
-        if (board.getChestAt(1).getLeftKey() != null){
-            ArrayList<ArrayList<TextView>> temp = new ArrayList<ArrayList<TextView>>();
-            temp = chestKeys.get("Row2");
-            if (board.getChestAt(1).getLeftKey().getNumber() != "-1"){
+        ArrayList<ArrayList<TextView>> temp = new ArrayList<ArrayList<TextView>>();
+        temp = chestKeys.get("Row2");
+        // Chest 1 drawing logic
+        if (board.getChestAt(1).getLeftKey() != null) {
+            if (!(board.getChestAt(1).getLeftKey().getNumber().equals("-1"))) {
                 temp.get(0).get(0).setText(board.getChestAt(1).getLeftKey().getNumber());
                 temp.get(0).get(0).setBackgroundColor(Color.parseColor("#e40e0e"));
-            } else{
-                temp.get(0).get(0).setBackgroundColor(Color.parseColor("10d313"));
+            } else {
+                temp.get(0).get(0).setBackgroundColor(Color.parseColor("#10d313"));
                 temp.get(0).get(0).setText("");
             }
+            temp.get(0).get(0).setVisibility(View.VISIBLE);
             temp.get(0).get(1).setVisibility(View.INVISIBLE);
-        }
-        else if (board.getChestAt(1).getRightKey() != null){
-            ArrayList<ArrayList<TextView>> temp = new ArrayList<ArrayList<TextView>>();
-            temp = chestKeys.get("Row2");
-            if (board.getChestAt(1).getRightKey().getNumber() != "-1"){
-                temp.get(0).get(0).setText(board.getChestAt(1).getLeftKey().getNumber());
+        } else if (board.getChestAt(1).getRightKey() != null) {
+            if (!(board.getChestAt(1).getRightKey().getNumber().equals("-1"))) {
+                temp.get(0).get(0).setText(board.getChestAt(1).getRightKey().getNumber());
                 temp.get(0).get(0).setBackgroundColor(Color.parseColor("#e40e0e"));
-            } else{
-                temp.get(0).get(0).setBackgroundColor(Color.parseColor("10d313"));
+            } else {
+                temp.get(0).get(0).setBackgroundColor(Color.parseColor("#10d313"));
                 temp.get(0).get(0).setText("");
             }
+            temp.get(0).get(1).setVisibility(View.VISIBLE);
             temp.get(0).get(0).setVisibility(View.INVISIBLE);
+        }
+        // Chest 2 Drawing logic
+        if (board.getChestAt(2).getLeftKey() != null) {
+            if (!(board.getChestAt(2).getLeftKey().getNumber().equals("-1"))) {
+                temp.get(1).get(0).setText(board.getChestAt(2).getLeftKey().getNumber());
+                temp.get(1).get(0).setBackgroundColor(Color.parseColor("#e40e0e"));
+            } else {
+                temp.get(1).get(0).setBackgroundColor(Color.parseColor("#10d313"));
+                temp.get(1).get(0).setText("");
+            }
+            temp.get(1).get(0).setVisibility(View.VISIBLE);
+            temp.get(1).get(1).setVisibility(View.INVISIBLE);
+        } else if (board.getChestAt(2).getRightKey() != null) {
+            if (!(board.getChestAt(2).getRightKey().getNumber().equals("-1"))) {
+                temp.get(1).get(0).setText(board.getChestAt(2).getRightKey().getNumber());
+                temp.get(1).get(0).setBackgroundColor(Color.parseColor("#e40e0e"));
+            } else {
+                temp.get(1).get(0).setBackgroundColor(Color.parseColor("#10d313"));
+                temp.get(1).get(0).setText("");
+            }
+            temp.get(1).get(1).setVisibility(View.VISIBLE);
+            temp.get(1).get(0).setVisibility(View.INVISIBLE);
+        }
+        // Chest 3 drawing logic
+        if (board.getChestAt(3).getLeftKey() != null) {
+            if (!(board.getChestAt(3).getLeftKey().getNumber().equals("-1"))) {
+                temp.get(2).get(0).setText(board.getChestAt(3).getLeftKey().getNumber());
+                temp.get(2).get(0).setBackgroundColor(Color.parseColor("#e40e0e"));
+            } else {
+                temp.get(2).get(0).setBackgroundColor(Color.parseColor("#10d313"));
+                temp.get(2).get(0).setText("");
+            }
+            temp.get(2).get(0).setVisibility(View.VISIBLE);
+            temp.get(2).get(1).setVisibility(View.INVISIBLE);
+        } else if (board.getChestAt(3).getRightKey() != null) {
+            if (!(board.getChestAt(3).getRightKey().getNumber().equals("-1"))) {
+                temp.get(2).get(0).setText(board.getChestAt(3).getRightKey().getNumber());
+                temp.get(2).get(0).setBackgroundColor(Color.parseColor("#e40e0e"));
+            } else {
+                temp.get(2).get(0).setBackgroundColor(Color.parseColor("#10d313"));
+                temp.get(2).get(0).setText("");
+            }
+            temp.get(2).get(1).setVisibility(View.VISIBLE);
+            temp.get(2).get(0).setVisibility(View.INVISIBLE);
         }
     }
 
