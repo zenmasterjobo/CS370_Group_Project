@@ -132,8 +132,8 @@ public class levelActivity extends AppCompatActivity {
             temp.get(0).get(1).setVisibility(View.INVISIBLE);
         } else if (board.getChestAt(1).getRightKey() != null) {
             if (!(board.getChestAt(1).getRightKey().getNumber().equals("-1"))) {
-                temp.get(0).get(0).setText(board.getChestAt(1).getRightKey().getNumber());
-                temp.get(0).get(0).setBackgroundColor(Color.parseColor("#e40e0e"));
+                temp.get(0).get(1).setText(board.getChestAt(1).getRightKey().getNumber());
+                temp.get(0).get(1).setBackgroundColor(Color.parseColor("#e40e0e"));
             } else {
                 temp.get(0).get(0).setBackgroundColor(Color.parseColor("#10d313"));
                 temp.get(0).get(0).setText("");
