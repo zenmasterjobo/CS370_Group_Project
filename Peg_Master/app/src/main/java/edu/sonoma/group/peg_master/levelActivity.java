@@ -19,6 +19,7 @@ import android.widget.Toast;
 import org.w3c.dom.Text;
 
 import java.util.ArrayList;
+import java.util.Map;
 
 public class levelActivity extends AppCompatActivity {
 
@@ -33,7 +34,7 @@ public class levelActivity extends AppCompatActivity {
     protected void onStart(){
         super.onStart();
         setup();
-        //updateGraphics();
+        updateGraphics();
     }
 
     @Override
@@ -74,37 +75,38 @@ public class levelActivity extends AppCompatActivity {
         _board.add(c2);
         _board.add(c3);
         board.setBoard(_board);
-        ArrayList<ImageButton> buttons = bf.getBoardButtons();
-        ImageButton chest1 = buttons.get(3);
+        Map<String, ArrayList<ImageButton>> BoardMap = bf.getBoardButtonMap();
+        ArrayList<ImageButton> buttons = BoardMap.get("Row2");
+        ImageButton chest1 = buttons.get(0);
         chest1.setOnClickListener(new View.OnClickListener(){
 
             @Override
             public void onClick(View v) {
                 Key temp = board.getChestAt(1).makeMove(kih);
                 kih = new Key(Integer.parseInt(temp.getNumber()));
-                //updateGraphics();
+                updateGraphics();
                 Log.d("b1", "Button 1 pressed");
                 Toast.makeText(getApplicationContext(), "New kih:" + kih.getNumber(), Toast.LENGTH_LONG).show();
             }
         });
-        ImageButton chest2 = buttons.get(4);
+        ImageButton chest2 = buttons.get(1);
         chest2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Key temp = board.getChestAt(2).makeMove(kih);
                 kih = temp;
-                //updateGraphics();
+                updateGraphics();
                 Log.d("b2", "Button 2 pressed");
                 Toast.makeText(getApplicationContext(), "New kih:" + kih.getNumber(), Toast.LENGTH_LONG).show();
             }
         });
-        ImageButton chest3 = buttons.get(5);
+        ImageButton chest3 = buttons.get(2);
         chest3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Key temp = board.getChestAt(3).makeMove(kih);
                 kih = temp;
-                //updateGraphics();
+                updateGraphics();
                 Log.d("b3", "Button 3 pressed");
                 Toast.makeText(getApplicationContext(), "New kih:" + kih.getNumber(), Toast.LENGTH_LONG).show();
             }
@@ -113,10 +115,39 @@ public class levelActivity extends AppCompatActivity {
 
     private void updateGraphics() {
         ArrayList<TextView> tVs = bf.getBoardTextViews();
+
+        Map<String, ArrayList<ArrayList<TextView>>> chestKeys = bf.getChestKeysMap();
+        if (board.getChestAt(1).getLeftKey() != null){
+            ArrayList<ArrayList<TextView>> temp = new ArrayList<ArrayList<TextView>>();
+            temp = chestKeys.get("Row2");
+            if (board.getChestAt(1).getLeftKey().getNumber() != "-1"){
+                temp.get(0).get(0).setText(board.getChestAt(1).getLeftKey().getNumber());
+                temp.get(0).get(0).setBackgroundColor(Color.parseColor("#e40e0e"));
+            } else{
+                temp.get(0).get(0).setBackgroundColor(Color.parseColor("10d313"));
+                temp.get(0).get(0).setText("");
+            }
+            temp.get(0).get(1).setVisibility(View.INVISIBLE);
+        }
+        else if (board.getChestAt(1).getRightKey() != null){
+            ArrayList<ArrayList<TextView>> temp = new ArrayList<ArrayList<TextView>>();
+            temp = chestKeys.get("Row2");
+            if (board.getChestAt(1).getRightKey().getNumber() != "-1"){
+                temp.get(0).get(0).setText(board.getChestAt(1).getLeftKey().getNumber());
+                temp.get(0).get(0).setBackgroundColor(Color.parseColor("#e40e0e"));
+            } else{
+                temp.get(0).get(0).setBackgroundColor(Color.parseColor("10d313"));
+                temp.get(0).get(0).setText("");
+            }
+            temp.get(0).get(0).setVisibility(View.INVISIBLE);
+        }
+    }
+
         // Index 18 is left slot of chest 2-1
 
         // e40e0e is red
         // 10d313 is green
+        /*
         if (board.getChestAt(1).getLeftKey() != null){
             if (board.getChestAt(1).getLeftKey().getNumber() != "-1") {
                 tVs.get(18).setBackgroundColor(Color.parseColor("#e40e0e"));
@@ -148,7 +179,6 @@ public class levelActivity extends AppCompatActivity {
         tVs.get(23).setVisibility(View.INVISIBLE);
         //tVs.get(23).setText(board.getChestAt(3).getRightKey().getNumber());
 
-        /*
         TextView chest1L = (TextView) bf.getView().findViewById(R.id.chest2_1left);
         TextView chest1R = (TextView) bf.getView().findViewById(R.id.chest2_1right);
         TextView chest2L = (TextView) bf.getView().findViewById(R.id.chest2_2left);
@@ -162,5 +192,4 @@ public class levelActivity extends AppCompatActivity {
         chest3L.setText(board.getChestAt(3).getLeftKey().getNumber());
         chest3R.setText(board.getChestAt(3).getRightKey().getNumber());
         */
-    }
 }
