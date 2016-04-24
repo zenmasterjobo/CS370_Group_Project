@@ -31,4 +31,16 @@ public class Board {
     public Chest getChestAt(int chest){
         return b.get(chest-1);
     }
+
+    // Checks if the game has been completed
+    // Returns true if it is, false if it is not
+    public Boolean done(){
+        for (int i = 0; i < b.size(); i++){
+            if ( (b.get(i).getLeftKey() != null) && !(b.get(i).getLeftKey().getNumber().equals(Integer.toString(i+1))) ){
+                return false;
+            }
+        }
+        return true;
+    }
+
 }

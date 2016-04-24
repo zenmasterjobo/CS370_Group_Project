@@ -29,6 +29,7 @@ public class levelActivity extends AppCompatActivity {
     private Board board = new Board();
     private BoardFragment bf;
     private Key kih;
+    private Integer num_moves = 0;
     @Override
     protected void onStart(){
         super.onStart();
@@ -84,9 +85,12 @@ public class levelActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Key temp = board.getChestAt(1).makeMove(kih);
                 kih = new Key(Integer.parseInt(temp.getNumber()));
+                if (board.done()){
+                    Toast.makeText(getApplicationContext(), "OMFG UR SO COOL", Toast.LENGTH_LONG).show();
+                }
                 updateGraphics();
-                Log.d("b1", "Button 1 pressed");
-                Toast.makeText(getApplicationContext(), "New kih:" + kih.getNumber(), Toast.LENGTH_LONG).show();
+                num_moves += 1;
+                Toast.makeText(getApplicationContext(), num_moves.toString(), Toast.LENGTH_LONG).show();
             }
         });
         ImageButton chest2 = buttons.get(1);
@@ -95,9 +99,12 @@ public class levelActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Key temp = board.getChestAt(2).makeMove(kih);
                 kih = new Key(Integer.parseInt(temp.getNumber()));
+                if (board.done()){
+                    Toast.makeText(getApplicationContext(), "OMFG UR SO COOL", Toast.LENGTH_LONG).show();
+                }
                 updateGraphics();
-                Log.d("b2", "Button 2 pressed");
-                Toast.makeText(getApplicationContext(), "New kih:" + kih.getNumber(), Toast.LENGTH_LONG).show();
+                num_moves += 1;
+                Toast.makeText(getApplicationContext(), num_moves.toString(), Toast.LENGTH_LONG).show();
             }
         });
         ImageButton chest3 = buttons.get(2);
@@ -106,9 +113,12 @@ public class levelActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Key temp = board.getChestAt(3).makeMove(kih);
                 kih = new Key(Integer.parseInt(temp.getNumber()));
+                if (board.done()){
+                    Toast.makeText(getApplicationContext(), "OMFG UR SO COOL", Toast.LENGTH_LONG).show();
+                }
                 updateGraphics();
-                Log.d("b3", "Button 3 pressed");
-                Toast.makeText(getApplicationContext(), "New kih:" + kih.getNumber(), Toast.LENGTH_LONG).show();
+                num_moves += 1;
+                Toast.makeText(getApplicationContext(), num_moves.toString(), Toast.LENGTH_LONG).show();
             }
         });
     }
