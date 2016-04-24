@@ -94,7 +94,7 @@ public class levelActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Key temp = board.getChestAt(2).makeMove(kih);
-                kih = temp;
+                kih = new Key(Integer.parseInt(temp.getNumber()));
                 updateGraphics();
                 Log.d("b2", "Button 2 pressed");
                 Toast.makeText(getApplicationContext(), "New kih:" + kih.getNumber(), Toast.LENGTH_LONG).show();
@@ -105,7 +105,7 @@ public class levelActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Key temp = board.getChestAt(3).makeMove(kih);
-                kih = temp;
+                kih = new Key(Integer.parseInt(temp.getNumber()));
                 updateGraphics();
                 Log.d("b3", "Button 3 pressed");
                 Toast.makeText(getApplicationContext(), "New kih:" + kih.getNumber(), Toast.LENGTH_LONG).show();
@@ -126,7 +126,7 @@ public class levelActivity extends AppCompatActivity {
                 temp.get(0).get(0).setBackgroundColor(Color.parseColor("#e40e0e"));
             } else {
                 temp.get(0).get(0).setBackgroundColor(Color.parseColor("#10d313"));
-                temp.get(0).get(0).setText("");
+                temp.get(0).get(0).setText(" ");
             }
             temp.get(0).get(0).setVisibility(View.VISIBLE);
             temp.get(0).get(1).setVisibility(View.INVISIBLE);
@@ -135,8 +135,8 @@ public class levelActivity extends AppCompatActivity {
                 temp.get(0).get(1).setText(board.getChestAt(1).getRightKey().getNumber());
                 temp.get(0).get(1).setBackgroundColor(Color.parseColor("#e40e0e"));
             } else {
-                temp.get(0).get(0).setBackgroundColor(Color.parseColor("#10d313"));
-                temp.get(0).get(0).setText("");
+                temp.get(0).get(1).setBackgroundColor(Color.parseColor("#10d313"));
+                temp.get(0).get(1).setText(" ");
             }
             temp.get(0).get(1).setVisibility(View.VISIBLE);
             temp.get(0).get(0).setVisibility(View.INVISIBLE);
@@ -148,17 +148,17 @@ public class levelActivity extends AppCompatActivity {
                 temp.get(1).get(0).setBackgroundColor(Color.parseColor("#e40e0e"));
             } else {
                 temp.get(1).get(0).setBackgroundColor(Color.parseColor("#10d313"));
-                temp.get(1).get(0).setText("");
+                temp.get(1).get(0).setText(" ");
             }
             temp.get(1).get(0).setVisibility(View.VISIBLE);
             temp.get(1).get(1).setVisibility(View.INVISIBLE);
         } else if (board.getChestAt(2).getRightKey() != null) {
             if (!(board.getChestAt(2).getRightKey().getNumber().equals("-1"))) {
-                temp.get(1).get(0).setText(board.getChestAt(2).getRightKey().getNumber());
-                temp.get(1).get(0).setBackgroundColor(Color.parseColor("#e40e0e"));
+                temp.get(1).get(1).setText(board.getChestAt(2).getRightKey().getNumber());
+                temp.get(1).get(1).setBackgroundColor(Color.parseColor("#e40e0e"));
             } else {
-                temp.get(1).get(0).setBackgroundColor(Color.parseColor("#10d313"));
-                temp.get(1).get(0).setText("");
+                temp.get(1).get(1).setBackgroundColor(Color.parseColor("#10d313"));
+                temp.get(1).get(1).setText(" ");
             }
             temp.get(1).get(1).setVisibility(View.VISIBLE);
             temp.get(1).get(0).setVisibility(View.INVISIBLE);
@@ -170,17 +170,17 @@ public class levelActivity extends AppCompatActivity {
                 temp.get(2).get(0).setBackgroundColor(Color.parseColor("#e40e0e"));
             } else {
                 temp.get(2).get(0).setBackgroundColor(Color.parseColor("#10d313"));
-                temp.get(2).get(0).setText("");
+                temp.get(2).get(0).setText(" ");
             }
             temp.get(2).get(0).setVisibility(View.VISIBLE);
             temp.get(2).get(1).setVisibility(View.INVISIBLE);
         } else if (board.getChestAt(3).getRightKey() != null) {
             if (!(board.getChestAt(3).getRightKey().getNumber().equals("-1"))) {
-                temp.get(2).get(0).setText(board.getChestAt(3).getRightKey().getNumber());
-                temp.get(2).get(0).setBackgroundColor(Color.parseColor("#e40e0e"));
+                temp.get(2).get(1).setText(board.getChestAt(3).getRightKey().getNumber());
+                temp.get(2).get(1).setBackgroundColor(Color.parseColor("#e40e0e"));
             } else {
-                temp.get(2).get(0).setBackgroundColor(Color.parseColor("#10d313"));
-                temp.get(2).get(0).setText("");
+                temp.get(2).get(1).setBackgroundColor(Color.parseColor("#10d313"));
+                temp.get(2).get(1).setText(" ");
             }
             temp.get(2).get(1).setVisibility(View.VISIBLE);
             temp.get(2).get(0).setVisibility(View.INVISIBLE);
