@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.media.Image;
+import android.preference.PreferenceManager;
 import android.support.v4.app.FragmentTransaction;
 import android.content.Context;
 import android.net.Uri;
@@ -31,7 +32,10 @@ public class MainMenuFragment extends Fragment {
     private Button changeUsersButton;
     private DBHandler db;
     private UserTableManager dbManager;
+    //used to set currentUser
     private String lastUser;
+    //use currentUser preferences and level progress
+    private User currentUser;
     private List<User> allUsers;
 
 
@@ -41,35 +45,45 @@ public class MainMenuFragment extends Fragment {
         db = new DBHandler(getActivity().getApplicationContext());
         dbManager = new UserTableManager(getActivity().getApplicationContext());
 
+        //get shared prefs
+        SharedPreferences mPrefs = PreferenceManager.getDefaultSharedPreferences(this.getActivity().getApplicationContext());
+        SharedPreferences.Editor editor = mPrefs.edit();
         //populate allUsers from db
         allUsers = dbManager.getAllUsers();
-        //check if database is empty. if it is, prompt for new user.
+        //check if database is empty. if it is, prompt for new user. Set last user and current user
         if(allUsers.size() < 1){
             Intent userIntent = new Intent(getActivity(),UserList.class);
             startActivityForResult(userIntent, 1);
+
         }
 
-        //check for lastUser in SharedPreferences
-        SharedPreferences mPrefs = getActivity().getSharedPreferences("lastUser",0);
-        lastUser = mPrefs.getString("lastUser",null);
-        //if lastUser is null, popup window with list of usernames in db
-        /*
-        if(lastUser == null){
-            //
-            Intent userIntent = new Intent(getActivity(),UserList.class);
-            getActivity().startActivityForResult(userIntent,1);
+        //check for lastUser in SharedPreferences (should be there)
+        lastUser = mPrefs.getString("lastUser","null");
+
+        if(lastUser !="null"){
+            currentUser = dbManager.getUser(lastUser);
+            Toast.makeText(this.getActivity().getApplicationContext(),Boolean.toString(currentUser.getMusic()),Toast.LENGTH_SHORT).show();
+            Toast.makeText(this.getActivity().getApplicationContext(),currentUser.getName(),Toast.LENGTH_SHORT).show();
+
         }
-        */
     }
 
     @Override
     public void onActivityResult(int requestCode,int resultCode, Intent data){
         if(requestCode ==1){
             if(resultCode == Activity.RESULT_OK){
+
+                SharedPreferences mPrefs = PreferenceManager.getDefaultSharedPreferences(this.getActivity().getApplicationContext());
+                SharedPreferences.Editor editor = mPrefs.edit();
+
                 String userName = data.getStringExtra("name");
-                Toast.makeText(getActivity().getApplicationContext(), userName, Toast.LENGTH_SHORT).show();
+                //Toast.makeText(getActivity().getApplicationContext(), userName, Toast.LENGTH_SHORT).show();
                 User newUser = new User(userName);
                 dbManager.addUserData(newUser);
+                currentUser = newUser;
+                lastUser = userName;
+                editor.putString("lastUser",lastUser);
+                editor.apply();
 
             }
         }
@@ -122,6 +136,8 @@ public class MainMenuFragment extends Fragment {
         optionsButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                //http://stackoverflow.com/questions/13445594/data-sharing-between-fragments-and-activity-in-android/20521851#20521851
+                //http://developer.android.com/guide/components/fragments.html#CommunicatingWithActivity
                 OptionsFragment newFrag = new OptionsFragment();
                 FragmentTransaction transaction = getActivity().getSupportFragmentManager().beginTransaction();
                 transaction.replace(R.id.fragment_container, newFrag);

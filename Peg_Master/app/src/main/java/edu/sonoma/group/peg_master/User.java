@@ -10,6 +10,7 @@ public class User {
     private int timePlayed;
     private int chestsOpened;
     private int numStars;
+    private boolean bMusic;
 
     // constructor for user
     public User(String name){
@@ -18,6 +19,7 @@ public class User {
         timePlayed = 0;
         chestsOpened = 0;
         numStars = 0;
+        bMusic = true;
     }
 
     //getters and setters!
@@ -34,6 +36,7 @@ public class User {
     public int getID(){
         return userID;
     }
+
     public void setScore(int hiscore){
         hiScore= hiscore;
     }
@@ -53,4 +56,7 @@ public class User {
 
     public void setNumStars(int stars){numStars = stars;}
     public int getNumStars(){return numStars;}
+
+    public void setMusic(boolean music){bMusic = music;};
+    public boolean getMusic(){return bMusic;};
 }

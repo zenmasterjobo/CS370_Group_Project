@@ -10,7 +10,7 @@ public class DBHandler extends SQLiteOpenHelper {
     //db infooo
 
 
-    private static final int DATABASE_VERSION = 20;
+    private static final int DATABASE_VERSION = 22;
     private static final String DATABASE_NAME = "users.db";
     protected static final String USER_TABLE_NAME = "USER_TABLE";
     //USER TABLE
@@ -20,6 +20,7 @@ public class DBHandler extends SQLiteOpenHelper {
     public static final String COLUMN_TIMEPLAYED = "timeplayed";
     public static final String COLUMN_CHESTSOPENED = "chestsopened";
     public static final String COLUMN_NUMSTARS = "numstars";
+    public static final String COLUMN_BMUSIC = "bmusic";
     public static final String CREATE_USER_TABLE = "CREATE TABLE IF NOT EXISTS "
             + USER_TABLE_NAME + " ("
             + COLUMN_UID + " integer primary key autoincrement, "
@@ -27,7 +28,8 @@ public class DBHandler extends SQLiteOpenHelper {
             + COLUMN_HISCORE + " INT, "
             + COLUMN_TIMEPLAYED + " INT, "
             + COLUMN_CHESTSOPENED + " INT, "
-            + COLUMN_NUMSTARS + " INT);";
+            + COLUMN_NUMSTARS + " INT, "
+            + COLUMN_BMUSIC + " INT);";
 
     //COMPLETED LEVELS TABLE
     protected static final String COMPLETED_LEVELS_TABLE_NAME = "COMPLETED_LEVELS_TABLE";

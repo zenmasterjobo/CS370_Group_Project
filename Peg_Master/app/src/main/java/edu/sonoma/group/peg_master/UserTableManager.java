@@ -30,6 +30,10 @@ public class UserTableManager extends DBHandler {
         values.put(COLUMN_TIMEPLAYED, userData.getPlayed());
         values.put(COLUMN_NUMSTARS,userData.getNumStars());
         values.put(COLUMN_TIMEPLAYED,userData.getPlayed());
+        if(userData.getMusic())
+            values.put(COLUMN_BMUSIC,1);
+        else
+            values.put(COLUMN_BMUSIC,0);
         //put data into db
         db.insert(USER_TABLE_NAME, null, values);
 
@@ -56,6 +60,10 @@ public class UserTableManager extends DBHandler {
                     aUser.setPlayed(myCursor.getInt(3));
                     aUser.setChestsOpened(myCursor.getInt(4));
                     aUser.setNumStars(myCursor.getInt(5));
+                    if(myCursor.getInt(6) != 0)
+                        aUser.setMusic(true);
+                    else
+                        aUser.setMusic(false);
                     Log.d("UserTableManager",aUser.getName());
                     userList.add(aUser);
                 }while(myCursor.moveToNext());
@@ -63,8 +71,36 @@ public class UserTableManager extends DBHandler {
         }finally {
             db.close();
         }
-        Log.d("UserTableManager",Integer.toString(userList.size()));
+        Log.d("UserTableManager", Integer.toString(userList.size()));
         return userList;
+    }
+
+    //return a user by name
+    public User getUser(String name){
+        //query for user with name
+        String myQuery = "SELECT * FROM " + USER_TABLE_NAME + " WHERE " + COLUMN_NAME + "=" + '"'+ name + '"';
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor myCursor = db.rawQuery(myQuery,null);
+        if(myCursor.moveToFirst()){
+            User aUser = new User(myCursor.getString(1));
+            aUser.setID(myCursor.getInt(0));
+            aUser.setScore(myCursor.getInt(2));
+            aUser.setPlayed(myCursor.getInt(3));
+            aUser.setChestsOpened(myCursor.getInt(4));
+            aUser.setNumStars(myCursor.getInt(5));
+            if(myCursor.getInt(6)!=0)
+                aUser.setMusic(true);
+            else
+                aUser.setMusic(false);
+            Log.d("UserTableManager",aUser.getName());
+            db.close();
+            return aUser;
+            }
+            else{
+                db.close();
+            }
+        //if we didnt find a user with name, return user with name ERROR
+        return new User("ERROR");
     }
 
 
