@@ -33,7 +33,8 @@ public class levelActivity extends AppCompatActivity {
     @Override
     protected void onStart(){
         super.onStart();
-        setup();
+        board.generate(numChests);
+        //setup();
         updateGraphics();
     }
 
@@ -60,6 +61,7 @@ public class levelActivity extends AppCompatActivity {
     }
 
     private void setup(){
+        /*
         Chest c1 = new Chest();
         Chest c2 = new Chest();
         Chest c3 = new Chest();
@@ -76,6 +78,7 @@ public class levelActivity extends AppCompatActivity {
         _board.add(c2);
         _board.add(c3);
         board.setBoard(_board);
+        */
         Map<String, ArrayList<ImageButton>> BoardMap = bf.getBoardButtonMap();
         ArrayList<ImageButton> buttons = BoardMap.get("Row2");
         ImageButton chest1 = buttons.get(0);

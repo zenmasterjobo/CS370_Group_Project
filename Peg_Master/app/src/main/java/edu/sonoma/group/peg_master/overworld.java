@@ -92,6 +92,16 @@ public class overworld extends AppCompatActivity {
     //level buttons
     private Button lvl1Btn,lvl2Btn,lvl3Btn;
 
+    protected Integer numberOfChests(Integer level){
+        Integer chests = 3;
+        while (level - 5 >= 0){
+            level -= 5;
+            chests += 1;
+        }
+
+        return chests;
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -112,9 +122,9 @@ public class overworld extends AppCompatActivity {
                 Intent intent = new Intent(overworld.this, levelActivity.class);
 
                 //make a bundle to transfer chest# for each level
-                int difficulty = 5;
+                int level = 1;
                 Bundle numChests = new Bundle();
-                numChests.putInt("numChests",difficulty);
+                numChests.putInt("numChests", numberOfChests(level));
 
                 //put bundle in the intent for transfer. Use getIntent().getExtras().getString/int/...(key)
                 //inside activity to access this data.
@@ -132,9 +142,9 @@ public class overworld extends AppCompatActivity {
                 Intent intent = new Intent(overworld.this, levelActivity.class);
 
                 //make a bundle to transfer chest# for each level
-                int difficulty = 7;
+                int level = 2;
                 Bundle numChests = new Bundle();
-                numChests.putInt("numChests",difficulty);
+                numChests.putInt("numChests", numberOfChests(level));
 
                 //put bundle in the intent for transfer. Use getIntent().getExtras().getString/int/...(key)
                 //inside activity to access this data.
@@ -152,9 +162,9 @@ public class overworld extends AppCompatActivity {
                 Intent intent = new Intent(overworld.this, levelActivity.class);
 
                 //make a bundle to transfer chest# for each level
-                int difficulty = 9;
+                int level = 3;
                 Bundle numChests = new Bundle();
-                numChests.putInt("numChests",difficulty);
+                numChests.putInt("numChests",numberOfChests(level));
 
                 //put bundle in the intent for transfer. Use getIntent().getExtras().getString/int/...(key)
                 //inside activity to access this data.
