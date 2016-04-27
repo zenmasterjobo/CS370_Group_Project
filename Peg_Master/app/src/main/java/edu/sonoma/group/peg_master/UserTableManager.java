@@ -41,6 +41,16 @@ public class UserTableManager extends DBHandler {
         db.close();
     }
 
+    public void updateUserMusic(User aUser){
+        SQLiteDatabase db = this.getWritableDatabase();
+        boolean inverse = !aUser.getMusic();
+        int val = 0;
+        if(inverse)
+            val =1;
+        String myQuery = "UPDATE " + USER_TABLE_NAME + " SET " + COLUMN_BMUSIC + " = " + inverse
+                 + " WHERE " + COLUMN_NAME + " = " + '"' + aUser.getName() + '"';
+    }
+
 
     //return a list of all users
     public List<User> getAllUsers(){

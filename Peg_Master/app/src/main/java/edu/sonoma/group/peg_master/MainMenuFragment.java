@@ -37,6 +37,12 @@ public class MainMenuFragment extends Fragment {
     //use currentUser preferences and level progress
     private User currentUser;
     private List<User> allUsers;
+    onMusicChanged mCallback;
+
+    public interface onMusicChanged{
+        public void updateMusic();
+    }
+
 
 
     @Override
@@ -44,6 +50,9 @@ public class MainMenuFragment extends Fragment {
         super.onCreate(savedInstanceState);
         db = new DBHandler(getActivity().getApplicationContext());
         dbManager = new UserTableManager(getActivity().getApplicationContext());
+
+
+
 
         //get shared prefs
         SharedPreferences mPrefs = PreferenceManager.getDefaultSharedPreferences(this.getActivity().getApplicationContext());
@@ -147,6 +156,9 @@ public class MainMenuFragment extends Fragment {
             }
         });
 
+
+
+
         /*
         createUserButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -187,6 +199,16 @@ public class MainMenuFragment extends Fragment {
         });
     */
         return view;
+    }
+
+
+
+
+    public void updateMusic(){
+        dbManager.updateUserMusic(currentUser);
+        Toast.makeText(getActivity().getApplicationContext(), "UPDATED MUSIC", Toast.LENGTH_LONG).show();
+
+
     }
 
 }

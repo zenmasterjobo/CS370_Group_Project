@@ -29,6 +29,10 @@ public class OptionsFragment extends Fragment {
     private Bundle savedState1;
 
 
+
+
+
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -78,6 +82,8 @@ public class OptionsFragment extends Fragment {
                     //onSaveInstanceState(savedState);
 
                 }
+                //call update currentUser music setting
+
             }
 
         });
@@ -104,6 +110,8 @@ public class OptionsFragment extends Fragment {
 
         return rootView;
     }
+
+
 
     @Override
     public void onDestroyView(){
