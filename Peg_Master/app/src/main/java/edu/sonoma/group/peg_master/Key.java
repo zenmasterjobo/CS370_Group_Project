@@ -18,4 +18,7 @@ public class Key {
     public String getNumber(){
         return Key_Number.toString();
     }
+    public Integer getNumberAsInt(){
+        return Key_Number;
+    }
 }

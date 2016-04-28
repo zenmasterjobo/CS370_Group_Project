@@ -14,8 +14,11 @@ public class Board {
     private int [][]board;
 
     private ArrayList<Chest> b = new ArrayList<Chest>();
+    private Integer numChests;
+    private ArrayList<Integer> keyLoc = new ArrayList<Integer>();
 
     public void generate(int numChests){
+        this.numChests = numChests;
         ArrayList<Integer> possible = new ArrayList<Integer>();
         for (int i = 0; i < numChests; i++){
             possible.add(i + 1);
@@ -34,9 +37,11 @@ public class Board {
             boolean left = new Random(l).nextBoolean();
             if (left){
                 c.setLeftKey(k);
+                this.keyLoc.add(0);
             }
             else{
                 c.setRightKey(k);
+                this.keyLoc.add(1);
             }
             temp_board.add(c);
         }
@@ -46,6 +51,11 @@ public class Board {
     }
     public boolean isSolvable(int [][]board){
         int count = 0;
+        for (int i = 0; i < numChests; i++){
+            if (keyLoc.get(i).equals(1)){
+                count += 1;
+            }
+        }
 
         if (count % 2 == 0)
             return true;

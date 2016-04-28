@@ -34,7 +34,8 @@ public class levelActivity extends AppCompatActivity {
     protected void onStart(){
         super.onStart();
         board.generate(numChests);
-        //setup();
+        kih = new Key(-1);
+        setup();
         updateGraphics();
     }
 
