@@ -43,12 +43,21 @@ public class UserTableManager extends DBHandler {
 
     public void updateUserMusic(User aUser){
         SQLiteDatabase db = this.getWritableDatabase();
-        boolean inverse = !aUser.getMusic();
-        int val = 0;
-        if(inverse)
-            val =1;
-        String myQuery = "UPDATE " + USER_TABLE_NAME + " SET " + COLUMN_BMUSIC + " = " + inverse
-                 + " WHERE " + COLUMN_NAME + " = " + '"' + aUser.getName() + '"';
+        boolean current = aUser.getMusic();
+        String TAG = "myApp";
+        Log.v(TAG,"BEFORE UPDATE: " + Boolean.toString(aUser.getMusic()));
+        int val = 1;
+        if(current)
+            val =0;
+        //String myQuery = "UPDATE " + USER_TABLE_NAME + " SET " + COLUMN_BMUSIC + " = " + val
+          //       + " WHERE " + COLUMN_NAME + " = " + '"' + aUser.getName() + '"';
+        //db.rawQuery(myQuery, null);
+        ContentValues cv = new ContentValues();
+        cv.put(COLUMN_BMUSIC,val);
+        db.update(USER_TABLE_NAME,cv,null,null);
+        db.close();
+
+
     }
 
 

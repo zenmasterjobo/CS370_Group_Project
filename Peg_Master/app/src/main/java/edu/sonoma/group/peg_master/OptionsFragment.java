@@ -1,5 +1,6 @@
 package edu.sonoma.group.peg_master;
 
+import android.app.Activity;
 import android.app.Application;
 import android.content.Context;
 import android.media.MediaPlayer;
@@ -16,6 +17,7 @@ import android.widget.Switch;
 import android.widget.CompoundButton;
 import android.widget.CompoundButton.OnCheckedChangeListener;
 import android.widget.TextView;
+import android.widget.Toast;
 
 /**
  * Created by jordanbergero on 3/26/16.
@@ -33,6 +35,7 @@ public class OptionsFragment extends Fragment {
 
 
 
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -43,9 +46,14 @@ public class OptionsFragment extends Fragment {
         switch1 = (Switch) rootView.findViewById(R.id.switch1);
 
 
-        boolean enabled = GlobalApplicationClass.getUserSettings().isMusicEnabled();
-        switch1.setChecked(enabled);
+        //boolean enabled = GlobalApplicationClass.getUserSettings().isMusicEnabled();
+        Bundle bundle = this.getArguments();
+        boolean music = bundle.getBoolean("bmusic");
+        switch1.setChecked(music);
 
+
+
+        //callback = (MyInterface)getChildFragmentManager().findFragmentById(R.id.main_menu);
 
         if(savedInstanceState != null && savedState == null)
         {
@@ -70,19 +78,28 @@ public class OptionsFragment extends Fragment {
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 if (switch1.isChecked()) {
                     switchStatus.setText("Music is On");
+                    //((MainMenu)getActivity()).getMainMenuSound().start();
                     ((MainMenu) getActivity()).Sound(true);
-                    GlobalApplicationClass.getUserSettings().setIsMusicEnabled(true);
+                    //GlobalApplicationClass.getUserSettings().setIsMusicEnabled(true);
+                    //MainMenuFragment MMF = (MainMenuFragment)getChildFragmentManager().get;
+
 
                 }
                 else {
                     switchStatus.setText("Music is off");
                     ((MainMenu) getActivity()).Sound(false);
-                    GlobalApplicationClass.getUserSettings().setIsMusicEnabled(false);
+                    //GlobalApplicationClass.getUserSettings().setIsMusicEnabled(false);
                     //savedState = saveState();
                     //onSaveInstanceState(savedState);
 
                 }
-                //call update currentUser music setting
+                //update music setting if button is clicked.
+
+                //get instance of MMF fragment
+                MainMenuFragment MMF = (MainMenuFragment)getFragmentManager().getFragments().get(0);
+                if(MMF != null){
+                    MMF.updateMusic();
+                }
 
             }
 
@@ -92,7 +109,7 @@ public class OptionsFragment extends Fragment {
         if (switch1.isChecked()){
             switchStatus.setText("Music is On");
             ((MainMenu) getActivity()).Sound(true);
-            GlobalApplicationClass.getUserSettings().setIsMusicEnabled(true);
+            //GlobalApplicationClass.getUserSettings().setIsMusicEnabled(true);
             //savedState = saveState();
             //onSaveInstanceState(savedState);
 
@@ -100,7 +117,7 @@ public class OptionsFragment extends Fragment {
         else {
             switchStatus.setText("Music is Off");
             ((MainMenu) getActivity()).Sound(false);
-            GlobalApplicationClass.getUserSettings().setIsMusicEnabled(false);
+            //GlobalApplicationClass.getUserSettings().setIsMusicEnabled(false);
             //savedState = saveState();
             //onSaveInstanceState(savedState);
 
@@ -133,6 +150,10 @@ public class OptionsFragment extends Fragment {
         //outState.putBundle(BundleTagUtility.SWITCH1, (savedState != null) ? savedState : saveState());
         //outState.putBoolean("MyBoolean", false);
     }
+
+
+
+
 
 
 

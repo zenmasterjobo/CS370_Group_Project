@@ -10,6 +10,7 @@ import android.content.Context;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -24,7 +25,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-public class MainMenuFragment extends Fragment {
+public class MainMenuFragment extends Fragment{
 
 
     //private Button infoButton, optionsButton;
@@ -37,10 +38,14 @@ public class MainMenuFragment extends Fragment {
     //use currentUser preferences and level progress
     private User currentUser;
     private List<User> allUsers;
-    onMusicChanged mCallback;
 
-    public interface onMusicChanged{
-        public void updateMusic();
+
+    void updateMusic(){
+        dbManager.updateUserMusic(currentUser);
+        //update current user w/ music preference
+        currentUser = dbManager.getUser(currentUser.getName());
+        //Log.v("myApp", "AFTER UPDATE: " + Boolean.toString(dbManager.getUser(currentUser.getName()).getMusic()));
+
     }
 
 
@@ -71,8 +76,14 @@ public class MainMenuFragment extends Fragment {
 
         if(lastUser !="null"){
             currentUser = dbManager.getUser(lastUser);
-            Toast.makeText(this.getActivity().getApplicationContext(),Boolean.toString(currentUser.getMusic()),Toast.LENGTH_SHORT).show();
-            Toast.makeText(this.getActivity().getApplicationContext(),currentUser.getName(),Toast.LENGTH_SHORT).show();
+
+            //start music if enabled for currentUser
+            ((MainMenu)getActivity()).Sound(currentUser.getMusic());
+
+
+            //debug
+            //Toast.makeText(this.getActivity().getApplicationContext(),Boolean.toString(currentUser.getMusic()),Toast.LENGTH_SHORT).show();
+            //Toast.makeText(this.getActivity().getApplicationContext(),currentUser.getName(),Toast.LENGTH_SHORT).show();
 
         }
     }
@@ -148,6 +159,12 @@ public class MainMenuFragment extends Fragment {
                 //http://stackoverflow.com/questions/13445594/data-sharing-between-fragments-and-activity-in-android/20521851#20521851
                 //http://developer.android.com/guide/components/fragments.html#CommunicatingWithActivity
                 OptionsFragment newFrag = new OptionsFragment();
+                //bundle music setting
+                Bundle bundle = new Bundle();
+                bundle.putBoolean("bmusic",currentUser.getMusic());
+                Toast.makeText(getActivity().getApplicationContext(),Boolean.toString(currentUser.getMusic()),Toast.LENGTH_SHORT).show();
+
+                newFrag.setArguments(bundle);
                 FragmentTransaction transaction = getActivity().getSupportFragmentManager().beginTransaction();
                 transaction.replace(R.id.fragment_container, newFrag);
                 transaction.addToBackStack(null);
@@ -204,11 +221,6 @@ public class MainMenuFragment extends Fragment {
 
 
 
-    public void updateMusic(){
-        dbManager.updateUserMusic(currentUser);
-        Toast.makeText(getActivity().getApplicationContext(), "UPDATED MUSIC", Toast.LENGTH_LONG).show();
 
-
-    }
 
 }

@@ -13,6 +13,7 @@ import android.widget.Button;
 import android.widget.CompoundButton;
 import android.widget.Switch;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.android.gms.appindexing.Action;
 import com.google.android.gms.appindexing.AppIndex;
@@ -21,7 +22,7 @@ import com.google.android.gms.common.api.GoogleApiClient;
 public class MainMenu extends AppCompatActivity {
 
     //creating a media player instance for the sound file
-    MediaPlayer mainMenuSound;
+    private MediaPlayer mainMenuSound;
     Boolean mainSound = true;
     private Bundle savedState;
 
@@ -33,6 +34,8 @@ public class MainMenu extends AppCompatActivity {
      */
     private GoogleApiClient client;
 
+    public MediaPlayer getMainMenuSound(){return mainMenuSound;}
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -41,6 +44,7 @@ public class MainMenu extends AppCompatActivity {
         FragmentTransaction ft = fm.beginTransaction();
         MainMenuFragment MMF = new MainMenuFragment();
         ft.replace(R.id.fragment_container, MMF, null);
+        ft.addToBackStack("MMF");
         ft.commit();
         // ATTENTION: This was auto-generated to implement the App Indexing API.
         // See https://g.co/AppIndexing/AndroidStudio for more information.
@@ -54,9 +58,9 @@ public class MainMenu extends AppCompatActivity {
     public void onStart() {
         super.onStart();
         //start the music
-        //mainMenuSound.start();
-        boolean enabled = GlobalApplicationClass.getUserSettings().isMusicEnabled();
-        Sound(enabled);
+        mainMenuSound.start();
+        //boolean enabled = GlobalApplicationClass.getUserSettings().isMusicEnabled();
+        //Sound(enabled);
 
 
         // ATTENTION: This was auto-generated to implement the App Indexing API.
@@ -98,6 +102,8 @@ public class MainMenu extends AppCompatActivity {
     public void Sound(Boolean Status){
         if(Status == true) {
             //play the sound when the app opens
+            Toast.makeText(this,"SOUND TRUE", Toast.LENGTH_SHORT).show();
+
             mainMenuSound.start();
         }
         if (Status == false){
