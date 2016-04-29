@@ -41,6 +41,11 @@ public class UserTableManager extends DBHandler {
         db.close();
     }
 
+
+    public void addCompletedLevel(User aUser){
+
+    }
+
     public void updateUserMusic(User aUser){
         SQLiteDatabase db = this.getWritableDatabase();
         boolean current = aUser.getMusic();

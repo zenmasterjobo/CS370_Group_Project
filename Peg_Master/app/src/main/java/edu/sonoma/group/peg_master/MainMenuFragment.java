@@ -83,7 +83,7 @@ public class MainMenuFragment extends Fragment{
 
             //debug
             //Toast.makeText(this.getActivity().getApplicationContext(),Boolean.toString(currentUser.getMusic()),Toast.LENGTH_SHORT).show();
-            //Toast.makeText(this.getActivity().getApplicationContext(),currentUser.getName(),Toast.LENGTH_SHORT).show();
+            Toast.makeText(this.getActivity().getApplicationContext(),currentUser.getName(),Toast.LENGTH_SHORT).show();
 
         }
     }
@@ -134,6 +134,9 @@ public class MainMenuFragment extends Fragment{
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getActivity(), overworld.class);
+                Bundle bundle = new Bundle();
+                bundle.putString("currentUser",currentUser.getName());
+                intent.putExtras(bundle);
                 startActivity(intent);
                 //BoardFragment newFrag = new BoardFragment();
                 //FragmentTransaction transaction = getActivity().getSupportFragmentManager().beginTransaction();

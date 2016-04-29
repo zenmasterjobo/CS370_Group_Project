@@ -1,6 +1,7 @@
 package edu.sonoma.group.peg_master;
 
 import android.annotation.SuppressLint;
+import android.app.Activity;
 import android.app.FragmentTransaction;
 import android.content.Intent;
 import android.support.v4.app.FragmentManager;
@@ -12,6 +13,7 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.Toast;
 
 /**
  * An example full-screen activity that shows and hides the system UI (i.e.
@@ -92,6 +94,13 @@ public class overworld extends AppCompatActivity {
     //level buttons
     private Button lvl1Btn,lvl2Btn,lvl3Btn;
 
+    //database stuff
+    private DBHandler db;
+    private UserTableManager dbManager;
+
+    //current user from MMF
+    User currentUser;
+
     protected Integer numberOfChests(Integer level){
         Integer chests = 3;
         while (level - 5 >= 0){
@@ -100,6 +109,17 @@ public class overworld extends AppCompatActivity {
         }
 
         return chests;
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode,int resultCode,Intent data){
+        //if user finishes a level
+        if(requestCode ==1){
+            if(resultCode == Activity.RESULT_OK){
+                int levelID = data.getIntExtra("lid",0);
+
+            }
+        }
     }
 
     @Override
@@ -114,12 +134,22 @@ public class overworld extends AppCompatActivity {
         lvl2Btn = (Button)findViewById(R.id.level2);
         lvl3Btn = (Button)findViewById(R.id.level3);
 
+        //init database
+        db = new DBHandler(getApplicationContext());
+        dbManager = new UserTableManager(getApplicationContext());
+
+        //set current user
+        String currentUserName = getIntent().getExtras().getString("currentUser");
+        currentUser = dbManager.getUser(currentUserName);
+        Toast.makeText(getApplicationContext(),currentUser.getName(),Toast.LENGTH_SHORT).show();
+
         //btn onclicklisteners
         lvl1Btn.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view){
                 //Create intent to switch to levelActivity
                 Intent intent = new Intent(overworld.this, levelActivity.class);
+                int requestCode = 1;
 
                 //make a bundle to transfer chest# for each level
                 int level = 1;
@@ -131,7 +161,9 @@ public class overworld extends AppCompatActivity {
                 intent.putExtras(numChests);
 
                 //switch activity
-                startActivity(intent);
+                //startActivity(intent);
+                startActivityForResult(intent, requestCode);
+
             }
         });
 
