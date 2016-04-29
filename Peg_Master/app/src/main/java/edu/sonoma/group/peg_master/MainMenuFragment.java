@@ -31,20 +31,21 @@ public class MainMenuFragment extends Fragment{
     //private Button infoButton, optionsButton;
     private ImageButton startButton, infoButton, optionsButton;
     private Button changeUsersButton;
-    private DBHandler db;
-    private UserTableManager dbManager;
+    //private DBHandler db;
+    //private UserTableManager dbManager;
     //used to set currentUser
     private String lastUser;
     //use currentUser preferences and level progress
-    private User currentUser;
+    //private User currentUser;
     private List<User> allUsers;
+    private GlobalApplicationClass GAC;
 
 
     void updateMusic(){
-        dbManager.updateUserMusic(currentUser);
+        GAC.getDBManager().updateUserMusic(GAC.getCurrentUser());
         //update current user w/ music preference
-        currentUser = dbManager.getUser(currentUser.getName());
-        //Log.v("myApp", "AFTER UPDATE: " + Boolean.toString(dbManager.getUser(currentUser.getName()).getMusic()));
+        GAC.setCurrentUser(GAC.getDBManager().getUser(GAC.getCurrentUser().getName()));
+        Log.v("myApp", "AFTER UPDATE: " + Boolean.toString(GAC.getDBManager().getUser(GAC.getCurrentUser().getName()).getMusic()));
 
     }
 
@@ -53,9 +54,10 @@ public class MainMenuFragment extends Fragment{
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        db = new DBHandler(getActivity().getApplicationContext());
-        dbManager = new UserTableManager(getActivity().getApplicationContext());
-
+        //db = new DBHandler(getActivity().getApplicationContext());
+        //dbManager = new UserTableManager(getActivity().getApplicationContext());
+        //has all db info
+        GAC = GlobalApplicationClass.getInstance();
 
 
 
@@ -63,7 +65,7 @@ public class MainMenuFragment extends Fragment{
         SharedPreferences mPrefs = PreferenceManager.getDefaultSharedPreferences(this.getActivity().getApplicationContext());
         SharedPreferences.Editor editor = mPrefs.edit();
         //populate allUsers from db
-        allUsers = dbManager.getAllUsers();
+        allUsers = GAC.getDBManager().getAllUsers();
         //check if database is empty. if it is, prompt for new user. Set last user and current user
         if(allUsers.size() < 1){
             Intent userIntent = new Intent(getActivity(),UserList.class);
@@ -75,10 +77,10 @@ public class MainMenuFragment extends Fragment{
         lastUser = mPrefs.getString("lastUser","null");
 
         if(lastUser !="null"){
-            currentUser = dbManager.getUser(lastUser);
+            GAC.setCurrentUser(GAC.getDBManager().getUser(lastUser));
 
             //start music if enabled for currentUser
-            ((MainMenu)getActivity()).Sound(currentUser.getMusic());
+            ((MainMenu)getActivity()).Sound(GAC.getCurrentUser().getMusic());
 
 
             //debug
@@ -99,8 +101,8 @@ public class MainMenuFragment extends Fragment{
                 String userName = data.getStringExtra("name");
                 //Toast.makeText(getActivity().getApplicationContext(), userName, Toast.LENGTH_SHORT).show();
                 User newUser = new User(userName);
-                dbManager.addUserData(newUser);
-                currentUser = newUser;
+                GAC.getDBManager().addUserData(newUser);
+                GAC.setCurrentUser(newUser);
                 lastUser = userName;
                 editor.putString("lastUser",lastUser);
                 editor.apply();
@@ -161,8 +163,8 @@ public class MainMenuFragment extends Fragment{
                 OptionsFragment newFrag = new OptionsFragment();
                 //bundle music setting
                 Bundle bundle = new Bundle();
-                bundle.putBoolean("bmusic",currentUser.getMusic());
-                Toast.makeText(getActivity().getApplicationContext(),Boolean.toString(currentUser.getMusic()),Toast.LENGTH_SHORT).show();
+                bundle.putBoolean("bmusic",GAC.getCurrentUser().getMusic());
+                Toast.makeText(getActivity().getApplicationContext(),Boolean.toString(GAC.getCurrentUser().getMusic()),Toast.LENGTH_SHORT).show();
 
                 newFrag.setArguments(bundle);
                 FragmentTransaction transaction = getActivity().getSupportFragmentManager().beginTransaction();
