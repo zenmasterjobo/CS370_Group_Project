@@ -41,10 +41,15 @@ public class MainMenuFragment extends Fragment{
 
 
     void updateMusic(){
+        Toast.makeText(getActivity().getApplicationContext(),"BEFORE: " + Boolean.toString(currentUser.getMusic()),Toast.LENGTH_SHORT).show();
+
         dbManager.updateUserMusic(currentUser);
         //update current user w/ music preference
         currentUser = dbManager.getUser(currentUser.getName());
         //Log.v("myApp", "AFTER UPDATE: " + Boolean.toString(dbManager.getUser(currentUser.getName()).getMusic()));
+        Toast.makeText(getActivity().getApplicationContext(),"AFTER" + Boolean.toString(currentUser.getMusic()),Toast.LENGTH_SHORT).show();
+        ((MainMenu)getActivity()).Sound(currentUser.getMusic());
+
 
     }
 
@@ -78,7 +83,13 @@ public class MainMenuFragment extends Fragment{
             currentUser = dbManager.getUser(lastUser);
 
             //start music if enabled for currentUser
-            ((MainMenu)getActivity()).Sound(currentUser.getMusic());
+            if(currentUser.getMusic())
+                ((MainMenu)getActivity()).Sound(currentUser.getMusic());
+            else{
+                //why does this work?????
+                ((MainMenu)getActivity()).Sound(true);
+                ((MainMenu)getActivity()).Sound(false);
+            }
 
 
             //debug
