@@ -7,6 +7,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import java.util.ArrayList;
@@ -28,6 +29,7 @@ public class BoardFragment extends Fragment {
 
     private ArrayList<TextView> boardTextViews = new ArrayList<TextView>();
     private ArrayList<ImageButton> boardButtons = new ArrayList<ImageButton>();
+    private ArrayList<TextView> chestNumbers = new ArrayList<TextView>();
 
     private Map _boardButtons = new HashMap();
     private Map _chestNumbers = new HashMap();
@@ -52,6 +54,10 @@ public class BoardFragment extends Fragment {
     public Map<String, ArrayList<TextView>> getChestNumberMap(){
         Log.d("_chestNumbers Map", _boardButtons.toString());
         return _chestNumbers;
+    }
+
+    public ArrayList<TextView> getChestNumbers(){
+        return chestNumbers;
     }
 
     public Map<String, ArrayList<ArrayList<TextView>>> getChestKeysMap(){
@@ -349,12 +355,40 @@ public class BoardFragment extends Fragment {
 
         _chestKeys.put("Row2", _row2ChestKeys);
 
+        _chest1Keys = new ArrayList<TextView>();
+        _chest2Keys = new ArrayList<TextView>();
+        _chest3Keys = new ArrayList<TextView>();
+
+        _chest1Keys.addAll(Arrays.asList(chest1_1left, chest1_1right));
+        _chest2Keys.addAll(Arrays.asList(chest1_2left, chest1_2right));
+        _chest3Keys.addAll(Arrays.asList(chest1_3left, chest1_3right));
+
+        _row1ChestKeys.addAll(Arrays.asList(_chest1Keys, _chest2Keys, _chest3Keys));
+
+        _chestKeys.put("Row1", _row1ChestKeys);
+
+        _chest1Keys = new ArrayList<TextView>();
+        _chest2Keys = new ArrayList<TextView>();
+        _chest3Keys = new ArrayList<TextView>();
+
+        _chest1Keys.addAll(Arrays.asList(chest3_1left, chest3_1right));
+        _chest2Keys.addAll(Arrays.asList(chest3_2left, chest3_2right));
+        _chest3Keys.addAll(Arrays.asList(chest3_3left, chest3_3right));
+
+        _row3ChestKeys.addAll(Arrays.asList(_chest1Keys, _chest2Keys, _chest3Keys));
+
+        _chestKeys.put("Row3", _row3ChestKeys);
+
         ArrayList<TextView> allChestKeyHolders = new ArrayList<TextView>();
         allChestKeyHolders.addAll(Arrays.asList(chest1_1left, chest1_1right, chest1_2left, chest1_2right, chest1_3left, chest1_3right,
                 chest2_1left, chest2_1right, chest2_2left, chest2_2right, chest2_3left, chest2_3right,
                 chest3_1left, chest3_1right, chest3_2left, chest3_2right, chest3_3left, chest3_3right,
                 chest4_1left, chest4_1right, chest4_2left, chest4_2right, chest4_3left, chest4_3right));
         // Now can loop through all key holders and add every pair into a temp
+
+        chestNumbers.addAll(Arrays.asList(chest1_1number, chest1_2number, chest1_3number,
+                chest2_1number, chest2_2number, chest2_3number, chest3_1number, chest3_2number,
+                chest3_3number, chest4_1number, chest4_2number, chest4_3number));
 
         /*
         // Counters to find when to fill a chest, and a row

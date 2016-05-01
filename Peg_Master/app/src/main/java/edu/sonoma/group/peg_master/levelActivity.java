@@ -48,6 +48,7 @@ public class levelActivity extends AppCompatActivity {
         numChests = getIntent().getExtras().getInt("numChests");
 
         String debugmsg = "numChests: " + Integer.toString(numChests);
+        Log.d("NumChests", Integer.toString(numChests));
         //Toast.makeText(this.getApplicationContext(),debugmsg,Toast.LENGTH_LONG).show();
 
         //use numChests here on a class to represent result from algorithm? might have to do
@@ -85,12 +86,39 @@ public class levelActivity extends AppCompatActivity {
         Log.d("Setup(1)","Finished creating on click listeners");
         ArrayList<TextView> chestNumbers = bf.getChestNumbersByNumberOfChests(numChests);
         Log.d("Setup(1.5)", "The size of the chest number array list is:" + chestNumbers.size());
+
+        ArrayList<TextView> allKeys = bf.getBoardTextViews();
+        for (int i = 0; i < allKeys.size(); i++){
+            allKeys.get(i).setVisibility(View.INVISIBLE);
+        }
+
+        // Go though all the chest numbers and make them invisible
+        ArrayList<TextView> allChestNumbers = bf.getChestNumbers();
+        for (int i = 0; i < allChestNumbers.size(); i++){
+            allChestNumbers.get(i).setVisibility(View.INVISIBLE);
+        }
+
+        // Go through the needed chest numbers and make their value corespond to the chest it is
         for (int i = 0; i < chestNumbers.size(); i++){
             TextView t = chestNumbers.get(i);
             t.setText(Integer.toString(i+1));
+            t.setVisibility(View.VISIBLE);
         }
         Log.d("Setup(2)", "Finished setting chest numbers");
         this.keysOnChest = bf.getChestKeysByNumberOfChests(numChests);
+
+        // Go through all chest buttons and make them invisible
+        ArrayList<ImageButton> allChestButtons = bf.getBoardButtons();
+        for (int i = 0; i < allChestButtons.size(); i++){
+            allChestButtons.get(i).setVisibility(View.INVISIBLE);
+        }
+        // Now go through the chest buttons we need for this level and make them visible
+        ArrayList<ImageButton> neededChestButtons = bf.getBoardButtonsByNumberOfChests(numChests);
+        for (int i = 0; i < neededChestButtons.size(); i++){
+            neededChestButtons.get(i).setVisibility(View.VISIBLE);
+        }
+
+
     }
 
     private void updateGraphics() {
