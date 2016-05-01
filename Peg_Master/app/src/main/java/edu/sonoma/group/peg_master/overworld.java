@@ -178,6 +178,7 @@ public class overworld extends AppCompatActivity {
                     numChests.putInt("numChests", numberOfChests(level));
                     numChests.putInt("levelnum",level);
 
+
                     //put bundle in the intent for transfer. Use getIntent().getExtras().getString/int/...(key)
                     //inside activity to access this data.
                     intent.putExtras(numChests);

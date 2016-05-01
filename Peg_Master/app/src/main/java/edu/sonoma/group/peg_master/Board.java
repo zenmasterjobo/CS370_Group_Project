@@ -11,17 +11,15 @@ import java.util.Random;
  * Created by admin on 4/9/16.
  */
 public class Board {
-    private int [][]board;
     private int minMoves;
     private int medMoves;
     private int maxMoves;
     private ArrayList<Chest> b = new ArrayList<Chest>();
     private Integer numChests;
-    private ArrayList<Integer> keyLoc = new ArrayList<Integer>();
 
     public Board(){
         this.b = new ArrayList<Chest>();
-
+        this.numChests = 0;
     }
 
     public void generate(int numChests){
@@ -41,14 +39,31 @@ public class Board {
         }
         setBoard(temp_board);
 
-        Key temp = new Key(-1);
-        for (int i = 0; i < 21; i++){
+        Log.d("Board before generation", b.toString());
+
+        Key keyInHand = new Key(-1);
+        for (int j = 0; j < 10; j++){
             long l = System.nanoTime();
             int chest = new Random(l).nextInt(numChests);
-            Key k = getChestAt(chest+1).makeMove(temp);
-            temp = k;
+            Key k = getChestAt(chest+1).makeMove(keyInHand);
+            keyInHand = null;
+            keyInHand = new Key(Integer.parseInt(k.getNumber()));
+            k = null;
         }
-
+        // Hack way around never having a green key on the field
+        if (! (keyInHand.getNumber().equals("-1"))){
+            for (int h = 0; h < numChests; h++){
+                if ( getChestAt(h+1).getLeftKey() != null && getChestAt(h+1).getLeftKey().getNumber().equals("-1")){
+                    Key k = getChestAt(h+1).makeMove(keyInHand);
+                    break;
+                }
+                else if (getChestAt(h+1).getRightKey() != null && getChestAt(h+1).getRightKey().getNumber().equals("-1")){
+                    Key k = getChestAt(h+1).makeMove(keyInHand);
+                    break;
+                }
+            }
+        }
+        Log.d("Board after generation", b.toString());
         /*
         long seed = System.nanoTime();
         Collections.shuffle(possible, new Random(seed));
@@ -78,9 +93,6 @@ public class Board {
     public boolean isSolvable(int [][]board){
         int count = 0;
         for (int i = 0; i < numChests; i++){
-            if (keyLoc.get(i).equals(1)){
-                count += 1;
-            }
         }
 
         if (count % 2 == 0)
