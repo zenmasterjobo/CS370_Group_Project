@@ -32,6 +32,10 @@ public class levelActivity extends AppCompatActivity {
     private Key kih;
     private Integer num_moves = 0;
     private ArrayList<ArrayList<TextView>> keysOnChest = new ArrayList<ArrayList<TextView>>();
+
+    private TextView keyInHand;
+    private TextView moveCounter;
+
     @Override
     protected void onStart(){
         super.onStart();
@@ -65,6 +69,10 @@ public class levelActivity extends AppCompatActivity {
     }
 
     private void setup(){
+
+        this.keyInHand = bf.getKih();
+        this.moveCounter = bf.getMoveCounter();
+
         ArrayList<ImageButton> buttons = bf.getBoardButtonsByNumberOfChests(numChests);
         for (int i = 0; i < buttons.size(); i++){
             ImageButton b = buttons.get(i);
@@ -80,6 +88,8 @@ public class levelActivity extends AppCompatActivity {
                     num_moves += 1;
                     updateGraphics();
                     Toast.makeText(getApplicationContext(), num_moves.toString(), Toast.LENGTH_LONG).show();
+
+                    moveCounter.setText("Moves: " + Integer.toString(num_moves));
                 }
             });
         }
@@ -122,6 +132,16 @@ public class levelActivity extends AppCompatActivity {
     }
 
     private void updateGraphics() {
+
+        TextView keyInHand = bf.getKih();
+
+        if (kih.getNumber().equals("-1")){
+            keyInHand.setText(" ");
+            keyInHand.setBackgroundColor(Color.parseColor("#10d313"));
+        } else {
+            keyInHand.setText(kih.getNumber());
+            keyInHand.setBackgroundColor(Color.parseColor("#e40e0e"));
+        }
 
         for (int i = 0; i < keysOnChest.size(); i ++){
             if (board.getChestAt(i+1).getLeftKey() != null){
