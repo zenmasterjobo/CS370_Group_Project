@@ -31,6 +31,7 @@ public class levelActivity extends AppCompatActivity {
     private BoardFragment bf;
     private Key kih;
     private Integer num_moves = 0;
+    private ArrayList<ArrayList<TextView>> keysOnChest = new ArrayList<ArrayList<TextView>>();
     @Override
     protected void onStart(){
         super.onStart();
@@ -81,9 +82,44 @@ public class levelActivity extends AppCompatActivity {
                 }
             });
         }
+        Log.d("Setup(1)","Finished creating on click listeners");
+        ArrayList<TextView> chestNumbers = bf.getChestNumbersByNumberOfChests(numChests);
+        Log.d("Setup(1.5)", "The size of the chest number array list is:" + chestNumbers.size());
+        for (int i = 0; i < chestNumbers.size(); i++){
+            TextView t = chestNumbers.get(i);
+            t.setText(Integer.toString(i+1));
+        }
+        Log.d("Setup(2)", "Finished setting chest numbers");
+        this.keysOnChest = bf.getChestKeysByNumberOfChests(numChests);
     }
 
     private void updateGraphics() {
+
+        for (int i = 0; i < keysOnChest.size(); i ++){
+            if (board.getChestAt(i+1).getLeftKey() != null){
+                if (!(board.getChestAt(i+1).getLeftKey().getNumber().equals("-1"))){
+                    keysOnChest.get(i).get(0).setText(board.getChestAt(i+1).getLeftKey().getNumber());
+                    keysOnChest.get(i).get(0).setBackgroundColor(Color.parseColor("#e40e0e"));
+                } else {
+                    keysOnChest.get(i).get(0).setBackgroundColor(Color.parseColor("#10d313"));
+                    keysOnChest.get(i).get(0).setText(" ");
+                }
+                keysOnChest.get(i).get(0).setVisibility(View.VISIBLE);
+                keysOnChest.get(i).get(1).setVisibility(View.INVISIBLE);
+            } else if (board.getChestAt(i+1).getRightKey() != null){
+                if (!(board.getChestAt(i+1).getRightKey().getNumber().equals("-1"))){
+                    keysOnChest.get(i).get(1).setText(board.getChestAt(i+1).getRightKey().getNumber());
+                    keysOnChest.get(i).get(1).setBackgroundColor(Color.parseColor("#e40e0e"));
+                } else {
+                    keysOnChest.get(i).get(1).setBackgroundColor(Color.parseColor("#10d313"));
+                    keysOnChest.get(i).get(1).setText(" ");
+                }
+                keysOnChest.get(i).get(1).setVisibility(View.VISIBLE);
+                keysOnChest.get(i).get(0).setVisibility(View.INVISIBLE);
+            }
+        }
+        /* IF THE ABOVE WORKS THE BELOW CAN BE REMOVED
+           BE WARY OF A RANDOM CURLY BRACE THAT NEEDS TO REMAIN
         ArrayList<TextView> tVs = bf.getBoardTextViews();
 
         Map<String, ArrayList<ArrayList<TextView>>> chestKeys = bf.getChestKeysMap();
@@ -155,6 +191,7 @@ public class levelActivity extends AppCompatActivity {
             temp.get(2).get(1).setVisibility(View.VISIBLE);
             temp.get(2).get(0).setVisibility(View.INVISIBLE);
         }
+        */
     }
 
         // Index 18 is left slot of chest 2-1

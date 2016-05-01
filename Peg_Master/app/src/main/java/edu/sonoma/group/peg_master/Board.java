@@ -101,7 +101,7 @@ public class Board {
     // Returns true if it is, false if it is not
     public Boolean done(){
         for (int i = 0; i < b.size(); i++){
-            if ( (b.get(i).getLeftKey() != null) && !(b.get(i).getLeftKey().getNumber().equals(Integer.toString(i+1))) ){
+            if ( (b.get(i).getLeftKey() == null) || !(b.get(i).getLeftKey().getNumber().equals(Integer.toString(i+1))) ){
                 return false;
             }
         }

@@ -1,26 +1,17 @@
 package edu.sonoma.group.peg_master;
 
-import android.app.Activity;
-import android.media.Image;
-import android.support.v4.app.FragmentTransaction;
-import android.content.Context;
-import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.ImageButton;
-import android.widget.ImageView;
 import android.widget.TextView;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
-import java.util.Iterator;
 import java.util.Map;
 
 /**
@@ -80,18 +71,68 @@ public class BoardFragment extends Fragment {
 
     public ArrayList<ImageButton> getBoardButtonsByNumberOfChests(int num_chests){
         ArrayList<ImageButton> temp = new ArrayList<ImageButton>();
+        Map <String, ArrayList<ImageButton>> buttonMap = getBoardButtonMap();
         if (num_chests == 3){
-            temp = getBoardButtonMap().get("Row2");
+            temp = buttonMap.get("Row2");
         }
         else if (num_chests == 4){
-            temp.add(getBoardButtonMap().get("Row1").get(1));
-            temp.add(getBoardButtonMap().get("Row2").get(0));
-            temp.add(getBoardButtonMap().get("Row2").get(2));
-            temp.add(getBoardButtonMap().get("Row3").get(1));
+            temp.add(buttonMap.get("Row1").get(1));
+            temp.add(buttonMap.get("Row2").get(0));
+            temp.add(buttonMap.get("Row2").get(2));
+            temp.add(buttonMap.get("Row3").get(1));
         }
-
         return temp;
     }
+
+    public ArrayList<TextView> getChestNumbersByNumberOfChests(int num_chests){
+        ArrayList<TextView> ret = new ArrayList<TextView>();
+        Map <String, ArrayList<TextView>> chestNumberMap = getChestNumberMap();
+        if (num_chests == 3){
+            ret = chestNumberMap.get("Row2");
+        }
+        else if (num_chests == 4){
+            ret.add(chestNumberMap.get("Row1").get(1));
+            ret.add(chestNumberMap.get("Row2").get(0));
+            ret.add(chestNumberMap.get("Row2").get(2));
+            ret.add(chestNumberMap.get("Row3").get(1));
+        }
+        return ret;
+    }
+
+    public ArrayList<ArrayList<TextView>> getChestKeysByNumberOfChests(int num_chests){
+        ArrayList<ArrayList<TextView>> ret = new ArrayList<ArrayList<TextView>>();
+        Map<String, ArrayList<ArrayList<TextView>>> keyMap = getChestKeysMap();
+        if (num_chests == 3){
+            ret = keyMap.get("Row2");
+        }
+        else if (num_chests == 4){
+            // Make a new chest
+            ArrayList<TextView> chest = new ArrayList<TextView>();
+            // Add the left and right key holders from row 1 chest 1 (middle)
+            chest.add(keyMap.get("Row1").get(1).get(0));
+            chest.add(keyMap.get("Row1").get(1).get(1));
+            // Add chest to what we are going to return
+            ret.add(chest);
+
+            chest = new ArrayList<TextView>();
+            chest.add(keyMap.get("Row2").get(0).get(0));
+            chest.add(keyMap.get("Row2").get(0).get(1));
+            ret.add(chest);
+
+            chest = new ArrayList<TextView>();
+            chest.add(keyMap.get("Row2").get(2).get(0));
+            chest.add(keyMap.get("Row2").get(2).get(1));
+            ret.add(chest);
+
+            chest = new ArrayList<TextView>();
+            chest.add(keyMap.get("Row3").get(1).get(0));
+            chest.add(keyMap.get("Row3").get(1).get(1));
+            ret.add(chest);
+
+        }
+        return ret;
+    }
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
