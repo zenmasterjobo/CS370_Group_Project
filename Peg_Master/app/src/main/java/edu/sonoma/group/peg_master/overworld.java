@@ -98,13 +98,13 @@ public class overworld extends AppCompatActivity {
     private Button lvl1Btn,lvl2Btn,lvl3Btn, lvl4Btn, lvl5Btn,lvl6Btn, lvl7Btn, lvl8Btn;
 
     //database stuff
-    private DBHandler db;
-    private UserTableManager dbManager;
+    //private DBHandler db;
+    //private UserTableManager dbManager;
     private int displayedButtons;
     private ArrayList<Button> allButtons;
 
-    //current user from MMF
-    User currentUser;
+
+    private User currentUser = GlobalApplicationClass.getCurrentUser();
 
     protected Integer numberOfChests(Integer level){
         Integer chests = 3;
@@ -149,15 +149,8 @@ public class overworld extends AppCompatActivity {
         allButtons.addAll(Arrays.asList(lvl1Btn,lvl2Btn,lvl3Btn, lvl4Btn, lvl5Btn,lvl6Btn, lvl7Btn, lvl8Btn));
         displayedButtons = allButtons.size();
 
-        //init database
-        db = new DBHandler(getApplicationContext());
-        dbManager = new UserTableManager(getApplicationContext());
-
-        //set current user
-        String currentUserName = getIntent().getExtras().getString("currentUser");
-        currentUser = dbManager.getUser(currentUserName);
+        //debug GAC works
         Toast.makeText(getApplicationContext(),currentUser.getName(),Toast.LENGTH_SHORT).show();
-
         for (int i = 0; i < displayedButtons; i ++){
             Button b = allButtons.get(i);
             final int finalI = i;
