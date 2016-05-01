@@ -78,6 +78,20 @@ public class BoardFragment extends Fragment {
         return boardTextViews;
     }
 
+    public ArrayList<ImageButton> getBoardButtonsByNumberOfChests(int num_chests){
+        ArrayList<ImageButton> temp = new ArrayList<ImageButton>();
+        if (num_chests == 3){
+            temp = getBoardButtonMap().get("Row2");
+        }
+        else if (num_chests == 4){
+            temp.add(getBoardButtonMap().get("Row1").get(1));
+            temp.add(getBoardButtonMap().get("Row2").get(0));
+            temp.add(getBoardButtonMap().get("Row2").get(2));
+            temp.add(getBoardButtonMap().get("Row3").get(1));
+        }
+
+        return temp;
+    }
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {

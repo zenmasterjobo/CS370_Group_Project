@@ -15,6 +15,9 @@ import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.Toast;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+
 /**
  * An example full-screen activity that shows and hides the system UI (i.e.
  * status bar and navigation/system bar) with user interaction.
@@ -92,11 +95,13 @@ public class overworld extends AppCompatActivity {
     };*/
 
     //level buttons
-    private Button lvl1Btn,lvl2Btn,lvl3Btn;
+    private Button lvl1Btn,lvl2Btn,lvl3Btn, lvl4Btn, lvl5Btn,lvl6Btn, lvl7Btn, lvl8Btn;
 
     //database stuff
     private DBHandler db;
     private UserTableManager dbManager;
+    private int displayedButtons;
+    private ArrayList<Button> allButtons;
 
     //current user from MMF
     User currentUser;
@@ -133,6 +138,16 @@ public class overworld extends AppCompatActivity {
         lvl1Btn = (Button)findViewById(R.id.level1);
         lvl2Btn = (Button)findViewById(R.id.level2);
         lvl3Btn = (Button)findViewById(R.id.level3);
+        lvl4Btn = (Button)findViewById(R.id.level4);
+        lvl5Btn = (Button)findViewById(R.id.level5);
+        lvl6Btn = (Button)findViewById(R.id.level6);
+        lvl7Btn = (Button)findViewById(R.id.level7);
+        lvl8Btn = (Button)findViewById(R.id.level8);
+
+        allButtons = new ArrayList<Button>();
+
+        allButtons.addAll(Arrays.asList(lvl1Btn,lvl2Btn,lvl3Btn, lvl4Btn, lvl5Btn,lvl6Btn, lvl7Btn, lvl8Btn));
+        displayedButtons = allButtons.size();
 
         //init database
         db = new DBHandler(getApplicationContext());
@@ -143,6 +158,33 @@ public class overworld extends AppCompatActivity {
         currentUser = dbManager.getUser(currentUserName);
         Toast.makeText(getApplicationContext(),currentUser.getName(),Toast.LENGTH_SHORT).show();
 
+        for (int i = 0; i < displayedButtons; i ++){
+            Button b = allButtons.get(i);
+            final int finalI = i;
+            b.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    //Create intent to switch to levelActivity
+                    Intent intent = new Intent(overworld.this, levelActivity.class);
+                    int requestCode = 1;
+
+                    //make a bundle to transfer chest# for each level
+                    int level = finalI +1;
+                    Bundle numChests = new Bundle();
+                    numChests.putInt("numChests", numberOfChests(level));
+
+                    //put bundle in the intent for transfer. Use getIntent().getExtras().getString/int/...(key)
+                    //inside activity to access this data.
+                    intent.putExtras(numChests);
+
+                    //switch activity
+                    //startActivity(intent);
+                    startActivityForResult(intent, requestCode);
+                }
+            });
+        }
+
+        /* MIGHT BE REMOVABLE SOON IF ABOVE WORKS
         //btn onclicklisteners
         lvl1Btn.setOnClickListener(new View.OnClickListener(){
             @Override
@@ -207,7 +249,7 @@ public class overworld extends AppCompatActivity {
             }
         });
 
-
+        */
         //auto generated
        // mVisible = true;
        // mControlsView = findViewById(R.id.fullscreen_content_controls);

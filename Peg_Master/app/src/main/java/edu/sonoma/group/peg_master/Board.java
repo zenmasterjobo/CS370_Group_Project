@@ -12,10 +12,17 @@ import java.util.Random;
  */
 public class Board {
     private int [][]board;
-
+    private int minMoves;
+    private int medMoves;
+    private int maxMoves;
     private ArrayList<Chest> b = new ArrayList<Chest>();
     private Integer numChests;
     private ArrayList<Integer> keyLoc = new ArrayList<Integer>();
+
+    public Board(){
+        this.b = new ArrayList<Chest>();
+
+    }
 
     public void generate(int numChests){
         this.numChests = numChests;
@@ -25,6 +32,24 @@ public class Board {
         }
         Log.d("Possible array", possible.toString());
 
+        ArrayList<Chest> temp_board = new ArrayList<Chest>();
+        for (int i = 0; i < numChests; i++){
+            Chest c = new Chest();
+            Key k = new Key(possible.get(i));
+            c.setLeftKey(k);
+            temp_board.add(c);
+        }
+        setBoard(temp_board);
+
+        Key temp = new Key(-1);
+        for (int i = 0; i < 21; i++){
+            long l = System.nanoTime();
+            int chest = new Random(l).nextInt(numChests);
+            Key k = getChestAt(chest+1).makeMove(temp);
+            temp = k;
+        }
+
+        /*
         long seed = System.nanoTime();
         Collections.shuffle(possible, new Random(seed));
         Log.d("Possible shuffled array", possible.toString());
@@ -47,6 +72,7 @@ public class Board {
         }
         Log.d("A starting board", temp_board.toString());
         setBoard(temp_board);
+        */
 
     }
     public boolean isSolvable(int [][]board){

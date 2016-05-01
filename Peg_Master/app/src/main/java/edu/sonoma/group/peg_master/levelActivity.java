@@ -12,6 +12,7 @@ import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -62,69 +63,24 @@ public class levelActivity extends AppCompatActivity {
     }
 
     private void setup(){
-        /*
-        Chest c1 = new Chest();
-        Chest c2 = new Chest();
-        Chest c3 = new Chest();
-        Key k1 = new Key(1);
-        Key k2 = new Key(2);
-        Key k3 = new Key(3);
-        Key g = new Key(-1);
-        kih = new Key(-1);
-        c1.setLeftKey(k2);
-        c2.setLeftKey(k3);
-        c3.setLeftKey(k1);
-        ArrayList<Chest> _board = new ArrayList<Chest>();
-        _board.add(c1);
-        _board.add(c2);
-        _board.add(c3);
-        board.setBoard(_board);
-        */
-        Map<String, ArrayList<ImageButton>> BoardMap = bf.getBoardButtonMap();
-        ArrayList<ImageButton> buttons = BoardMap.get("Row2");
-        ImageButton chest1 = buttons.get(0);
-        chest1.setOnClickListener(new View.OnClickListener(){
-
-            @Override
-            public void onClick(View v) {
-                Key temp = board.getChestAt(1).makeMove(kih);
-                kih = new Key(Integer.parseInt(temp.getNumber()));
-                if (board.done()){
-                    Toast.makeText(getApplicationContext(), "OMFG UR SO COOL", Toast.LENGTH_LONG).show();
+        ArrayList<ImageButton> buttons = bf.getBoardButtonsByNumberOfChests(numChests);
+        for (int i = 0; i < buttons.size(); i++){
+            ImageButton b = buttons.get(i);
+            final int finalI = i;
+            b.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Key temp = board.getChestAt(finalI +1).makeMove(kih);
+                    kih = new Key(Integer.parseInt(temp.getNumber()));
+                    if (board.done()){
+                        Toast.makeText(getApplicationContext(), "OMFG UR SO COOL", Toast.LENGTH_LONG).show();
+                    }
+                    num_moves += 1;
+                    updateGraphics();
+                    Toast.makeText(getApplicationContext(), num_moves.toString(), Toast.LENGTH_LONG).show();
                 }
-                updateGraphics();
-                num_moves += 1;
-                Toast.makeText(getApplicationContext(), num_moves.toString(), Toast.LENGTH_LONG).show();
-            }
-        });
-        ImageButton chest2 = buttons.get(1);
-        chest2.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Key temp = board.getChestAt(2).makeMove(kih);
-                kih = new Key(Integer.parseInt(temp.getNumber()));
-                if (board.done()){
-                    Toast.makeText(getApplicationContext(), "OMFG UR SO COOL", Toast.LENGTH_LONG).show();
-                }
-                updateGraphics();
-                num_moves += 1;
-                Toast.makeText(getApplicationContext(), num_moves.toString(), Toast.LENGTH_LONG).show();
-            }
-        });
-        ImageButton chest3 = buttons.get(2);
-        chest3.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Key temp = board.getChestAt(3).makeMove(kih);
-                kih = new Key(Integer.parseInt(temp.getNumber()));
-                if (board.done()){
-                    Toast.makeText(getApplicationContext(), "OMFG UR SO COOL", Toast.LENGTH_LONG).show();
-                }
-                updateGraphics();
-                num_moves += 1;
-                Toast.makeText(getApplicationContext(), num_moves.toString(), Toast.LENGTH_LONG).show();
-            }
-        });
+            });
+        }
     }
 
     private void updateGraphics() {
