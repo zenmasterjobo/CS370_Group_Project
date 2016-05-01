@@ -25,7 +25,8 @@ public class BoardFragment extends Fragment {
             chest1_1left, chest1_1right, chest1_2left, chest1_2right, chest1_3left, chest1_3right,
             chest2_1left, chest2_1right, chest2_2left, chest2_2right, chest2_3left, chest2_3right,
             chest3_1left, chest3_1right, chest3_2left, chest3_2right, chest3_3left, chest3_3right,
-            chest4_1left, chest4_1right, chest4_2left, chest4_2right, chest4_3left, chest4_3right;
+            chest4_1left, chest4_1right, chest4_2left, chest4_2right, chest4_3left, chest4_3right,
+            moveCounter, kih, levelCounter;
 
     private ArrayList<TextView> boardTextViews = new ArrayList<TextView>();
     private ArrayList<ImageButton> boardButtons = new ArrayList<ImageButton>();
@@ -36,6 +37,12 @@ public class BoardFragment extends Fragment {
     private Map _chestKeys = new HashMap();
 
     public BoardFragment(){
+        //boardTextViews = null;
+        //boardButtons = null;
+        //chestNumbers = null;
+        //_boardButtons = null;
+        //_chestKeys = null;
+        //_chestNumbers = null;
 
     }
 
@@ -49,6 +56,18 @@ public class BoardFragment extends Fragment {
     public Map<String,ArrayList<ImageButton>> getBoardButtonMap(){
         Log.d("Board Button Map", _boardButtons.toString());
         return _boardButtons;
+    }
+
+    public TextView getLevelCounter(){
+        return levelCounter;
+    }
+
+    public TextView getMoveCounter(){
+        return moveCounter;
+    }
+
+    public TextView getKih(){
+        return kih;
     }
 
     public Map<String, ArrayList<TextView>> getChestNumberMap(){
@@ -210,6 +229,9 @@ public class BoardFragment extends Fragment {
         chest4_2right = (TextView) rootView.findViewById(R.id.chest4_2right);
         chest4_3right = (TextView) rootView.findViewById(R.id.chest4_3right);
 
+        kih = (TextView) rootView.findViewById(R.id.keyInHand);
+        moveCounter = (TextView) rootView.findViewById(R.id.moveCounter);
+        levelCounter = (TextView) rootView.findViewById(R.id.levelCounter);
 
         chest1_1.setOnClickListener(new View.OnClickListener() {
             @Override

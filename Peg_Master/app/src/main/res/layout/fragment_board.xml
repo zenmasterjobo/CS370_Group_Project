@@ -851,7 +851,7 @@
         android:layout_height="wrap_content"
         android:text="Moves: 0"
         android:layout_marginRight="15dp"
-        android:id="@+id/stepCounter"
+        android:id="@+id/moveCounter"
         android:layout_gravity="top|right"
         android:textSize="30sp"
         />
