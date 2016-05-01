@@ -8,6 +8,7 @@ public class GlobalApplicationClass extends Application {
 
     private static GlobalApplicationClass instance;
     private static UserSettings userSettings;
+    private static User currentUser;
 
 
     @Override
@@ -28,6 +29,14 @@ public class GlobalApplicationClass extends Application {
         }
 
         return userSettings;
+    }
+
+    public static User getCurrentUser(){
+        return currentUser;
+    }
+
+    public static void setCurrentUser(User aUser){
+        currentUser = aUser;
     }
 
 

@@ -81,6 +81,7 @@ public class MainMenuFragment extends Fragment{
 
         if(lastUser !="null"){
             currentUser = dbManager.getUser(lastUser);
+            GlobalApplicationClass.setCurrentUser(currentUser);
 
             //start music if enabled for currentUser
             if(currentUser.getMusic())
