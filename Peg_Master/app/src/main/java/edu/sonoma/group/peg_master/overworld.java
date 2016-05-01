@@ -128,6 +128,17 @@ public class overworld extends AppCompatActivity {
     }
 
     @Override
+    protected void onDestroy(){
+        //Intent returnIntent = new Intent();
+        setResult(Activity.RESULT_OK);
+        Toast.makeText(getApplicationContext(),"ONDESTROY",Toast.LENGTH_SHORT).show();
+        //finishActivity(2);
+        super.onDestroy();
+
+
+    }
+
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
@@ -165,6 +176,7 @@ public class overworld extends AppCompatActivity {
                     int level = finalI +1;
                     Bundle numChests = new Bundle();
                     numChests.putInt("numChests", numberOfChests(level));
+                    numChests.putInt("levelnum",level);
 
                     //put bundle in the intent for transfer. Use getIntent().getExtras().getString/int/...(key)
                     //inside activity to access this data.

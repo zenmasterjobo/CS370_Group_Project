@@ -43,6 +43,12 @@ public class UserTableManager extends DBHandler {
 
 
     public void addCompletedLevel(User aUser){
+        SQLiteDatabase db = this.getWritableDatabase();
+        String myQuery;
+        for(int i =0;i <aUser.getCompletedLevels().size();i++){
+            Log.v("myApp","COMPLETED LEVEL: " + Integer.toString(aUser.getCompletedLevels().get(i).getLID()));
+
+        }
 
     }
 

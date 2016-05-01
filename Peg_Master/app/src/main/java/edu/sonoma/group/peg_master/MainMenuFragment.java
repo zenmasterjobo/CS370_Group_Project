@@ -117,7 +117,15 @@ public class MainMenuFragment extends Fragment{
                 editor.putString("lastUser",lastUser);
                 editor.apply();
 
+
+
             }
+        }
+        //if user has gotten out of overworld screen, update levels table
+        else if(requestCode ==2){
+            //Toast.makeText(getActivity().getApplicationContext(),"UPDATING LEVELS TABLE",Toast.LENGTH_SHORT).show();
+            dbManager.addCompletedLevel(GlobalApplicationClass.getCurrentUser());
+
         }
     }
 
@@ -147,9 +155,10 @@ public class MainMenuFragment extends Fragment{
             public void onClick(View v) {
                 Intent intent = new Intent(getActivity(), overworld.class);
                 Bundle bundle = new Bundle();
-                bundle.putString("currentUser",currentUser.getName());
-                intent.putExtras(bundle);
-                startActivity(intent);
+                //bundle.putString("currentUser",currentUser.getName());
+                //intent.putExtras(bundle);
+                startActivityForResult(intent,2);
+                //startActivity(intent);
                 //BoardFragment newFrag = new BoardFragment();
                 //FragmentTransaction transaction = getActivity().getSupportFragmentManager().beginTransaction();
                 //transaction.replace(R.id.fragment_container, newFrag);

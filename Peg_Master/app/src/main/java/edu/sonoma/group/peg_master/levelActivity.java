@@ -25,7 +25,7 @@ import java.util.Map;
 public class levelActivity extends AppCompatActivity {
 
     private int numChests;
-
+    private int levelNum;
     private GameFactory gf;
     private Board board = new Board();
     private BoardFragment bf;
@@ -46,7 +46,7 @@ public class levelActivity extends AppCompatActivity {
 
         //set numChests from the bundle
         numChests = getIntent().getExtras().getInt("numChests");
-
+        levelNum = getIntent().getExtras().getInt("levelnum");
         String debugmsg = "numChests: " + Integer.toString(numChests);
         Log.d("NumChests", Integer.toString(numChests));
         //Toast.makeText(this.getApplicationContext(),debugmsg,Toast.LENGTH_LONG).show();
@@ -76,6 +76,11 @@ public class levelActivity extends AppCompatActivity {
                     kih = new Key(Integer.parseInt(temp.getNumber()));
                     if (board.done()){
                         Toast.makeText(getApplicationContext(), "OMFG UR SO COOL", Toast.LENGTH_LONG).show();
+                        //add this completed level to GAC currentUser and update.
+                        CompletedLevel cLevel = new CompletedLevel(levelNum,3,numChests);
+                        User cUser = GlobalApplicationClass.getCurrentUser();
+                        cUser.addLevel(cLevel);
+                        GlobalApplicationClass.setCurrentUser(cUser);
                     }
                     num_moves += 1;
                     updateGraphics();
