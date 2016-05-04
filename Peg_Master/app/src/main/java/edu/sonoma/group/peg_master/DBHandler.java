@@ -10,7 +10,7 @@ public class DBHandler extends SQLiteOpenHelper {
     //db infooo
 
 
-    private static final int DATABASE_VERSION = 22;
+    private static final int DATABASE_VERSION = 26;
     private static final String DATABASE_NAME = "users.db";
     protected static final String USER_TABLE_NAME = "USER_TABLE";
     //USER TABLE
@@ -41,8 +41,9 @@ public class DBHandler extends SQLiteOpenHelper {
             + COLUMN_LID + " INT, "
             + COLUMN_STARS + " INT, "
             + COLUMN_NUMCHESTS + " INT, "
-            + COLUMN_UID + " INT, " +"FOREIGN KEY (" + COLUMN_UID +") REFERENCES "
-            + USER_TABLE_NAME + "(" + COLUMN_UID + "));";
+            + COLUMN_UID + " INT);";
+
+
 
 
 
@@ -62,6 +63,7 @@ public class DBHandler extends SQLiteOpenHelper {
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion,int newVersion){
         db.execSQL("DROP TABLE IF EXISTS " +USER_TABLE_NAME);
+        db.execSQL("DROP TABLE IF EXISTS " + COMPLETED_LEVELS_TABLE_NAME);
         onCreate(db);
     }
 }

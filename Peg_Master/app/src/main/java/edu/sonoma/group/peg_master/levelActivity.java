@@ -84,15 +84,19 @@ public class levelActivity extends AppCompatActivity {
                     kih = new Key(Integer.parseInt(temp.getNumber()));
                     if (board.done()){
                         Toast.makeText(getApplicationContext(), "OMFG UR SO COOL", Toast.LENGTH_LONG).show();
-                        //add this completed level to GAC currentUser and update.
-                        CompletedLevel cLevel = new CompletedLevel(levelNum,3,numChests);
-                        User cUser = GlobalApplicationClass.getCurrentUser();
-                        cUser.addLevel(cLevel);
-                        GlobalApplicationClass.setCurrentUser(cUser);
+                        //add this completed level to GAC currentUser and update,if they havent completed yet.
+                        if(GlobalApplicationClass.getCurrentUser().getCompletedLevels().size() < levelNum) {
+                            CompletedLevel cLevel = new CompletedLevel(levelNum, 3, numChests);
+                            User cUser = GlobalApplicationClass.getCurrentUser();
+                            cUser.addLevel(cLevel);
+                            GlobalApplicationClass.setCurrentUser(cUser);
+                            Toast.makeText(getApplicationContext(), "added level", Toast.LENGTH_LONG).show();
+
+                        }
                     }
                     num_moves += 1;
                     updateGraphics();
-                    Toast.makeText(getApplicationContext(), num_moves.toString(), Toast.LENGTH_LONG).show();
+                   // Toast.makeText(getApplicationContext(), num_moves.toString(), Toast.LENGTH_LONG).show();
 
                     moveCounter.setText("Moves: " + Integer.toString(num_moves));
                 }

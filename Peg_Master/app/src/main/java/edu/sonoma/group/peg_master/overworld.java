@@ -4,6 +4,7 @@ import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.app.FragmentTransaction;
 import android.content.Intent;
+import android.provider.Settings;
 import android.support.v4.app.FragmentManager;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
@@ -161,7 +162,8 @@ public class overworld extends AppCompatActivity {
         displayedButtons = allButtons.size();
 
         //debug GAC works
-        Toast.makeText(getApplicationContext(),currentUser.getName(),Toast.LENGTH_SHORT).show();
+        //Toast.makeText(getApplicationContext(),currentUser.getName(),Toast.LENGTH_SHORT).show();
+
         for (int i = 0; i < displayedButtons; i ++){
             Button b = allButtons.get(i);
             final int finalI = i;
@@ -174,18 +176,24 @@ public class overworld extends AppCompatActivity {
 
                     //make a bundle to transfer chest# for each level
                     int level = finalI +1;
-                    Bundle numChests = new Bundle();
-                    numChests.putInt("numChests", numberOfChests(level));
-                    numChests.putInt("levelnum",level);
+                    int userCLevel = GlobalApplicationClass.getCurrentUser().getCompletedLevels().size();
 
+                    //only let them play the level if they have completed previous levels.
+                    if(userCLevel >= level-1 || level ==1) {
+                        Bundle numChests = new Bundle();
+                        numChests.putInt("numChests", numberOfChests(level));
+                        numChests.putInt("levelnum", level);
+                        //put bundle in the intent for transfer. Use getIntent().getExtras().getString/int/...(key)
+                        //inside activity to access this data.
+                        intent.putExtras(numChests);
+                        //switch activity
+                        //startActivity(intent);
+                        startActivityForResult(intent, requestCode);
+                    }
+                    else{
+                        Toast.makeText(getApplicationContext(),"PLAY PREVIOUS LEVEL TO UNLOCK",Toast.LENGTH_SHORT).show();
 
-                    //put bundle in the intent for transfer. Use getIntent().getExtras().getString/int/...(key)
-                    //inside activity to access this data.
-                    intent.putExtras(numChests);
-
-                    //switch activity
-                    //startActivity(intent);
-                    startActivityForResult(intent, requestCode);
+                    }
                 }
             });
         }

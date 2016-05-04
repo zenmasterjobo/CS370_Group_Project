@@ -70,6 +70,7 @@ public class User {
     public ArrayList<CompletedLevel> getCompletedLevels(){
         return completedLevels;
     }
+    public void setCompletedLevels(ArrayList<CompletedLevel>cLevels){completedLevels = cLevels;}
 
 
 }
