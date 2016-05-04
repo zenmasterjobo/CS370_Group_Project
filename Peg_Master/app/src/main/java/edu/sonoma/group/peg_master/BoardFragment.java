@@ -121,6 +121,14 @@ public class BoardFragment extends Fragment {
             ret.add(chestNumberMap.get("Row2").get(2));
             ret.add(chestNumberMap.get("Row3").get(1));
         }
+        else if (num_chests == 5){
+            ret.add(chestNumberMap.get("Row1").get(1));
+            ret.add(chestNumberMap.get("Row2").get(0));
+            ret.add(chestNumberMap.get("Row2").get(2));
+            ret.add(chestNumberMap.get("Row3").get(1));
+            // Adding middle chest for 5
+            ret.add(chestNumberMap.get("Row2").get(1));
+        }
         return ret;
     }
 

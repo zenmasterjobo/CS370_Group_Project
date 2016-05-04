@@ -83,11 +83,11 @@ public class levelActivity extends AppCompatActivity {
                     Key temp = board.getChestAt(finalI +1).makeMove(kih);
                     kih = new Key(Integer.parseInt(temp.getNumber()));
                     if (board.done()){
-                        Toast.makeText(getApplicationContext(), "OMFG UR SO COOL", Toast.LENGTH_LONG).show();
+                        //Toast.makeText(getApplicationContext(), "OMFG UR SO COOL", Toast.LENGTH_LONG).show();
                     }
                     num_moves += 1;
                     updateGraphics();
-                    Toast.makeText(getApplicationContext(), num_moves.toString(), Toast.LENGTH_LONG).show();
+                    //Toast.makeText(getApplicationContext(), num_moves.toString(), Toast.LENGTH_LONG).show();
 
                     moveCounter.setText("Moves: " + Integer.toString(num_moves));
                 }
