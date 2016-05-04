@@ -13,6 +13,7 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.ScrollView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
@@ -133,6 +134,8 @@ public class overworld extends AppCompatActivity {
 
         setContentView(R.layout.activity_overworld);
 
+        ScrollView scroll = (ScrollView) findViewById(R.id.fullscreen_content);
+        scroll.scrollTo(0, scroll.getBottom());
 
         //set them level buttons to the ones in the layout
         lvl1Btn = (Button)findViewById(R.id.level1);
