@@ -84,6 +84,14 @@ public class levelActivity extends AppCompatActivity {
                     kih = new Key(Integer.parseInt(temp.getNumber()));
                     if (board.done()){
                         //Toast.makeText(getApplicationContext(), "OMFG UR SO COOL", Toast.LENGTH_LONG).show();
+                        
+                        FragmentManager fm = getSupportFragmentManager();
+                        FragmentTransaction ft = fm.beginTransaction();
+                        StarScreenFragment SSF = new StarScreenFragment();
+                        ft.replace(R.id.fragment_container, SSF, null);
+                        ft.addToBackStack("SSF");
+                        ft.commit();
+
                     }
                     num_moves += 1;
                     updateGraphics();
