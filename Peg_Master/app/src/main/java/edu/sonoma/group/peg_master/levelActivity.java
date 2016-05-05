@@ -14,6 +14,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -82,6 +83,7 @@ public class levelActivity extends AppCompatActivity {
                 public void onClick(View v) {
                     Key temp = board.getChestAt(finalI +1).makeMove(kih);
                     kih = new Key(Integer.parseInt(temp.getNumber()));
+                    num_moves += 1;
                     if (board.done()){
                         //Toast.makeText(getApplicationContext(), "OMFG UR SO COOL", Toast.LENGTH_LONG).show();
                         
@@ -92,8 +94,28 @@ public class levelActivity extends AppCompatActivity {
                         ft.addToBackStack("SSF");
                         ft.commit();
 
+                        getSupportFragmentManager().executePendingTransactions();
+
+                        ArrayList<ImageView> stars = SSF.getStarsImageViews();
+                        ArrayList<Integer> boardScores = board.getScoreRanking();
+
+                        Log.d("Size of stars Array:",Integer.toString(stars.size()));
+                        for (int i = 0; i < stars.size(); i++){
+                            ImageView s = stars.get(i);
+                            s.setVisibility(View.INVISIBLE);
+                        }
+
+                        if (num_moves < boardScores.get(2)){
+                            stars.get(0).setVisibility(View.VISIBLE);
+                        }
+                        if (num_moves < boardScores.get(1)){
+                            stars.get(1).setVisibility(View.VISIBLE);
+                        }
+                        if (num_moves <= boardScores.get(0)){
+                            stars.get(2).setVisibility(View.VISIBLE);
+                        }
+
                     }
-                    num_moves += 1;
                     updateGraphics();
                     //Toast.makeText(getApplicationContext(), num_moves.toString(), Toast.LENGTH_LONG).show();
 

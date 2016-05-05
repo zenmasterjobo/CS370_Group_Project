@@ -4,6 +4,7 @@ import android.util.Log;
 
 import java.lang.reflect.Array;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.Random;
 
@@ -16,14 +17,29 @@ public class Board {
     private int maxMoves;
     private ArrayList<Chest> b = new ArrayList<Chest>();
     private Integer numChests;
+    private int boardScore;
 
     public Board(){
         this.b = new ArrayList<Chest>();
         this.numChests = 0;
     }
 
+    public ArrayList<Integer> getScoreRanking(){
+        ArrayList <Integer> ret = new ArrayList<Integer>();
+        ret.addAll(Arrays.asList(this.minMoves, this.medMoves, this.maxMoves));
+        Log.d("Array of score ranks", ret.toString());
+        return ret;
+    }
+
+    public Integer getBoardScore(){
+        return this.boardScore;
+    }
+
     public void generate(int numChests){
         this.numChests = numChests;
+        this.minMoves = numChests * 2;
+        this.medMoves = numChests * 3;
+        this.maxMoves = numChests * 4;
         ArrayList<Integer> possible = new ArrayList<Integer>();
         for (int i = 0; i < numChests; i++){
             possible.add(i + 1);

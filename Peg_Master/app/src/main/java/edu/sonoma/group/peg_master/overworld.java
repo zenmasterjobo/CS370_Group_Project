@@ -153,7 +153,7 @@ public class overworld extends AppCompatActivity {
         displayedButtons = allButtons.size();
 
         //debug GAC works
-        Toast.makeText(getApplicationContext(),currentUser.getName(),Toast.LENGTH_SHORT).show();
+//        Toast.makeText(getApplicationContext(),currentUser.getName(),Toast.LENGTH_SHORT).show();
         for (int i = 0; i < displayedButtons; i ++){
             Button b = allButtons.get(i);
             final int finalI = i;
