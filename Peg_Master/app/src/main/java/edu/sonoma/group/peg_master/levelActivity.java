@@ -1,26 +1,17 @@
 package edu.sonoma.group.peg_master;
 
-import android.content.Context;
 import android.graphics.Color;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
 import android.util.Log;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import org.w3c.dom.Text;
-
 import java.util.ArrayList;
-import java.util.Map;
 
 public class levelActivity extends AppCompatActivity {
 
@@ -91,12 +82,17 @@ public class levelActivity extends AppCompatActivity {
                             cUser.addLevel(cLevel);
                             GlobalApplicationClass.setCurrentUser(cUser);
                             Toast.makeText(getApplicationContext(), "added level", Toast.LENGTH_LONG).show();
+                            FragmentManager fm = getSupportFragmentManager();
+                            FragmentTransaction ft = fm.beginTransaction();
+                            StarScreenFragment SSF = new StarScreenFragment();
+                            ft.replace(R.id.fragment_container, SSF, null);
+                            ft.addToBackStack("SSF");
+                            ft.commit();
 
                         }
                     }
                     num_moves += 1;
                     updateGraphics();
-                   // Toast.makeText(getApplicationContext(), num_moves.toString(), Toast.LENGTH_LONG).show();
 
                     moveCounter.setText("Moves: " + Integer.toString(num_moves));
                 }
