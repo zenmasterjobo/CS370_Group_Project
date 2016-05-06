@@ -10,7 +10,8 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme.NoActionBar"
         android:name="edu.sonoma.group.peg_master.GlobalApplicationClass">
-        <activity android:name=".MainMenu">
+        <activity android:name=".MainMenu"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -39,6 +40,8 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="edu.sonoma.group.peg_master.overworld" />
         </activity>
+
+
 
         <activity android:name=".UserList"
             android:theme="@style/AppTheme.CustomTheme"></activity>

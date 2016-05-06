@@ -111,9 +111,13 @@ public class overworld extends AppCompatActivity {
                 Log.d("User has not completed", Integer.toString(i));
                 allButtons.get(i).setBackgroundColor(Color.parseColor("#ff0000"));
             }
-            else{
+            else {
                 allButtons.get(i).setBackgroundColor(Color.parseColor("#66ff66"));
             }
+            if (userCLevel == i){
+                allButtons.get(i).setBackgroundColor(Color.parseColor("#0000ff"));
+            }
+
         }
     }
 
