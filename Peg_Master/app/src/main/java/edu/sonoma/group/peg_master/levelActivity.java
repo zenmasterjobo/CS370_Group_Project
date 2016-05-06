@@ -41,6 +41,9 @@ public class levelActivity extends AppCompatActivity {
     protected void onStart(){
         super.onStart();
         board.generate(numChests);
+        while ( board.done() || (board.getBoardScore() < numChests/2)){
+            board.generate(numChests);
+        }
         kih = new Key(-1);
         setup();
         updateGraphics();
@@ -108,7 +111,7 @@ public class levelActivity extends AppCompatActivity {
                         if (num_moves < boardScores.get(2)){
                             stars.get(0).setVisibility(View.VISIBLE);
                         }
-                        if (num_moves < boardScores.get(1)){
+                        if (num_moves <= boardScores.get(1)){
                             stars.get(1).setVisibility(View.VISIBLE);
                         }
                         if (num_moves <= boardScores.get(0)){

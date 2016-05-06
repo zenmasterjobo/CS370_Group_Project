@@ -80,30 +80,18 @@ public class Board {
             }
         }
         Log.d("Board after generation", b.toString());
-        /*
-        long seed = System.nanoTime();
-        Collections.shuffle(possible, new Random(seed));
-        Log.d("Possible shuffled array", possible.toString());
 
-        ArrayList<Chest> temp_board = new ArrayList<Chest>();
-        for (int i = 0; i < numChests; i++){
-            Chest c = new Chest();
-            Key k = new Key(possible.get(i));
-            long l = System.nanoTime();
-            boolean left = new Random(l).nextBoolean();
-            if (left){
-                c.setLeftKey(k);
-                this.keyLoc.add(0);
+        boardScore = 0;
+
+        for (int j = 0; j < numChests; j++){
+            if ( getChestAt(j+1).getLeftKey() == null){
+        //        boardScore += 1;
             }
-            else{
-                c.setRightKey(k);
-                this.keyLoc.add(1);
+            else if ( !( getChestAt(j+1).getLeftKey().getNumber().equals(Integer.toString(j+1)) ) ) {
+                    boardScore += 1;
             }
-            temp_board.add(c);
         }
-        Log.d("A starting board", temp_board.toString());
-        setBoard(temp_board);
-        */
+        Log.d("Board Value is:", Integer.toString(boardScore));
 
     }
     public boolean isSolvable(int [][]board){
