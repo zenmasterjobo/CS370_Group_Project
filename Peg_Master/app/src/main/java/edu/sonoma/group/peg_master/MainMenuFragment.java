@@ -3,25 +3,17 @@ package edu.sonoma.group.peg_master;
 import android.app.Activity;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.media.Image;
-import android.preference.PreferenceManager;
-import android.support.v4.app.FragmentTransaction;
-import android.content.Context;
-import android.net.Uri;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.support.v4.app.Fragment;
-import android.util.Log;
+import android.support.v4.app.FragmentTransaction;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.CompoundButton;
 import android.widget.ImageButton;
-import android.widget.Switch;
-import android.widget.TextView;
 import android.widget.Toast;
 
-import java.util.ArrayList;
 import java.util.List;
 
 
@@ -30,7 +22,7 @@ public class MainMenuFragment extends Fragment{
 
     //private Button infoButton, optionsButton;
     private ImageButton startButton, infoButton, optionsButton;
-    private Button changeUsersButton;
+    private Button statsButton;
     private DBHandler db;
     private UserTableManager dbManager;
     //used to set currentUser
@@ -146,6 +138,7 @@ public class MainMenuFragment extends Fragment{
         startButton = (ImageButton) view.findViewById(R.id.Startbutton);
         infoButton = (ImageButton) view.findViewById(R.id.Infobutton);
         optionsButton = (ImageButton) view.findViewById(R.id.Optionsbutton);
+        statsButton = (Button)view.findViewById(R.id.Statsbutton);
         //createUserButton = (Button)view.findViewById(R.id.CreateUser);
         //changeUsersButton = (Button)view.findViewById(R.id.ChangeUsers);
 
@@ -202,6 +195,16 @@ public class MainMenuFragment extends Fragment{
                 transaction.addToBackStack(null);
                 transaction.commit();
 
+            }
+        });
+        statsButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                StatisticsFragment newFrag = new StatisticsFragment();
+                FragmentTransaction transaction = getActivity().getSupportFragmentManager().beginTransaction();
+                transaction.replace(R.id.fragment_container,newFrag);
+                transaction.addToBackStack(null);
+                transaction.commit();
             }
         });
 
