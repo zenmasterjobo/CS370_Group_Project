@@ -2,8 +2,10 @@ package edu.sonoma.group.peg_master;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ScrollView;
@@ -89,7 +91,7 @@ public class overworld extends AppCompatActivity {
     };*/
 
     //level buttons
-    private Button lvl1Btn,lvl2Btn,lvl3Btn, lvl4Btn, lvl5Btn,lvl6Btn, lvl7Btn, lvl8Btn;
+    private Button lvl1Btn,lvl2Btn,lvl3Btn, lvl4Btn, lvl5Btn,lvl6Btn, lvl7Btn, lvl8Btn, lvl9Btn,lvl10Btn, lvl11Btn;
 
     //database stuff
     //private DBHandler db;
@@ -99,6 +101,22 @@ public class overworld extends AppCompatActivity {
 
 
     private User currentUser = GlobalApplicationClass.getCurrentUser();
+
+    @Override
+    public void onStart(){
+        super.onStart();
+        int userCLevel = GlobalApplicationClass.getCurrentUser().getCompletedLevels().size();
+        for (int i = 0; i < displayedButtons; i++){
+            if( userCLevel-1 < i ) {
+                Log.d("User has not completed", Integer.toString(i));
+                allButtons.get(i).setBackgroundColor(Color.parseColor("#ff0000"));
+            }
+            else{
+                allButtons.get(i).setBackgroundColor(Color.parseColor("#66ff66"));
+            }
+        }
+    }
+
 
     protected Integer numberOfChests(Integer level){
         Integer chests = 3;
@@ -150,10 +168,14 @@ public class overworld extends AppCompatActivity {
         lvl6Btn = (Button)findViewById(R.id.level6);
         lvl7Btn = (Button)findViewById(R.id.level7);
         lvl8Btn = (Button)findViewById(R.id.level8);
+        lvl9Btn = (Button)findViewById(R.id.level9);
+        lvl10Btn = (Button)findViewById(R.id.level10);
+        lvl11Btn = (Button)findViewById(R.id.level11);
 
         allButtons = new ArrayList<Button>();
 
-        allButtons.addAll(Arrays.asList(lvl1Btn,lvl2Btn,lvl3Btn, lvl4Btn, lvl5Btn,lvl6Btn, lvl7Btn, lvl8Btn));
+        allButtons.addAll(Arrays.asList(lvl1Btn,lvl2Btn,lvl3Btn, lvl4Btn, lvl5Btn,lvl6Btn, lvl7Btn,
+                                        lvl8Btn, lvl9Btn,lvl10Btn, lvl11Btn));
         displayedButtons = allButtons.size();
 
         //debug GAC works

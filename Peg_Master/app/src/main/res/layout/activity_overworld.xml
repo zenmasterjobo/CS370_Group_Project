@@ -36,6 +36,39 @@
                     style="?android:attr/buttonStyleSmall"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:text="L11"
+                    android:id="@+id/level11"
+                    android:typeface="serif"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginRight="100dp"
+                    android:layout_marginBottom="120dp" />
+
+                <Button
+                    style="?android:attr/buttonStyleSmall"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="L10"
+                    android:id="@+id/level10"
+                    android:typeface="serif"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginLeft="0dp"
+                    android:layout_marginBottom="150dp" />
+
+                <Button
+                    style="?android:attr/buttonStyleSmall"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="L9"
+                    android:id="@+id/level9"
+                    android:typeface="serif"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginLeft="80dp"
+                    android:layout_marginBottom="150dp" />
+
+                <Button
+                    style="?android:attr/buttonStyleSmall"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
                     android:text="L8"
                     android:id="@+id/level8"
                     android:typeface="serif"
