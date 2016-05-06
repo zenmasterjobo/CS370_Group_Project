@@ -42,7 +42,27 @@ public class UserTableManager extends DBHandler {
     }
 
 
-    public void addCompletedLevel(User aUser){
+    public void addCompletedLevel(User aUser,int completedLevels){
+
+        SQLiteDatabase db = this.getWritableDatabase();
+        String myQuery;
+        ArrayList<CompletedLevel> completedLevelsArray = aUser.getCompletedLevels();
+        int size = completedLevelsArray.size();
+        for(int i =0;i <completedLevels;i++){
+            ContentValues values = new ContentValues();
+            CompletedLevel aCLevel = completedLevelsArray.get(size -1-i);
+            values.put(COLUMN_LID,aCLevel.getLID());
+            values.put(COLUMN_STARS,aCLevel.getNumStars());
+            values.put(COLUMN_NUMCHESTS,aCLevel.getNumChests());
+            values.put(COLUMN_UID,aUser.getID());
+            db.insert(COMPLETED_LEVELS_TABLE_NAME,null,values);
+            Log.v("myApp","COMPLETED LEVEL: " + Integer.toString(aCLevel.getLID()));
+
+
+        }
+
+
+        db.close();
 
     }
 
@@ -97,6 +117,29 @@ public class UserTableManager extends DBHandler {
         }
         Log.d("UserTableManager", Integer.toString(userList.size()));
         return userList;
+    }
+
+    public ArrayList<CompletedLevel> getLevels(User aUser){
+        String myQuery = "SELECT * FROM " + COMPLETED_LEVELS_TABLE_NAME + " WHERE " + COLUMN_UID +
+                "=" + aUser.getID();
+
+        SQLiteDatabase db = getReadableDatabase();
+        Cursor myCursor = db.rawQuery(myQuery, null);
+        ArrayList<CompletedLevel> completedLevels = new ArrayList<>();
+        try{
+            if(myCursor.moveToFirst()){
+                do{
+                    CompletedLevel aCLevel = new CompletedLevel(myCursor.getInt(0),myCursor.getInt(1),myCursor.getInt(2));
+                    completedLevels.add(aCLevel);
+
+                }while(myCursor.moveToNext());
+            }
+        }finally {
+            db.close();
+        }
+        Log.d("UserTableManager", "CLEVELS: " + Integer.toString(completedLevels.size()));
+
+        return completedLevels;
     }
 
     //return a user by name
