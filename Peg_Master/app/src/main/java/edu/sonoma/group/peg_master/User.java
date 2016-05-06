@@ -1,5 +1,7 @@
 package edu.sonoma.group.peg_master;
 
+import java.util.ArrayList;
+
 /**
  * Created by nick on 4/12/16.
  */
@@ -10,6 +12,7 @@ public class User {
     private int timePlayed;
     private int chestsOpened;
     private int numStars;
+    private ArrayList<CompletedLevel> completedLevels;
     private boolean bMusic;
 
     // constructor for user
@@ -20,6 +23,7 @@ public class User {
         chestsOpened = 0;
         numStars = 0;
         bMusic = true;
+        completedLevels = new ArrayList<>();
     }
 
     //getters and setters!
@@ -59,4 +63,14 @@ public class User {
 
     public void setMusic(boolean music){bMusic = music;};
     public boolean getMusic(){return bMusic;};
+
+    public void addLevel(CompletedLevel level){
+        completedLevels.add(level);
+    }
+    public ArrayList<CompletedLevel> getCompletedLevels(){
+        return completedLevels;
+    }
+    public void setCompletedLevels(ArrayList<CompletedLevel>cLevels){completedLevels = cLevels;}
+
+
 }

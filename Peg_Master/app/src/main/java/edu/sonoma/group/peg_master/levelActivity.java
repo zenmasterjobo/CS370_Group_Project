@@ -1,32 +1,23 @@
 package edu.sonoma.group.peg_master;
 
-import android.content.Context;
 import android.graphics.Color;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
 import android.util.Log;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import org.w3c.dom.Text;
-
 import java.util.ArrayList;
-import java.util.Map;
 
 public class levelActivity extends AppCompatActivity {
 
     private int numChests;
-
+    private int levelNum;
     private GameFactory gf;
     private Board board = new Board();
     private BoardFragment bf;
@@ -51,7 +42,7 @@ public class levelActivity extends AppCompatActivity {
 
         //set numChests from the bundle
         numChests = getIntent().getExtras().getInt("numChests");
-
+        levelNum = getIntent().getExtras().getInt("levelnum");
         String debugmsg = "numChests: " + Integer.toString(numChests);
         Log.d("NumChests", Integer.toString(numChests));
         //Toast.makeText(this.getApplicationContext(),debugmsg,Toast.LENGTH_LONG).show();
@@ -86,38 +77,45 @@ public class levelActivity extends AppCompatActivity {
                     num_moves += 1;
                     if (board.done()){
                         //Toast.makeText(getApplicationContext(), "OMFG UR SO COOL", Toast.LENGTH_LONG).show();
-                        
-                        FragmentManager fm = getSupportFragmentManager();
-                        FragmentTransaction ft = fm.beginTransaction();
-                        StarScreenFragment SSF = new StarScreenFragment();
-                        ft.replace(R.id.fragment_container, SSF, null);
-                        ft.addToBackStack("SSF");
-                        ft.commit();
+                        if(GlobalApplicationClass.getCurrentUser().getCompletedLevels().size() < levelNum) {
+                            CompletedLevel cLevel = new CompletedLevel(levelNum, 3, numChests);
+                            User cUser = GlobalApplicationClass.getCurrentUser();
+                            cUser.addLevel(cLevel);
+                            GlobalApplicationClass.setCurrentUser(cUser);
 
-                        getSupportFragmentManager().executePendingTransactions();
+                            FragmentManager fm = getSupportFragmentManager();
+                            FragmentTransaction ft = fm.beginTransaction();
+                            StarScreenFragment SSF = new StarScreenFragment();
+                            ft.replace(R.id.fragment_container, SSF, null);
+                            ft.addToBackStack("SSF");
+                            ft.commit();
 
-                        ArrayList<ImageView> stars = SSF.getStarsImageViews();
-                        ArrayList<Integer> boardScores = board.getScoreRanking();
+                            getSupportFragmentManager().executePendingTransactions();
 
-                        Log.d("Size of stars Array:",Integer.toString(stars.size()));
-                        for (int i = 0; i < stars.size(); i++){
-                            ImageView s = stars.get(i);
-                            s.setVisibility(View.INVISIBLE);
+                            ArrayList<ImageView> stars = SSF.getStarsImageViews();
+                            ArrayList<Integer> boardScores = board.getScoreRanking();
+
+                            Log.d("Size of stars Array:", Integer.toString(stars.size()));
+                            for (int i = 0; i < stars.size(); i++) {
+                                ImageView s = stars.get(i);
+                                s.setVisibility(View.INVISIBLE);
+                            }
+
+                            if (num_moves < boardScores.get(2)) {
+                                stars.get(0).setVisibility(View.VISIBLE);
+                            }
+                            if (num_moves < boardScores.get(1)) {
+                                stars.get(1).setVisibility(View.VISIBLE);
+                            }
+                            if (num_moves <= boardScores.get(0)) {
+                                stars.get(2).setVisibility(View.VISIBLE);
+                            }
                         }
 
-                        if (num_moves < boardScores.get(2)){
-                            stars.get(0).setVisibility(View.VISIBLE);
-                        }
-                        if (num_moves < boardScores.get(1)){
-                            stars.get(1).setVisibility(View.VISIBLE);
-                        }
-                        if (num_moves <= boardScores.get(0)){
-                            stars.get(2).setVisibility(View.VISIBLE);
-                        }
 
+                        Toast.makeText(getApplicationContext(), "level complete", Toast.LENGTH_LONG).show();
                     }
                     updateGraphics();
-                    //Toast.makeText(getApplicationContext(), num_moves.toString(), Toast.LENGTH_LONG).show();
 
                     moveCounter.setText("Moves: " + Integer.toString(num_moves));
                 }
