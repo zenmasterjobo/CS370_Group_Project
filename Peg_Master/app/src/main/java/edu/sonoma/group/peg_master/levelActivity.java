@@ -32,6 +32,9 @@ public class levelActivity extends AppCompatActivity {
     protected void onStart(){
         super.onStart();
         board.generate(numChests);
+        while ( board.done() || (board.getBoardScore() < numChests/2)){
+            board.generate(numChests);
+        }
         kih = new Key(-1);
         setup();
         updateGraphics();
@@ -112,8 +115,6 @@ public class levelActivity extends AppCompatActivity {
                             }
                         }
 
-
-                        Toast.makeText(getApplicationContext(), "level complete", Toast.LENGTH_LONG).show();
                     }
                     updateGraphics();
 
