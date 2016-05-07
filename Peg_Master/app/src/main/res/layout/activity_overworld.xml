@@ -19,25 +19,203 @@
         android:fillViewport="false"
         android:focusable="false"
         android:transcriptMode="alwaysScroll"
-        android:stackFromBottom="true">
+        android:stackFromBottom="true"
+        android:background="@drawable/overworld">
         <!-- everything you already have
 
          This FrameLayout insets its children based on system windows using
          android:fitsSystemWindows. -->
 
-            <LinearLayout
-                android:id="@+id/fullscreen_content_controls"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:background="@color/black_overlay"
-                android:orientation="vertical">
+        <LinearLayout
+            android:id="@+id/fullscreen_content_controls"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/black_overlay"
+            android:orientation="vertical">
+
+            <Button
+                style="?android:attr/buttonStyleSmall"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="L32"
+                android:id="@+id/level32"
+                android:typeface="serif"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginRight="100dp"
+                android:layout_marginBottom="120dp" />
+
+            <Button
+                style="?android:attr/buttonStyleSmall"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="L31"
+                android:id="@+id/level31"
+                android:typeface="serif"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginLeft="0dp"
+                android:layout_marginBottom="150dp" />
+
+            <Button
+                style="?android:attr/buttonStyleSmall"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="L30"
+                android:id="@+id/level30"
+                android:typeface="serif"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginLeft="80dp"
+                android:layout_marginBottom="150dp" />
+
+            <Button
+                style="?android:attr/buttonStyleSmall"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="L29"
+                android:id="@+id/level29"
+                android:typeface="serif"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginLeft="50dp"
+                android:layout_marginBottom="170dp" />
+
+            <Button
+                style="?android:attr/buttonStyleSmall"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="L28"
+                android:id="@+id/level28"
+                android:typeface="serif"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginLeft="70dp"
+                android:layout_marginBottom="150dp" />
+
+            <Button
+                style="?android:attr/buttonStyleSmall"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="L27"
+                android:id="@+id/level27"
+                android:typeface="serif"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginRight="120dp"
+                android:layout_marginBottom="20dp"/>
+
+            <Button
+                style="?android:attr/buttonStyleSmall"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="L26"
+                android:id="@+id/level26"
+                android:typeface="serif"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginLeft="9dp"
+                android:layout_marginBottom="10dp"/>
+
+            <Button
+                style="?android:attr/buttonStyleSmall"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="L25"
+                android:id="@+id/level25"
+                android:layout_gravity="center_horizontal|right"
+                android:typeface="serif"
+                android:layout_marginRight="43dp"
+                android:layout_marginBottom="25dp"/>
+
+            <Button
+                style="?android:attr/buttonStyleSmall"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="L24"
+                android:id="@+id/level24"
+                android:typeface="serif"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginRight="100dp"
+                android:layout_marginBottom="120dp" />
+
+            <Button
+                style="?android:attr/buttonStyleSmall"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="L23"
+                android:id="@+id/level23"
+                android:typeface="serif"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginLeft="0dp"
+                android:layout_marginBottom="150dp" />
+
+            <Button
+                style="?android:attr/buttonStyleSmall"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="L22"
+                android:id="@+id/level22"
+                android:typeface="serif"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginLeft="80dp"
+                android:layout_marginBottom="150dp" />
+
+            <Button
+                style="?android:attr/buttonStyleSmall"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="L21"
+                android:id="@+id/level21"
+                android:typeface="serif"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginLeft="50dp"
+                android:layout_marginBottom="170dp" />
+
+            <Button
+                style="?android:attr/buttonStyleSmall"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="L20"
+                android:id="@+id/level20"
+                android:typeface="serif"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginLeft="50dp"
+                android:layout_marginBottom="50dp" />
+
+            <Button
+                style="?android:attr/buttonStyleSmall"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="L19"
+                android:id="@+id/level19"
+                android:typeface="serif"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginRight="120dp"
+                android:layout_marginBottom="80dp"/>
+
+            <Button
+                style="?android:attr/buttonStyleSmall"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="L18"
+                android:id="@+id/level18"
+                android:typeface="serif"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginLeft="0dp"
+                android:layout_marginBottom="40dp"/>
+
+            <Button
+                style="?android:attr/buttonStyleSmall"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="L17"
+                android:id="@+id/level17"
+                android:layout_gravity="center_horizontal|right"
+                android:typeface="serif"
+                android:layout_marginRight="60dp"
+                android:layout_marginBottom="25dp"/>
+
 
                 <Button
                     style="?android:attr/buttonStyleSmall"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="L11"
-                    android:id="@+id/level11"
+                    android:text="L16"
+                    android:id="@+id/level16"
                     android:typeface="serif"
                     android:layout_gravity="center_horizontal"
                     android:layout_marginRight="100dp"
@@ -47,8 +225,8 @@
                     style="?android:attr/buttonStyleSmall"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="L10"
-                    android:id="@+id/level10"
+                    android:text="L15"
+                    android:id="@+id/level15"
                     android:typeface="serif"
                     android:layout_gravity="center_horizontal"
                     android:layout_marginLeft="0dp"
@@ -58,12 +236,67 @@
                     style="?android:attr/buttonStyleSmall"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="L9"
-                    android:id="@+id/level9"
+                    android:text="L14"
+                    android:id="@+id/level14"
                     android:typeface="serif"
                     android:layout_gravity="center_horizontal"
                     android:layout_marginLeft="80dp"
                     android:layout_marginBottom="150dp" />
+
+                <Button
+                    style="?android:attr/buttonStyleSmall"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="L13"
+                    android:id="@+id/level13"
+                    android:typeface="serif"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginLeft="50dp"
+                    android:layout_marginBottom="170dp" />
+
+                <Button
+                    style="?android:attr/buttonStyleSmall"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="L12"
+                    android:id="@+id/level12"
+                    android:typeface="serif"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginLeft="70dp"
+                    android:layout_marginBottom="150dp" />
+
+                <Button
+                    style="?android:attr/buttonStyleSmall"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="L11"
+                    android:id="@+id/level11"
+                    android:typeface="serif"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginRight="120dp"
+                    android:layout_marginBottom="20dp"/>
+
+                <Button
+                    style="?android:attr/buttonStyleSmall"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="L10"
+                    android:id="@+id/level10"
+                    android:typeface="serif"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginLeft="9dp"
+                    android:layout_marginBottom="10dp"/>
+
+                <Button
+                    style="?android:attr/buttonStyleSmall"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="L9"
+                    android:id="@+id/level9"
+                    android:layout_gravity="center_horizontal|right"
+                    android:typeface="serif"
+                    android:layout_marginRight="43dp"
+                    android:layout_marginBottom="25dp"/>
 
                 <Button
                     style="?android:attr/buttonStyleSmall"
