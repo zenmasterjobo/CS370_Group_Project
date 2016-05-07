@@ -145,6 +145,7 @@ public class overworld extends AppCompatActivity {
             if(resultCode == Activity.RESULT_OK){
                 dbManager.addCompletedLevel(GlobalApplicationClass.getCurrentUser(), 1);
                 Toast.makeText(getApplicationContext(),"added level",Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(),"Completed Levels: " + currentUser.getCompletedLevels().size(),Toast.LENGTH_SHORT).show();
 
             }
         }

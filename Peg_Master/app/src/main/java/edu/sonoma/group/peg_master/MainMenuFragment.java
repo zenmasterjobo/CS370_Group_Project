@@ -111,10 +111,11 @@ public class MainMenuFragment extends Fragment{
                 SharedPreferences.Editor editor = mPrefs.edit();
 
                 String userName = data.getStringExtra("name");
-                //Toast.makeText(getActivity().getApplicationContext(), userName, Toast.LENGTH_SHORT).show();
+                Toast.makeText(getActivity().getApplicationContext(), userName, Toast.LENGTH_SHORT).show();
                 User newUser = new User(userName);
                 dbManager.addUserData(newUser);
                 currentUser = newUser;
+                GlobalApplicationClass.setCurrentUser(currentUser);
                 lastUser = userName;
                 editor.putString("lastUser",lastUser);
                 editor.apply();
