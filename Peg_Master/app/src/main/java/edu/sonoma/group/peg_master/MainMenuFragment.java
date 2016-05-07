@@ -32,7 +32,13 @@ public class MainMenuFragment extends Fragment{
     private int currentLevel;
     private List<User> allUsers;
 
+    void updateDB(User aUser){
+        int completedLevels = aUser.getCompletedLevels().size() - currentLevel;
+        //Toast.makeText(getActivity().getApplicationContext(),"COMPLETED LEVELS: " + Integer.toString(completedLevels),Toast.LENGTH_SHORT).show();
 
+        dbManager.addCompletedLevel(aUser, completedLevels);
+        currentLevel = aUser.getCompletedLevels().size();
+    }
     void updateMusic(){
         Toast.makeText(getActivity().getApplicationContext(),"BEFORE: " + Boolean.toString(currentUser.getMusic()),Toast.LENGTH_SHORT).show();
 
@@ -105,10 +111,11 @@ public class MainMenuFragment extends Fragment{
                 SharedPreferences.Editor editor = mPrefs.edit();
 
                 String userName = data.getStringExtra("name");
-                //Toast.makeText(getActivity().getApplicationContext(), userName, Toast.LENGTH_SHORT).show();
+                Toast.makeText(getActivity().getApplicationContext(), userName, Toast.LENGTH_SHORT).show();
                 User newUser = new User(userName);
                 dbManager.addUserData(newUser);
                 currentUser = newUser;
+                GlobalApplicationClass.setCurrentUser(currentUser);
                 lastUser = userName;
                 editor.putString("lastUser",lastUser);
                 editor.apply();
@@ -120,13 +127,14 @@ public class MainMenuFragment extends Fragment{
         //if user has gotten out of overworld screen, update levels table
         else if(requestCode ==2){
 
-
+            /*
             int completedLevels = GlobalApplicationClass.getCurrentUser().getCompletedLevels().size() - currentLevel;
             Toast.makeText(getActivity().getApplicationContext(),"COMPLETED LEVELS: " + Integer.toString(completedLevels),Toast.LENGTH_SHORT).show();
 
             dbManager.addCompletedLevel(GlobalApplicationClass.getCurrentUser(), completedLevels);
             currentLevel = GlobalApplicationClass.getCurrentUser().getCompletedLevels().size();
-
+            */
+//            updateDB(GlobalApplicationClass.getCurrentUser());
         }
     }
 

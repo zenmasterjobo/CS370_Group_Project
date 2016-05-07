@@ -4,6 +4,8 @@ import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
@@ -99,8 +101,8 @@ public class overworld extends AppCompatActivity {
     private ScrollView scroll;
 
     //database stuff
-    //private DBHandler db;
-    //private UserTableManager dbManager;
+    private DBHandler db;
+    private UserTableManager dbManager;
     private int displayedButtons;
     private ArrayList<Button> allButtons;
 
@@ -110,7 +112,8 @@ public class overworld extends AppCompatActivity {
     @Override
     public void onStart(){
         super.onStart();
-
+        db = new DBHandler(getApplicationContext());
+        dbManager = new UserTableManager(getApplicationContext());
         scroll.fullScroll(View.FOCUS_DOWN);
         int userCLevel = GlobalApplicationClass.getCurrentUser().getCompletedLevels().size();
         for (int i = 0; i < displayedButtons; i++){
@@ -143,8 +146,9 @@ public class overworld extends AppCompatActivity {
         //if user finishes a level
         if(requestCode ==1){
             if(resultCode == Activity.RESULT_OK){
-                Toast.makeText(getApplicationContext(),"OAC",Toast.LENGTH_SHORT).show();
-
+                dbManager.addCompletedLevel(GlobalApplicationClass.getCurrentUser(), 1);
+                Toast.makeText(getApplicationContext(),"added level",Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(),"Completed Levels: " + currentUser.getCompletedLevels().size(),Toast.LENGTH_SHORT).show();
 
             }
         }
