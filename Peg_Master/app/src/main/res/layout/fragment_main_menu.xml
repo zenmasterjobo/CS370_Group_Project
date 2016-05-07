@@ -6,14 +6,18 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     android:paddingBottom="@dimen/activity_vertical_margin"
-    tools:context="edu.sonoma.group.peg_master.MainMenuFragment">
+    tools:context="edu.sonoma.group.peg_master.MainMenuFragment"
+    android:background="@drawable/mainwallpaper">
+
 
     <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="Welcome To Chest Mania"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Welcome To Key Masters"
         android:id="@+id/MenuTitle"
-        android:layout_gravity="center_horizontal|top"/>
+        android:layout_gravity="center_horizontal|top"
+        android:textColor="#000000"
+        android:textSize="60px" />
 
     <ImageButton
         android:layout_height="wrap_content"
