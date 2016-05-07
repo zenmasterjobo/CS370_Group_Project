@@ -1,84 +1,102 @@
-<?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:weightSum="1">
 
     <LinearLayout
         android:orientation="horizontal"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:weightSum="1">
+        android:layout_gravity="center"
+        android:layout_marginTop="-200dp">
+
         <TextView
             android:layout_width="match_parent"
             android:layout_height="144dp"
             android:text=" Congratulations!"
             android:id="@+id/textView3"
-            android:textSize="40dp" />
-    </LinearLayout>
+            android:textSize="40dp"
+            android:layout_gravity="center_vertical"/>
+        </LinearLayout>
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="You Earned :"
-        android:id="@+id/textView5"
-        android:textSize="30dp"
-        android:layout_gravity="center_horizontal" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="You Earned :"
+            android:id="@+id/textView5"
+            android:textSize="30dp"
+            android:layout_gravity="center_horizontal"
+            android:gravity="center"
+            android:paddingBottom="300dp"/>
+   </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center">
+
 
     <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/star2"
-        android:background="@drawable/star"
-        android:layout_marginLeft="125dp"
-        android:layout_marginRight="0dp"
-        android:layout_marginBottom="0dp"
-        android:layout_marginTop="20dp"
-        />
-    <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
         android:id="@+id/star1"
         android:background="@drawable/star"
+        android:layout_gravity="center"
         />
     <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:id="@+id/star2"
+        android:background="@drawable/star"
+        android:layout_gravity="center"
+        android:layout_marginTop="-50dp"
+        />
+    <ImageView
+        android:layout_width="50dp"
+        android:layout_height="50dp"
         android:id="@+id/star3"
         android:background="@drawable/star"
-        android:layout_marginLeft="250dp"
-        android:layout_marginRight="0dp"
-        android:layout_marginBottom="0dp"
-        android:layout_marginTop="-62dp"
+        android:layout_gravity="center"
         />
-    <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/star_blank2"
-        android:background="@drawable/star_blank"
-        android:layout_marginTop="-150dp"
-        android:layout_marginLeft="120dp"
-        android:visibility="visible"
+    </LinearLayout>
 
-        />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center">
+
+
     <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
         android:id="@+id/star_blank1"
         android:background="@drawable/star_blank"
         android:visibility="visible"
-        />
+        android:layout_gravity="center"/>
     <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:id="@+id/star_blank2"
+        android:background="@drawable/star_blank"
+        android:visibility="visible"
+        android:layout_gravity="center"
+        android:layout_marginTop="-50dp"/>
+    <ImageView
+        android:layout_width="50dp"
+        android:layout_height="50dp"
         android:id="@+id/star_blank3"
         android:background="@drawable/star_blank"
-        android:layout_marginLeft="250dp"
-        android:layout_marginRight="0dp"
-        android:layout_marginBottom="0dp"
-        android:layout_marginTop="-62dp"
         android:visibility="visible"
+        android:layout_gravity="center"
         />
+    </LinearLayout>
+
     <Button
         android:layout_width="150dp"
         android:layout_marginTop="50dp"
@@ -87,4 +105,5 @@
         android:text="Back To Level Select"
         android:id="@+id/backToLevelSelect" />
 
-</LinearLayout>
+
+</FrameLayout>
