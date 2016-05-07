@@ -120,6 +120,7 @@ public class MainMenuFragment extends Fragment{
         //if user has gotten out of overworld screen, update levels table
         else if(requestCode ==2){
 
+
             int completedLevels = GlobalApplicationClass.getCurrentUser().getCompletedLevels().size() - currentLevel;
             Toast.makeText(getActivity().getApplicationContext(),"COMPLETED LEVELS: " + Integer.toString(completedLevels),Toast.LENGTH_SHORT).show();
 

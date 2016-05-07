@@ -1,5 +1,7 @@
 package edu.sonoma.group.peg_master;
 
+import android.app.Activity;
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v4.app.FragmentManager;
@@ -80,11 +82,11 @@ public class levelActivity extends AppCompatActivity {
                     num_moves += 1;
                     if (board.done()){
                         //Toast.makeText(getApplicationContext(), "OMFG UR SO COOL", Toast.LENGTH_LONG).show();
-                        if(GlobalApplicationClass.getCurrentUser().getCompletedLevels().size() < levelNum) {
-                            CompletedLevel cLevel = new CompletedLevel(levelNum, 3, numChests);
+                        //if(GlobalApplicationClass.getCurrentUser().getCompletedLevels().size() < levelNum) {
+                            //CompletedLevel cLevel = new CompletedLevel(levelNum, 3, numChests);
                             User cUser = GlobalApplicationClass.getCurrentUser();
-                            cUser.addLevel(cLevel);
-                            GlobalApplicationClass.setCurrentUser(cUser);
+                            //cUser.addLevel(cLevel);
+                            //GlobalApplicationClass.setCurrentUser(cUser);
 
                             FragmentManager fm = getSupportFragmentManager();
                             FragmentTransaction ft = fm.beginTransaction();
@@ -103,17 +105,37 @@ public class levelActivity extends AppCompatActivity {
                                 ImageView s = stars.get(i);
                                 s.setVisibility(View.INVISIBLE);
                             }
-
-                            if (num_moves < boardScores.get(2)) {
+                        CompletedLevel cLevel = new CompletedLevel(levelNum, 0, numChests);
+                        //1 star
+                        if (num_moves < boardScores.get(2)) {
+                                cLevel.setNumStars(1);
                                 stars.get(0).setVisibility(View.VISIBLE);
                             }
+                            //2star
                             if (num_moves < boardScores.get(1)) {
+                                cLevel.setNumStars(2);
                                 stars.get(1).setVisibility(View.VISIBLE);
                             }
+                            //3star
                             if (num_moves <= boardScores.get(0)) {
+                                cLevel.setNumStars(3);
                                 stars.get(2).setVisibility(View.VISIBLE);
                             }
+                        Intent returnIntent = new Intent();
+
+                        if(cUser.getCompletedLevels().size() < levelNum) {
+                            cUser.addLevel(cLevel);
+//                            returnIntent.putExtra("add",levelNum-1);
                         }
+                        else if (cUser.getCompletedLevels().get(levelNum-1).getNumStars() < cLevel.getNumStars()){
+                            Toast.makeText(getApplicationContext(), "got more stars, need to update", Toast.LENGTH_SHORT).show();
+                            //update levelNum-1 in table
+                            cUser.getCompletedLevels().set(levelNum - 1, cLevel);
+                            //returnIntent.putExtra("update",levelNum-1);
+                        }
+                        //setResult(Activity.RESULT_OK,returnIntent);
+
+                        GlobalApplicationClass.setCurrentUser(cUser);
 
                     }
                     updateGraphics();

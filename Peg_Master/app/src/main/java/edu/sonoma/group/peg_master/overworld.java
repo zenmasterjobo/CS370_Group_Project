@@ -137,7 +137,8 @@ public class overworld extends AppCompatActivity {
         //if user finishes a level
         if(requestCode ==1){
             if(resultCode == Activity.RESULT_OK){
-                int levelID = data.getIntExtra("lid",0);
+                Toast.makeText(getApplicationContext(),"OAC",Toast.LENGTH_SHORT).show();
+
 
             }
         }
@@ -147,7 +148,7 @@ public class overworld extends AppCompatActivity {
     protected void onDestroy(){
         //Intent returnIntent = new Intent();
         setResult(Activity.RESULT_OK);
-        Toast.makeText(getApplicationContext(),"ONDESTROY",Toast.LENGTH_SHORT).show();
+        //Toast.makeText(getApplicationContext(),"ONDESTROY",Toast.LENGTH_SHORT).show();
         //finishActivity(2);
         super.onDestroy();
 
