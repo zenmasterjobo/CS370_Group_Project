@@ -4,7 +4,7 @@
     android:layout_height="fill_parent"
     tools:context="edu.sonoma.group.peg_master.MainMenuFragment"
     android:background="@drawable/mainwallpaper"
-    android:adjustViewBounds = "true"
+    android:adjustViewBounds="true"
     android:backgroundTint="#000000">
 
 

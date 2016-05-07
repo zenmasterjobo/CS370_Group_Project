@@ -58,7 +58,7 @@
         android:background="@drawable/star_blank"
         android:layout_marginTop="-150dp"
         android:layout_marginLeft="120dp"
-        android:visibility="invisible"
+        android:visibility="visible"
 
         />
     <ImageView
@@ -66,7 +66,7 @@
         android:layout_height="wrap_content"
         android:id="@+id/star_blank1"
         android:background="@drawable/star_blank"
-        android:visibility="invisible"
+        android:visibility="visible"
         />
     <ImageView
         android:layout_width="wrap_content"
@@ -77,7 +77,7 @@
         android:layout_marginRight="0dp"
         android:layout_marginBottom="0dp"
         android:layout_marginTop="-62dp"
-        android:visibility="invisible"
+        android:visibility="visible"
         />
     <Button
         android:layout_width="150dp"
