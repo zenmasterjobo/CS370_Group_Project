@@ -44,10 +44,35 @@ public class UserTableManager extends DBHandler {
 
     public void addCompletedLevel(User aUser,int completedLevels){
 
-        SQLiteDatabase db = this.getWritableDatabase();
-        String myQuery;
         ArrayList<CompletedLevel> completedLevelsArray = aUser.getCompletedLevels();
         int size = completedLevelsArray.size();
+        //check for already completed levels to update
+       // String myQuery = "SELECT * FROM " + COMPLETED_LEVELS_TABLE_NAME + " WHERE +" + COLUMN_UID + "="
+         //       +Integer.toString(aUser.getID());
+        //Cursor mycursor = db.rawQuery(myQuery, null);
+        ArrayList<CompletedLevel> dbLevels = getLevels(aUser);
+        SQLiteDatabase db = this.getWritableDatabase();
+
+
+        for(int i =0;i<dbLevels.size();i++){
+            if(dbLevels.get(i).getNumStars() < aUser.getCompletedLevels().get(i).getNumStars()){
+                ContentValues cv = new ContentValues();
+                //String whereClause = COLUMN_UID + "=" + Integer.toString(aUser.getID()) + "and "
+                  //      + COLUMN_LID + "=" + Integer.toString(i +1);
+               // String whereClause = COLUMN_LID + " = " + Integer.toString(dbLevels.get(i).getLID());
+                String[] args = new String[]{Integer.toString(aUser.getID()),Integer.toString(i +1)};
+                String whereClause = COLUMN_UID + "=?" + " AND "
+                        + COLUMN_LID + "=?";
+                Log.v("myApp",whereClause);
+
+                cv.put(COLUMN_STARS, aUser.getCompletedLevels().get(i).getNumStars());
+                db.update(COMPLETED_LEVELS_TABLE_NAME,cv,whereClause,args);
+
+            }
+
+        }
+
+
         for(int i =0;i <completedLevels;i++){
             ContentValues values = new ContentValues();
             CompletedLevel aCLevel = completedLevelsArray.get(size -1-i);
@@ -138,7 +163,7 @@ public class UserTableManager extends DBHandler {
             db.close();
         }
         Log.d("UserTableManager", "CLEVELS: " + Integer.toString(completedLevels.size()));
-
+        db.close();
         return completedLevels;
     }
 
