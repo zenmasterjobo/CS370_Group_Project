@@ -91,7 +91,11 @@ public class overworld extends AppCompatActivity {
     };*/
 
     //level buttons
-    private Button lvl1Btn,lvl2Btn,lvl3Btn, lvl4Btn, lvl5Btn,lvl6Btn, lvl7Btn, lvl8Btn, lvl9Btn,lvl10Btn, lvl11Btn;
+    private Button lvl1Btn,lvl2Btn,lvl3Btn, lvl4Btn,
+            lvl5Btn,lvl6Btn, lvl7Btn, lvl8Btn, lvl9Btn,lvl10Btn, lvl11Btn, lvl12Btn, lvl13Btn,
+            lvl14Btn, lvl15Btn, lvl16Btn, lvl17Btn, lvl18Btn, lvl19Btn, lvl20Btn, lvl21Btn,
+            lvl22Btn, lvl23Btn, lvl24Btn, lvl25Btn, lvl26Btn, lvl27Btn, lvl28Btn, lvl29Btn,
+            lvl30Btn, lvl31Btn, lvl32Btn;
     private ScrollView scroll;
 
     //database stuff
@@ -111,7 +115,6 @@ public class overworld extends AppCompatActivity {
         int userCLevel = GlobalApplicationClass.getCurrentUser().getCompletedLevels().size();
         for (int i = 0; i < displayedButtons; i++){
             if( userCLevel-1 < i ) {
-                Log.d("User has not completed", Integer.toString(i));
                 allButtons.get(i).setBackgroundColor(Color.parseColor("#ff0000"));
             }
             else {
@@ -179,11 +182,35 @@ public class overworld extends AppCompatActivity {
         lvl9Btn = (Button)findViewById(R.id.level9);
         lvl10Btn = (Button)findViewById(R.id.level10);
         lvl11Btn = (Button)findViewById(R.id.level11);
+        lvl12Btn = (Button)findViewById(R.id.level12);
+        lvl13Btn = (Button)findViewById(R.id.level13);
+        lvl14Btn = (Button)findViewById(R.id.level14);
+        lvl15Btn = (Button)findViewById(R.id.level15);
+        lvl16Btn = (Button)findViewById(R.id.level16);
+        lvl17Btn = (Button)findViewById(R.id.level17);
+        lvl18Btn = (Button)findViewById(R.id.level18);
+        lvl19Btn = (Button)findViewById(R.id.level19);
+        lvl20Btn = (Button)findViewById(R.id.level20);
+        lvl21Btn = (Button)findViewById(R.id.level21);
+        lvl22Btn = (Button)findViewById(R.id.level22);
+        lvl23Btn = (Button)findViewById(R.id.level23);
+        lvl24Btn = (Button)findViewById(R.id.level24);
+        lvl25Btn = (Button)findViewById(R.id.level25);
+        lvl26Btn = (Button)findViewById(R.id.level26);
+        lvl27Btn = (Button)findViewById(R.id.level27);
+        lvl28Btn = (Button)findViewById(R.id.level28);
+        lvl29Btn = (Button)findViewById(R.id.level29);
+        lvl30Btn = (Button)findViewById(R.id.level30);
+        lvl31Btn = (Button)findViewById(R.id.level31);
+        lvl32Btn = (Button)findViewById(R.id.level32);
 
         allButtons = new ArrayList<Button>();
 
         allButtons.addAll(Arrays.asList(lvl1Btn,lvl2Btn,lvl3Btn, lvl4Btn, lvl5Btn,lvl6Btn, lvl7Btn,
-                                        lvl8Btn, lvl9Btn,lvl10Btn, lvl11Btn));
+                                        lvl8Btn, lvl9Btn,lvl10Btn, lvl11Btn, lvl12Btn, lvl13Btn,
+                lvl14Btn, lvl15Btn, lvl16Btn, lvl17Btn, lvl18Btn, lvl19Btn, lvl20Btn, lvl21Btn,
+                lvl22Btn, lvl23Btn, lvl24Btn, lvl25Btn, lvl26Btn, lvl27Btn, lvl28Btn, lvl29Btn,
+                lvl30Btn, lvl31Btn, lvl32Btn));
         displayedButtons = allButtons.size();
 
         //debug GAC works

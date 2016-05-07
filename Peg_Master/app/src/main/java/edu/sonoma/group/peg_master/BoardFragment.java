@@ -114,6 +114,45 @@ public class BoardFragment extends Fragment {
 
             temp.add(buttonMap.get("Row2").get(1));
         }
+        else if (num_chests == 6){
+            temp.add(buttonMap.get("Row1").get(0));
+            temp.add(buttonMap.get("Row1").get(1));
+            temp.add(buttonMap.get("Row1").get(2));
+            temp.add(buttonMap.get("Row2").get(0));
+            temp.add(buttonMap.get("Row2").get(1));
+            temp.add(buttonMap.get("Row2").get(2));
+        }
+        else if (num_chests == 7){
+            temp.add(buttonMap.get("Row1").get(0));
+            temp.add(buttonMap.get("Row1").get(1));
+            temp.add(buttonMap.get("Row1").get(2));
+            temp.add(buttonMap.get("Row2").get(0));
+            temp.add(buttonMap.get("Row2").get(1));
+            temp.add(buttonMap.get("Row2").get(2));
+            temp.add(buttonMap.get("Row3").get(1));
+        }
+        else if (num_chests == 8){
+            temp.add(buttonMap.get("Row1").get(0));
+            temp.add(buttonMap.get("Row1").get(1));
+            temp.add(buttonMap.get("Row1").get(2));
+            temp.add(buttonMap.get("Row2").get(0));
+            temp.add(buttonMap.get("Row2").get(1));
+            temp.add(buttonMap.get("Row2").get(2));
+            temp.add(buttonMap.get("Row3").get(0));
+            temp.add(buttonMap.get("Row3").get(2));
+        }
+        else if (num_chests == 9){
+            temp.add(buttonMap.get("Row1").get(0));
+            temp.add(buttonMap.get("Row1").get(1));
+            temp.add(buttonMap.get("Row1").get(2));
+            temp.add(buttonMap.get("Row2").get(0));
+            temp.add(buttonMap.get("Row2").get(1));
+            temp.add(buttonMap.get("Row2").get(2));
+            temp.add(buttonMap.get("Row3").get(0));
+            temp.add(buttonMap.get("Row3").get(1));
+            temp.add(buttonMap.get("Row3").get(2));
+        }
+
         return temp;
     }
 
@@ -136,6 +175,44 @@ public class BoardFragment extends Fragment {
             ret.add(chestNumberMap.get("Row3").get(1));
             // Adding middle chest for 5
             ret.add(chestNumberMap.get("Row2").get(1));
+        }
+        else if (num_chests == 6){
+            ret.add(chestNumberMap.get("Row1").get(0));
+            ret.add(chestNumberMap.get("Row1").get(1));
+            ret.add(chestNumberMap.get("Row1").get(2));
+            ret.add(chestNumberMap.get("Row2").get(0));
+            ret.add(chestNumberMap.get("Row2").get(1));
+            ret.add(chestNumberMap.get("Row2").get(2));
+        }
+        else if (num_chests == 7){
+            ret.add(chestNumberMap.get("Row1").get(0));
+            ret.add(chestNumberMap.get("Row1").get(1));
+            ret.add(chestNumberMap.get("Row1").get(2));
+            ret.add(chestNumberMap.get("Row2").get(0));
+            ret.add(chestNumberMap.get("Row2").get(1));
+            ret.add(chestNumberMap.get("Row2").get(2));
+            ret.add(chestNumberMap.get("Row3").get(1));
+        }
+        else if (num_chests == 8){
+            ret.add(chestNumberMap.get("Row1").get(0));
+            ret.add(chestNumberMap.get("Row1").get(1));
+            ret.add(chestNumberMap.get("Row1").get(2));
+            ret.add(chestNumberMap.get("Row2").get(0));
+            ret.add(chestNumberMap.get("Row2").get(1));
+            ret.add(chestNumberMap.get("Row2").get(2));
+            ret.add(chestNumberMap.get("Row3").get(0));
+            ret.add(chestNumberMap.get("Row3").get(2));
+        }
+        else if (num_chests == 9){
+            ret.add(chestNumberMap.get("Row1").get(0));
+            ret.add(chestNumberMap.get("Row1").get(1));
+            ret.add(chestNumberMap.get("Row1").get(2));
+            ret.add(chestNumberMap.get("Row2").get(0));
+            ret.add(chestNumberMap.get("Row2").get(1));
+            ret.add(chestNumberMap.get("Row2").get(2));
+            ret.add(chestNumberMap.get("Row3").get(0));
+            ret.add(chestNumberMap.get("Row3").get(1));
+            ret.add(chestNumberMap.get("Row3").get(2));
         }
         return ret;
     }
@@ -201,6 +278,176 @@ public class BoardFragment extends Fragment {
             ret.add(chest);
 
         }
+        else if (num_chests == 6){
+            // Make a new chest
+            ArrayList<TextView> chest = new ArrayList<TextView>();
+            // Add the left and right key holders from row 1 chest 1 (middle)
+            chest.add(keyMap.get("Row1").get(0).get(0));
+            chest.add(keyMap.get("Row1").get(0).get(1));
+            // Add chest to what we are going to return
+            ret.add(chest);
+
+            chest = new ArrayList<TextView>();
+            chest.add(keyMap.get("Row1").get(1).get(0));
+            chest.add(keyMap.get("Row1").get(1).get(1));
+            ret.add(chest);
+
+            chest = new ArrayList<TextView>();
+            chest.add(keyMap.get("Row1").get(2).get(0));
+            chest.add(keyMap.get("Row1").get(2).get(1));
+            ret.add(chest);
+
+            chest = new ArrayList<TextView>();
+            chest.add(keyMap.get("Row2").get(0).get(0));
+            chest.add(keyMap.get("Row2").get(0).get(1));
+            ret.add(chest);
+
+            chest = new ArrayList<TextView>();
+            chest.add(keyMap.get("Row2").get(1).get(0));
+            chest.add(keyMap.get("Row2").get(1).get(1));
+            ret.add(chest);
+
+            chest = new ArrayList<TextView>();
+            chest.add(keyMap.get("Row2").get(2).get(0));
+            chest.add(keyMap.get("Row2").get(2).get(1));
+            ret.add(chest);
+        }
+        else if (num_chests == 7){
+            // Make a new chest
+            ArrayList<TextView> chest = new ArrayList<TextView>();
+            // Add the left and right key holders from row 1 chest 1 (middle)
+            chest.add(keyMap.get("Row1").get(0).get(0));
+            chest.add(keyMap.get("Row1").get(0).get(1));
+            // Add chest to what we are going to return
+            ret.add(chest);
+
+            chest = new ArrayList<TextView>();
+            chest.add(keyMap.get("Row1").get(1).get(0));
+            chest.add(keyMap.get("Row1").get(1).get(1));
+            ret.add(chest);
+
+            chest = new ArrayList<TextView>();
+            chest.add(keyMap.get("Row1").get(2).get(0));
+            chest.add(keyMap.get("Row1").get(2).get(1));
+            ret.add(chest);
+
+            chest = new ArrayList<TextView>();
+            chest.add(keyMap.get("Row2").get(0).get(0));
+            chest.add(keyMap.get("Row2").get(0).get(1));
+            ret.add(chest);
+
+            chest = new ArrayList<TextView>();
+            chest.add(keyMap.get("Row2").get(1).get(0));
+            chest.add(keyMap.get("Row2").get(1).get(1));
+            ret.add(chest);
+
+            chest = new ArrayList<TextView>();
+            chest.add(keyMap.get("Row2").get(2).get(0));
+            chest.add(keyMap.get("Row2").get(2).get(1));
+            ret.add(chest);
+
+            chest = new ArrayList<TextView>();
+            chest.add(keyMap.get("Row3").get(1).get(0));
+            chest.add(keyMap.get("Row3").get(1).get(1));
+            ret.add(chest);
+        }
+
+        else if (num_chests == 8){
+            // Make a new chest
+            ArrayList<TextView> chest = new ArrayList<TextView>();
+            // Add the left and right key holders from row 1 chest 1 (middle)
+            chest.add(keyMap.get("Row1").get(0).get(0));
+            chest.add(keyMap.get("Row1").get(0).get(1));
+            // Add chest to what we are going to return
+            ret.add(chest);
+
+            chest = new ArrayList<TextView>();
+            chest.add(keyMap.get("Row1").get(1).get(0));
+            chest.add(keyMap.get("Row1").get(1).get(1));
+            ret.add(chest);
+
+            chest = new ArrayList<TextView>();
+            chest.add(keyMap.get("Row1").get(2).get(0));
+            chest.add(keyMap.get("Row1").get(2).get(1));
+            ret.add(chest);
+
+            chest = new ArrayList<TextView>();
+            chest.add(keyMap.get("Row2").get(0).get(0));
+            chest.add(keyMap.get("Row2").get(0).get(1));
+            ret.add(chest);
+
+            chest = new ArrayList<TextView>();
+            chest.add(keyMap.get("Row2").get(1).get(0));
+            chest.add(keyMap.get("Row2").get(1).get(1));
+            ret.add(chest);
+
+            chest = new ArrayList<TextView>();
+            chest.add(keyMap.get("Row2").get(2).get(0));
+            chest.add(keyMap.get("Row2").get(2).get(1));
+            ret.add(chest);
+
+            chest = new ArrayList<TextView>();
+            chest.add(keyMap.get("Row3").get(0).get(0));
+            chest.add(keyMap.get("Row3").get(0).get(1));
+            ret.add(chest);
+
+            chest = new ArrayList<TextView>();
+            chest.add(keyMap.get("Row3").get(2).get(0));
+            chest.add(keyMap.get("Row3").get(2).get(1));
+            ret.add(chest);
+        }
+
+        else if (num_chests == 9){
+            // Make a new chest
+            ArrayList<TextView> chest = new ArrayList<TextView>();
+            // Add the left and right key holders from row 1 chest 1 (middle)
+            chest.add(keyMap.get("Row1").get(0).get(0));
+            chest.add(keyMap.get("Row1").get(0).get(1));
+            // Add chest to what we are going to return
+            ret.add(chest);
+
+            chest = new ArrayList<TextView>();
+            chest.add(keyMap.get("Row1").get(1).get(0));
+            chest.add(keyMap.get("Row1").get(1).get(1));
+            ret.add(chest);
+
+            chest = new ArrayList<TextView>();
+            chest.add(keyMap.get("Row1").get(2).get(0));
+            chest.add(keyMap.get("Row1").get(2).get(1));
+            ret.add(chest);
+
+            chest = new ArrayList<TextView>();
+            chest.add(keyMap.get("Row2").get(0).get(0));
+            chest.add(keyMap.get("Row2").get(0).get(1));
+            ret.add(chest);
+
+            chest = new ArrayList<TextView>();
+            chest.add(keyMap.get("Row2").get(1).get(0));
+            chest.add(keyMap.get("Row2").get(1).get(1));
+            ret.add(chest);
+
+            chest = new ArrayList<TextView>();
+            chest.add(keyMap.get("Row2").get(2).get(0));
+            chest.add(keyMap.get("Row2").get(2).get(1));
+            ret.add(chest);
+
+            chest = new ArrayList<TextView>();
+            chest.add(keyMap.get("Row3").get(0).get(0));
+            chest.add(keyMap.get("Row3").get(0).get(1));
+            ret.add(chest);
+
+            chest = new ArrayList<TextView>();
+            chest.add(keyMap.get("Row3").get(1).get(0));
+            chest.add(keyMap.get("Row3").get(1).get(1));
+            ret.add(chest);
+
+            chest = new ArrayList<TextView>();
+            chest.add(keyMap.get("Row3").get(2).get(0));
+            chest.add(keyMap.get("Row3").get(2).get(1));
+            ret.add(chest);
+        }
+
+
         return ret;
     }
 
