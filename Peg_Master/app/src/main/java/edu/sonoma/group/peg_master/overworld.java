@@ -94,6 +94,7 @@ public class overworld extends AppCompatActivity {
 
     //level buttons
     private Button lvl1Btn,lvl2Btn,lvl3Btn, lvl4Btn, lvl5Btn,lvl6Btn, lvl7Btn, lvl8Btn, lvl9Btn,lvl10Btn, lvl11Btn;
+    private ScrollView scroll;
 
     //database stuff
     private DBHandler db;
@@ -109,6 +110,7 @@ public class overworld extends AppCompatActivity {
         super.onStart();
         db = new DBHandler(getApplicationContext());
         dbManager = new UserTableManager(getApplicationContext());
+        scroll.fullScroll(View.FOCUS_DOWN);
         int userCLevel = GlobalApplicationClass.getCurrentUser().getCompletedLevels().size();
         for (int i = 0; i < displayedButtons; i++){
             if( userCLevel-1 < i ) {
@@ -165,8 +167,8 @@ public class overworld extends AppCompatActivity {
 
         setContentView(R.layout.activity_overworld);
 
-        ScrollView scroll = (ScrollView) findViewById(R.id.fullscreen_content);
-        scroll.scrollTo(0, scroll.getBottom());
+        scroll = (ScrollView) findViewById(R.id.fullscreen_content);
+        scroll.fullScroll(View.FOCUS_DOWN);
 
         //set them level buttons to the ones in the layout
         lvl1Btn = (Button)findViewById(R.id.level1);
@@ -216,6 +218,16 @@ public class overworld extends AppCompatActivity {
                     }
                     else{
                         Toast.makeText(getApplicationContext(),"PLAY PREVIOUS LEVEL TO UNLOCK",Toast.LENGTH_SHORT).show();
+                        // just remove vvv
+                        Bundle numChests = new Bundle();
+                        numChests.putInt("numChests", numberOfChests(level));
+                        numChests.putInt("levelnum", level);
+                        //put bundle in the intent for transfer. Use getIntent().getExtras().getString/int/...(key)
+                        //inside activity to access this data.
+                        intent.putExtras(numChests);
+                        //switch activity
+                        //startActivity(intent);
+                        startActivityForResult(intent, requestCode);
 
                     }
                 }
