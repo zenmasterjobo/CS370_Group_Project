@@ -29,7 +29,7 @@ public class OptionsFragment extends Fragment {
     private TextView switchStatus;
     private Bundle savedState;
     private Bundle savedState1;
-
+    private Button back;
 
 
 
@@ -51,6 +51,14 @@ public class OptionsFragment extends Fragment {
         switch1.setChecked(music);
 
 
+        back = (Button) rootView.findViewById(R.id.back);
+
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                getFragmentManager().popBackStack();
+            }
+        });
 
         //callback = (MyInterface)getChildFragmentManager().findFragmentById(R.id.main_menu);
 

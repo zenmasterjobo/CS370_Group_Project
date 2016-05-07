@@ -10,6 +10,15 @@
 
 
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Welcome To Key Masters"
+        android:textSize="30dp"
+        android:id="@+id/TopTitle"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="25dp"
+        android:textColor="#000000"/>
 
 
 <LinearLayout
@@ -20,34 +29,54 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:layout_gravity="center"
-    tools:context="edu.sonoma.group.peg_master.MainMenuFragment">
+    tools:context="edu.sonoma.group.peg_master.MainMenuFragment"
+    android:layout_marginTop="90dp">
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
         android:id="@+id/Startbutton"
+        android:textSize="25dp"
         android:text="Start Game"
         android:clickable="true"
         android:visibility="visible"
-        android:layout_gravity="center_horizontal"/>
+        android:layout_gravity="center_horizontal"
+        android:background="@drawable/buttonstyle"/>
 
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:textSize="25dp"
         android:id="@+id/Optionsbutton"
         android:text="Options"
-        android:clickable="true" />
+        android:clickable="true"
+        android:background="@drawable/buttonstyle"
+        android:layout_marginTop="5dp"/>
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:textSize="25dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
         android:id="@+id/Infobutton"
         android:text="Info"
-        android:clickable="true" />
+        android:clickable="true"
+        android:background="@drawable/buttonstyle"
+        android:layout_marginTop="5dp"/>
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:textSize="25dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
         android:id="@+id/Statsbutton"
         android:text="Stats"
-        android:clickable="true"/>
+        android:clickable="true"
+        android:background="@drawable/buttonstyle"
+        android:layout_marginTop="5dp"/>
 
 
 </LinearLayout>
