@@ -10,8 +10,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme.NoActionBar"
         android:name="edu.sonoma.group.peg_master.GlobalApplicationClass">
-        <activity android:name=".MainMenu"
-            android:screenOrientation="portrait">
+        <activity android:name=".MainMenu">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
