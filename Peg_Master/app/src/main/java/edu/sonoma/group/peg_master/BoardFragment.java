@@ -106,6 +106,14 @@ public class BoardFragment extends Fragment {
             temp.add(buttonMap.get("Row2").get(2));
             temp.add(buttonMap.get("Row3").get(1));
         }
+        else if (num_chests == 5){
+            temp.add(buttonMap.get("Row1").get(1));
+            temp.add(buttonMap.get("Row2").get(0));
+            temp.add(buttonMap.get("Row2").get(2));
+            temp.add(buttonMap.get("Row3").get(1));
+
+            temp.add(buttonMap.get("Row2").get(1));
+        }
         return temp;
     }
 
@@ -160,6 +168,36 @@ public class BoardFragment extends Fragment {
             chest = new ArrayList<TextView>();
             chest.add(keyMap.get("Row3").get(1).get(0));
             chest.add(keyMap.get("Row3").get(1).get(1));
+            ret.add(chest);
+
+        }
+        else if (num_chests == 5){
+            // Make a new chest
+            ArrayList<TextView> chest = new ArrayList<TextView>();
+            // Add the left and right key holders from row 1 chest 1 (middle)
+            chest.add(keyMap.get("Row1").get(1).get(0));
+            chest.add(keyMap.get("Row1").get(1).get(1));
+            // Add chest to what we are going to return
+            ret.add(chest);
+
+            chest = new ArrayList<TextView>();
+            chest.add(keyMap.get("Row2").get(0).get(0));
+            chest.add(keyMap.get("Row2").get(0).get(1));
+            ret.add(chest);
+
+            chest = new ArrayList<TextView>();
+            chest.add(keyMap.get("Row2").get(2).get(0));
+            chest.add(keyMap.get("Row2").get(2).get(1));
+            ret.add(chest);
+
+            chest = new ArrayList<TextView>();
+            chest.add(keyMap.get("Row3").get(1).get(0));
+            chest.add(keyMap.get("Row3").get(1).get(1));
+            ret.add(chest);
+
+            chest = new ArrayList<TextView>();
+            chest.add(keyMap.get("Row2").get(1).get(0));
+            chest.add(keyMap.get("Row2").get(1).get(1));
             ret.add(chest);
 
         }

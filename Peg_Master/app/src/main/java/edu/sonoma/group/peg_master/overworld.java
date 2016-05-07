@@ -1,18 +1,13 @@
 package edu.sonoma.group.peg_master;
 
-import android.annotation.SuppressLint;
 import android.app.Activity;
-import android.app.FragmentTransaction;
 import android.content.Intent;
-import android.support.v4.app.FragmentManager;
-import android.support.v7.app.ActionBar;
-import android.support.v7.app.AppCompatActivity;
+import android.graphics.Color;
 import android.os.Bundle;
-import android.os.Handler;
-import android.view.MotionEvent;
+import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
-import android.widget.ImageButton;
 import android.widget.ScrollView;
 import android.widget.Toast;
 
@@ -96,7 +91,7 @@ public class overworld extends AppCompatActivity {
     };*/
 
     //level buttons
-    private Button lvl1Btn,lvl2Btn,lvl3Btn, lvl4Btn, lvl5Btn,lvl6Btn, lvl7Btn, lvl8Btn;
+    private Button lvl1Btn,lvl2Btn,lvl3Btn, lvl4Btn, lvl5Btn,lvl6Btn, lvl7Btn, lvl8Btn, lvl9Btn,lvl10Btn, lvl11Btn;
 
     //database stuff
     //private DBHandler db;
@@ -106,6 +101,26 @@ public class overworld extends AppCompatActivity {
 
 
     private User currentUser = GlobalApplicationClass.getCurrentUser();
+
+    @Override
+    public void onStart(){
+        super.onStart();
+        int userCLevel = GlobalApplicationClass.getCurrentUser().getCompletedLevels().size();
+        for (int i = 0; i < displayedButtons; i++){
+            if( userCLevel-1 < i ) {
+                Log.d("User has not completed", Integer.toString(i));
+                allButtons.get(i).setBackgroundColor(Color.parseColor("#ff0000"));
+            }
+            else {
+                allButtons.get(i).setBackgroundColor(Color.parseColor("#66ff66"));
+            }
+            if (userCLevel == i){
+                allButtons.get(i).setBackgroundColor(Color.parseColor("#0000ff"));
+            }
+
+        }
+    }
+
 
     protected Integer numberOfChests(Integer level){
         Integer chests = 3;
@@ -129,6 +144,17 @@ public class overworld extends AppCompatActivity {
     }
 
     @Override
+    protected void onDestroy(){
+        //Intent returnIntent = new Intent();
+        setResult(Activity.RESULT_OK);
+        Toast.makeText(getApplicationContext(),"ONDESTROY",Toast.LENGTH_SHORT).show();
+        //finishActivity(2);
+        super.onDestroy();
+
+
+    }
+
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
@@ -146,14 +172,17 @@ public class overworld extends AppCompatActivity {
         lvl6Btn = (Button)findViewById(R.id.level6);
         lvl7Btn = (Button)findViewById(R.id.level7);
         lvl8Btn = (Button)findViewById(R.id.level8);
+        lvl9Btn = (Button)findViewById(R.id.level9);
+        lvl10Btn = (Button)findViewById(R.id.level10);
+        lvl11Btn = (Button)findViewById(R.id.level11);
 
         allButtons = new ArrayList<Button>();
 
-        allButtons.addAll(Arrays.asList(lvl1Btn,lvl2Btn,lvl3Btn, lvl4Btn, lvl5Btn,lvl6Btn, lvl7Btn, lvl8Btn));
+        allButtons.addAll(Arrays.asList(lvl1Btn,lvl2Btn,lvl3Btn, lvl4Btn, lvl5Btn,lvl6Btn, lvl7Btn,
+                                        lvl8Btn, lvl9Btn,lvl10Btn, lvl11Btn));
         displayedButtons = allButtons.size();
 
         //debug GAC works
-//        Toast.makeText(getApplicationContext(),currentUser.getName(),Toast.LENGTH_SHORT).show();
         for (int i = 0; i < displayedButtons; i ++){
             Button b = allButtons.get(i);
             final int finalI = i;
@@ -166,15 +195,24 @@ public class overworld extends AppCompatActivity {
 
                     //make a bundle to transfer chest# for each level
                     int level = finalI +1;
-                    Bundle numChests = new Bundle();
-                    numChests.putInt("numChests", numberOfChests(level));
-                    //put bundle in the intent for transfer. Use getIntent().getExtras().getString/int/...(key)
-                    //inside activity to access this data.
-                    intent.putExtras(numChests);
+                    int userCLevel = GlobalApplicationClass.getCurrentUser().getCompletedLevels().size();
 
-                    //switch activity
-                    //startActivity(intent);
-                    startActivityForResult(intent, requestCode);
+                    //only let them play the level if they have completed previous levels.
+                    if(userCLevel >= level-1 || level ==1) {
+                        Bundle numChests = new Bundle();
+                        numChests.putInt("numChests", numberOfChests(level));
+                        numChests.putInt("levelnum", level);
+                        //put bundle in the intent for transfer. Use getIntent().getExtras().getString/int/...(key)
+                        //inside activity to access this data.
+                        intent.putExtras(numChests);
+                        //switch activity
+                        //startActivity(intent);
+                        startActivityForResult(intent, requestCode);
+                    }
+                    else{
+                        Toast.makeText(getApplicationContext(),"PLAY PREVIOUS LEVEL TO UNLOCK",Toast.LENGTH_SHORT).show();
+
+                    }
                 }
             });
         }

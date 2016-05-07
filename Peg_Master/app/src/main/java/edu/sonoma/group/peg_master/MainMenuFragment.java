@@ -3,25 +3,17 @@ package edu.sonoma.group.peg_master;
 import android.app.Activity;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.media.Image;
-import android.preference.PreferenceManager;
-import android.support.v4.app.FragmentTransaction;
-import android.content.Context;
-import android.net.Uri;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.support.v4.app.Fragment;
-import android.util.Log;
+import android.support.v4.app.FragmentTransaction;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.CompoundButton;
 import android.widget.ImageButton;
-import android.widget.Switch;
-import android.widget.TextView;
 import android.widget.Toast;
 
-import java.util.ArrayList;
 import java.util.List;
 
 
@@ -30,13 +22,14 @@ public class MainMenuFragment extends Fragment{
 
     //private Button infoButton, optionsButton;
     private ImageButton startButton, infoButton, optionsButton;
-    private Button changeUsersButton;
+    private Button statsButton;
     private DBHandler db;
     private UserTableManager dbManager;
     //used to set currentUser
     private String lastUser;
     //use currentUser preferences and level progress
     private User currentUser;
+    private int currentLevel;
     private List<User> allUsers;
 
 
@@ -81,7 +74,10 @@ public class MainMenuFragment extends Fragment{
 
         if(lastUser !="null"){
             currentUser = dbManager.getUser(lastUser);
+            currentUser.setCompletedLevels(dbManager.getLevels(currentUser));
+            currentLevel = currentUser.getCompletedLevels().size();
             GlobalApplicationClass.setCurrentUser(currentUser);
+
 
             //start music if enabled for currentUser
             if(currentUser.getMusic())
@@ -95,7 +91,7 @@ public class MainMenuFragment extends Fragment{
 
             //debug
             //Toast.makeText(this.getActivity().getApplicationContext(),Boolean.toString(currentUser.getMusic()),Toast.LENGTH_SHORT).show();
-            Toast.makeText(this.getActivity().getApplicationContext(),currentUser.getName(),Toast.LENGTH_SHORT).show();
+            //Toast.makeText(this.getActivity().getApplicationContext(),currentUser.getName(),Toast.LENGTH_SHORT).show();
 
         }
     }
@@ -117,7 +113,19 @@ public class MainMenuFragment extends Fragment{
                 editor.putString("lastUser",lastUser);
                 editor.apply();
 
+
+
             }
+        }
+        //if user has gotten out of overworld screen, update levels table
+        else if(requestCode ==2){
+
+            int completedLevels = GlobalApplicationClass.getCurrentUser().getCompletedLevels().size() - currentLevel;
+            Toast.makeText(getActivity().getApplicationContext(),"COMPLETED LEVELS: " + Integer.toString(completedLevels),Toast.LENGTH_SHORT).show();
+
+            dbManager.addCompletedLevel(GlobalApplicationClass.getCurrentUser(), completedLevels);
+            currentLevel = GlobalApplicationClass.getCurrentUser().getCompletedLevels().size();
+
         }
     }
 
@@ -130,6 +138,7 @@ public class MainMenuFragment extends Fragment{
         startButton = (ImageButton) view.findViewById(R.id.Startbutton);
         infoButton = (ImageButton) view.findViewById(R.id.Infobutton);
         optionsButton = (ImageButton) view.findViewById(R.id.Optionsbutton);
+        statsButton = (Button)view.findViewById(R.id.Statsbutton);
         //createUserButton = (Button)view.findViewById(R.id.CreateUser);
         //changeUsersButton = (Button)view.findViewById(R.id.ChangeUsers);
 
@@ -147,9 +156,10 @@ public class MainMenuFragment extends Fragment{
             public void onClick(View v) {
                 Intent intent = new Intent(getActivity(), overworld.class);
                 Bundle bundle = new Bundle();
-                bundle.putString("currentUser",currentUser.getName());
-                intent.putExtras(bundle);
-                startActivity(intent);
+                //bundle.putString("currentUser",currentUser.getName());
+                //intent.putExtras(bundle);
+                startActivityForResult(intent,2);
+                //startActivity(intent);
                 //BoardFragment newFrag = new BoardFragment();
                 //FragmentTransaction transaction = getActivity().getSupportFragmentManager().beginTransaction();
                 //transaction.replace(R.id.fragment_container, newFrag);
@@ -185,6 +195,16 @@ public class MainMenuFragment extends Fragment{
                 transaction.addToBackStack(null);
                 transaction.commit();
 
+            }
+        });
+        statsButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                StatisticsFragment newFrag = new StatisticsFragment();
+                FragmentTransaction transaction = getActivity().getSupportFragmentManager().beginTransaction();
+                transaction.replace(R.id.fragment_container,newFrag);
+                transaction.addToBackStack(null);
+                transaction.commit();
             }
         });
 
