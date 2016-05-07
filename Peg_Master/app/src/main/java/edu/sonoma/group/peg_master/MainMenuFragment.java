@@ -21,8 +21,8 @@ public class MainMenuFragment extends Fragment{
 
 
     //private Button infoButton, optionsButton;
-    private ImageButton startButton, infoButton, optionsButton;
-    private Button statsButton;
+    private Button startButton, infoButton, optionsButton, statsButton;
+
     private DBHandler db;
     private UserTableManager dbManager;
     //used to set currentUser
@@ -135,9 +135,9 @@ public class MainMenuFragment extends Fragment{
 
         View view = inflater.inflate(R.layout.fragment_main_menu, container, false);
 
-        startButton = (ImageButton) view.findViewById(R.id.Startbutton);
-        infoButton = (ImageButton) view.findViewById(R.id.Infobutton);
-        optionsButton = (ImageButton) view.findViewById(R.id.Optionsbutton);
+        startButton = (Button) view.findViewById(R.id.Startbutton);
+        infoButton = (Button) view.findViewById(R.id.Infobutton);
+        optionsButton = (Button) view.findViewById(R.id.Optionsbutton);
         statsButton = (Button)view.findViewById(R.id.Statsbutton);
         //createUserButton = (Button)view.findViewById(R.id.CreateUser);
         //changeUsersButton = (Button)view.findViewById(R.id.ChangeUsers);
@@ -167,6 +167,7 @@ public class MainMenuFragment extends Fragment{
                 //transaction.commit();
             }
         });
+
         infoButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -178,6 +179,7 @@ public class MainMenuFragment extends Fragment{
             }
 
         });
+
         optionsButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -197,6 +199,7 @@ public class MainMenuFragment extends Fragment{
 
             }
         });
+
         statsButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
