@@ -7,16 +7,52 @@
     android:adjustViewBounds = "true"
     android:backgroundTint="#000000">
     <!-- TODO: Update blank fragment layout -->
-    <TextView
+
+    <Button
+        android:layout_width="93dp"
+        android:layout_height="42dp"
+        android:text="Back"
+        android:id="@+id/back"
+        android:background="@drawable/buttonstyle"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="20dp"/>
+
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="User Statistics" />
-    <ListView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/listView"
-        android:layout_below="@+id/textView"
-        android:layout_above="@+id/textView2"
-        android:layout_alignParentStart="true" />
+        android:orientation="vertical"
+        android:gravity="center">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="30dp"
+            android:text="Your Statistics"
+            android:layout_gravity="center"
+            android:textColor="#000000" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Completed Levels: 0"
+            android:id="@+id/compLevels"
+            android:textSize="30dp"
+            android:textColor="#000000" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Totals Stars Earned: 0"
+            android:textSize="30dp"
+            android:id="@+id/starsEarned"
+            android:textColor="#000000" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Totals Chests Opened: 0"
+            android:textSize="30dp"
+            android:id="@+id/chestsOpened"
+            android:textColor="#000000" />
+
+    </LinearLayout>
 
 </FrameLayout>

@@ -7,7 +7,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
@@ -23,6 +25,8 @@ public class StatisticsFragment extends Fragment {
     private ArrayList<String> stats;
     ListView userStats;
     private View fragView;
+    private TextView completedLevels, totalStars, chestsOpened;
+    private Button back;
 
     public StatisticsFragment() {
         // Required empty public constructor
@@ -45,19 +49,23 @@ public class StatisticsFragment extends Fragment {
         }
         numStars = stars;
         numChestsOpened= chests;
-        Toast.makeText(getActivity().getApplicationContext(),Integer.toString(numStars),Toast.LENGTH_SHORT).show();
 
+        completedLevels = (TextView) fragView.findViewById(R.id.compLevels);
+        totalStars = (TextView) fragView.findViewById(R.id.starsEarned);
+        chestsOpened = (TextView) fragView.findViewById(R.id.chestsOpened);
 
-        //populate stats list
-        stats.add("Completed Levels: " + Integer.toString(numCompletedLevels));
-        stats.add("Total Stars: " + Integer.toString(numStars));
-        stats.add("Total Chests Opened: " + Integer.toString(numChestsOpened));
-        ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(this.getActivity(),android.R.layout.simple_list_item_1,stats);
-        userStats.setAdapter(arrayAdapter);
+        completedLevels.setText("Completed Levels: " + Integer.toString(numCompletedLevels));
+        totalStars.setText("Total Stars: " + Integer.toString(numStars));
+        chestsOpened.setText("Total Chests Opened: " + Integer.toString(numChestsOpened));
 
+        back = (Button) fragView.findViewById(R.id.back);
 
-
-
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                getFragmentManager().popBackStack();
+            }
+        });
 
         return fragView;
 

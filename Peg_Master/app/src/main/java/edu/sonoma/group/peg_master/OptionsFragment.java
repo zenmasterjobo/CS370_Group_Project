@@ -42,7 +42,6 @@ public class OptionsFragment extends Fragment {
 
 
         View rootView = inflater.inflate(R.layout.fragment_options, null);
-        switchStatus = (TextView) rootView.findViewById(R.id.switchStatus);
         switch1 = (Switch) rootView.findViewById(R.id.switch1);
 
 
@@ -77,7 +76,6 @@ public class OptionsFragment extends Fragment {
             //only runs the status of the switch is changed
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 if (switch1.isChecked()) {
-                    switchStatus.setText("Music is On");
                     //((MainMenu)getActivity()).getMainMenuSound().start();
                     ((MainMenu) getActivity()).Sound(true);
                     //GlobalApplicationClass.getUserSettings().setIsMusicEnabled(true);
@@ -86,7 +84,6 @@ public class OptionsFragment extends Fragment {
 
                 }
                 else {
-                    switchStatus.setText("Music is off");
                     ((MainMenu) getActivity()).Sound(false);
                     //GlobalApplicationClass.getUserSettings().setIsMusicEnabled(false);
                     //savedState = saveState();
@@ -107,7 +104,6 @@ public class OptionsFragment extends Fragment {
 
         //This is needed to set the text when the fragment loads.
         if (switch1.isChecked()){
-            switchStatus.setText("Music is On");
             ((MainMenu) getActivity()).Sound(true);
             //GlobalApplicationClass.getUserSettings().setIsMusicEnabled(true);
             //savedState = saveState();
@@ -115,7 +111,6 @@ public class OptionsFragment extends Fragment {
 
         }
         else {
-            switchStatus.setText("Music is Off");
             ((MainMenu) getActivity()).Sound(false);
             //GlobalApplicationClass.getUserSettings().setIsMusicEnabled(false);
             //savedState = saveState();
