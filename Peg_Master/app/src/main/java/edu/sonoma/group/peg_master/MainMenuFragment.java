@@ -7,12 +7,16 @@ import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.Toast;
+
+import com.google.android.gms.common.api.GoogleApiClient;
+import com.google.android.gms.games.Games;
 
 import java.util.List;
 
@@ -21,7 +25,7 @@ public class MainMenuFragment extends Fragment{
 
 
     //private Button infoButton, optionsButton;
-    private Button startButton, infoButton, optionsButton, statsButton;
+    private Button startButton, infoButton, optionsButton, statsButton, googlePlay;
 
     private DBHandler db;
     private UserTableManager dbManager;
@@ -148,10 +152,20 @@ public class MainMenuFragment extends Fragment{
         infoButton = (Button) view.findViewById(R.id.Infobutton);
         optionsButton = (Button) view.findViewById(R.id.Optionsbutton);
         statsButton = (Button)view.findViewById(R.id.Statsbutton);
+        googlePlay = (Button)view.findViewById(R.id.googlePlay);
         //createUserButton = (Button)view.findViewById(R.id.CreateUser);
         //changeUsersButton = (Button)view.findViewById(R.id.ChangeUsers);
 
-
+        googlePlay.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                GoogleApiClient client = ((MainMenu) getActivity()).getClient();
+                startActivityForResult(Games.Leaderboards.getLeaderboardIntent(client,
+                        "CgkI65D-vuwKEAIQBg"), 1);
+                Log.d("GooglePlayButton", "has been clicked, now calling connect");
+                client.connect();
+            }
+        });
 
 
 

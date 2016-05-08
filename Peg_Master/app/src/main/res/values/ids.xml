@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+    <!--
+    Google Play game services IDs.
+    Save this file as res/values/games-ids.xml in your project.
+    -->
+<resources>
+    <string name="app_id">372720502891</string>
+    <string name="package_name">edu.sonoma.group.peg_master</string>
+    <string name="achievement_complete_first_level">CgkI65D-vuwKEAIQAQ</string>
+    <string name="achievement_moving_up">CgkI65D-vuwKEAIQAg</string>
+    <string name="achievement_too_many_chests">CgkI65D-vuwKEAIQAw</string>
+    <string name="achievement_slow_poke">CgkI65D-vuwKEAIQBA</string>
+    <string name="achievement_perfect">CgkI65D-vuwKEAIQBQ</string>
+    <string name="leaderboard_most_stars">CgkI65D-vuwKEAIQBg</string>
+</resources>
