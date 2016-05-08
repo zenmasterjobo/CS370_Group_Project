@@ -150,6 +150,7 @@ public class MainMenu extends AppCompatActivity implements
     @Override
     public void onConnectionSuspended(int i) {
         Log.d("mainMenu", "connection suspended");
+        client.disconnect();
     }
 
     @Override
