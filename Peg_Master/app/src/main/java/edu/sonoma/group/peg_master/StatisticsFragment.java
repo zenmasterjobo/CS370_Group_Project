@@ -12,6 +12,9 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.gms.common.api.GoogleApiClient;
+import com.google.android.gms.games.Games;
+
 import java.util.ArrayList;
 
 
@@ -26,7 +29,7 @@ public class StatisticsFragment extends Fragment {
     ListView userStats;
     private View fragView;
     private TextView completedLevels, totalStars, chestsOpened;
-    private Button back;
+    private Button back, achievemnts;
 
     public StatisticsFragment() {
         // Required empty public constructor
@@ -59,6 +62,16 @@ public class StatisticsFragment extends Fragment {
         chestsOpened.setText("Total Chests Opened: " + Integer.toString(numChestsOpened));
 
         back = (Button) fragView.findViewById(R.id.back);
+        achievemnts = (Button) fragView.findViewById(R.id.ach);
+
+        achievemnts.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                GoogleApiClient client = GlobalApplicationClass.getClient();
+                startActivityForResult(Games.Achievements.getAchievementsIntent(client),
+                        0);
+            }
+        });
 
         back.setOnClickListener(new View.OnClickListener() {
             @Override

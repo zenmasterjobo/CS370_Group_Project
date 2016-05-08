@@ -50,14 +50,6 @@ public class MainMenu extends AppCompatActivity implements
         super.onCreate(savedInstanceState);
 
 
-        // Create the Google Api Client with access to the Play Games services
-        client = new GoogleApiClient.Builder(this)
-                .addConnectionCallbacks(this)
-                .addOnConnectionFailedListener(this)
-                .addApi(Games.API).addScope(Games.SCOPE_GAMES)
-                        // add other APIs and scopes here as needed
-                .build();
-        GlobalApplicationClass.setClient(client);
         setContentView(R.layout.activity_main_menu);
         FragmentManager fm = getSupportFragmentManager();
         FragmentTransaction ft = fm.beginTransaction();
@@ -72,6 +64,10 @@ public class MainMenu extends AppCompatActivity implements
                 .addConnectionCallbacks(this)
                 .addApi(Games.API)
                 .build();
+
+
+        GlobalApplicationClass.setClient(client);
+
         mainMenuSound = MediaPlayer.create(this, R.raw.windwaker);
 
 
@@ -121,12 +117,6 @@ public class MainMenu extends AppCompatActivity implements
                 Uri.parse("android-app://edu.sonoma.group.peg_master/http/host/path")
         );
         AppIndex.AppIndexApi.end(client, viewAction);
-        Log.d("MainMenu", "onStop(): disconnecting");
-        if (client.isConnected()) {
-            Log.d("MainMenu", "We have somehow connected");
-            client.disconnect();
-        }
-        client.disconnect();
     }
 
     public void Sound(Boolean Status){

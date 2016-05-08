@@ -159,13 +159,14 @@ public class MainMenuFragment extends Fragment{
         //changeUsersButton = (Button)view.findViewById(R.id.ChangeUsers);
 
         googlePlay.setOnClickListener(new View.OnClickListener() {
+
             @Override
             public void onClick(View v) {
-                GoogleApiClient client = ((MainMenu) getActivity()).getClient();
-                startActivityForResult(Games.Leaderboards.getLeaderboardIntent(client,
+                GoogleApiClient c = GlobalApplicationClass.getClient();
+                c.connect();
+                startActivityForResult(Games.Leaderboards.getLeaderboardIntent(c,
                         "CgkI65D-vuwKEAIQBg"), 1);
                 Log.d("GooglePlayButton", "has been clicked, now calling connect");
-                client.connect();
             }
         });
 

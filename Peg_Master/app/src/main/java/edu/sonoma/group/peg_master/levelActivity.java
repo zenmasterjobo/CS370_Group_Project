@@ -14,6 +14,8 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.gms.common.api.GoogleApiClient;
+
 import java.util.ArrayList;
 
 public class levelActivity extends AppCompatActivity {
@@ -111,19 +113,23 @@ public class levelActivity extends AppCompatActivity {
                             }
                         CompletedLevel cLevel = new CompletedLevel(levelNum, 0, numChests);
                         //1 star
+                        int num_stars = 0;
                         if (num_moves < boardScores.get(2)) {
                                 cLevel.setNumStars(1);
                                 stars.get(0).setVisibility(View.VISIBLE);
+                                num_stars += 1;
                             }
                             //2star
                             if (num_moves < boardScores.get(1)) {
                                 cLevel.setNumStars(2);
                                 stars.get(1).setVisibility(View.VISIBLE);
+                                num_stars += 1;
                             }
                             //3star
                             if (num_moves <= boardScores.get(0)) {
                                 cLevel.setNumStars(3);
                                 stars.get(2).setVisibility(View.VISIBLE);
+                                num_stars += 1;
                             }
                         Intent returnIntent = new Intent();
 
@@ -139,8 +145,9 @@ public class levelActivity extends AppCompatActivity {
                         }
                         setResult(Activity.RESULT_OK,null);
 
-                        GlobalApplicationClass.setCurrentUser(cUser);
 
+                        GlobalApplicationClass.setCurrentUser(cUser);
+                        GlobalApplicationClass.updateAcheivements(numChests, num_moves, num_stars);
                     }
                     updateGraphics();
 
