@@ -74,14 +74,18 @@ public class UserTableManager extends DBHandler {
 
 
         for(int i =0;i <completedLevels;i++){
+            Log.v("myApp","COMPLETED LEVEL");
+            Log.v("myApp","COMPLETED LEVEL");
+
+            Log.v("myApp","COMPLETED LEVEL");
+
             ContentValues values = new ContentValues();
             CompletedLevel aCLevel = completedLevelsArray.get(size -1-i);
             values.put(COLUMN_LID,aCLevel.getLID());
             values.put(COLUMN_STARS,aCLevel.getNumStars());
             values.put(COLUMN_NUMCHESTS,aCLevel.getNumChests());
-            values.put(COLUMN_UID,aUser.getID());
-            db.insert(COMPLETED_LEVELS_TABLE_NAME,null,values);
-            Log.v("myApp","COMPLETED LEVEL: " + Integer.toString(aCLevel.getLID()));
+            values.put(COLUMN_UID, aUser.getID());
+            db.insert(COMPLETED_LEVELS_TABLE_NAME, null, values);
 
 
         }

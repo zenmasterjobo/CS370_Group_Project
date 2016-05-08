@@ -29,6 +29,7 @@ public class levelActivity extends AppCompatActivity {
 
     private TextView keyInHand;
     private TextView moveCounter;
+    private TextView levelCounter;
 
     @Override
     protected void onStart(){
@@ -69,6 +70,9 @@ public class levelActivity extends AppCompatActivity {
 
         this.keyInHand = bf.getKih();
         this.moveCounter = bf.getMoveCounter();
+        this.levelCounter = bf.getLevelCounter();
+
+        levelCounter.setText("Level: " + Integer.toString(levelNum));
 
         ArrayList<ImageButton> buttons = bf.getBoardButtonsByNumberOfChests(numChests);
         for (int i = 0; i < buttons.size(); i++){
@@ -133,7 +137,7 @@ public class levelActivity extends AppCompatActivity {
                             cUser.getCompletedLevels().set(levelNum - 1, cLevel);
                             //returnIntent.putExtra("update",levelNum-1);
                         }
-                        //setResult(Activity.RESULT_OK,returnIntent);
+                        setResult(Activity.RESULT_OK,null);
 
                         GlobalApplicationClass.setCurrentUser(cUser);
 

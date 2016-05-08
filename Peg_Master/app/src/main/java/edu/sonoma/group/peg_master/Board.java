@@ -85,7 +85,7 @@ public class Board {
 
         for (int j = 0; j < numChests; j++){
             if ( getChestAt(j+1).getLeftKey() == null){
-        //        boardScore += 1;
+                boardScore += 1;
             }
             else if ( !( getChestAt(j+1).getLeftKey().getNumber().equals(Integer.toString(j+1)) ) ) {
                     boardScore += 1;
