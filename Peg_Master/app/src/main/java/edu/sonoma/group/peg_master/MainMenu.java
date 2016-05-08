@@ -57,6 +57,7 @@ public class MainMenu extends AppCompatActivity implements
                 .addApi(Games.API).addScope(Games.SCOPE_GAMES)
                         // add other APIs and scopes here as needed
                 .build();
+        GlobalApplicationClass.setClient(client);
         setContentView(R.layout.activity_main_menu);
         FragmentManager fm = getSupportFragmentManager();
         FragmentTransaction ft = fm.beginTransaction();

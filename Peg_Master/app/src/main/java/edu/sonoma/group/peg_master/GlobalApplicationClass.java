@@ -1,6 +1,9 @@
 package edu.sonoma.group.peg_master;
 
 import android.app.Application;
+
+import com.google.android.gms.common.api.GoogleApiClient;
+
 /**
  * Created by jordanbergero on 4/14/16.
  */
@@ -9,6 +12,9 @@ public class GlobalApplicationClass extends Application {
     private static GlobalApplicationClass instance;
     private static UserSettings userSettings;
     private static User currentUser;
+    private static GoogleApiClient client;
+
+
 
 
     @Override
@@ -37,6 +43,13 @@ public class GlobalApplicationClass extends Application {
 
     public static void setCurrentUser(User aUser){
         currentUser = aUser;
+    }
+
+    public static GoogleApiClient getClient(){
+        return client;
+    }
+    public static void setClient(GoogleApiClient aClient){
+        client = aClient;
     }
 
 

@@ -65,7 +65,9 @@ public class MainMenuFragment extends Fragment{
         dbManager = new UserTableManager(getActivity().getApplicationContext());
 
 
-
+        if(GlobalApplicationClass.getClient()!=null){
+            Toast.makeText(getActivity().getApplicationContext(),"got client",Toast.LENGTH_SHORT).show();
+        }
 
         //get shared prefs
         SharedPreferences mPrefs = PreferenceManager.getDefaultSharedPreferences(this.getActivity().getApplicationContext());
