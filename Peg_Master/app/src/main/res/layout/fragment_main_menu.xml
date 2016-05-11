@@ -4,8 +4,7 @@
     android:layout_height="fill_parent"
     tools:context="edu.sonoma.group.peg_master.MainMenuFragment"
     android:adjustViewBounds="true"
-    android:background="@drawable/mainwallpaper"
-    android:backgroundTint="#000000">
+    android:background="@drawable/mainwallpaper">
 
 
 
@@ -84,7 +83,7 @@
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
         android:id="@+id/googlePlay"
-        android:text="Google Play"
+        android:text="High Scores"
         android:clickable="true"
         android:background="@drawable/buttonstyle"
         android:layout_marginTop="5dp"/>

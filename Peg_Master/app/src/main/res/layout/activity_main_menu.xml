@@ -5,7 +5,8 @@
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     tools:context="edu.sonoma.group.peg_master.MainMenu"
-    android:id="@+id/main_menu">
+    android:id="@+id/main_menu"
+    android:background="@drawable/mainwallpaper">
 
     <FrameLayout
         android:layout_width="match_parent"
