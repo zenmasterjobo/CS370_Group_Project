@@ -4,8 +4,7 @@
     android:layout_height="match_parent"
     tools:context="edu.sonoma.group.peg_master.InfoFragment"
     android:background="@drawable/mainwallpaper"
-    android:adjustViewBounds = "true"
-    android:backgroundTint="#000000">
+    android:adjustViewBounds = "true">
 
     <Button
         android:layout_width="93dp"

@@ -1,9 +1,13 @@
-
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/winscreenchest"
     android:weightSum="1">
+
+    <ImageView
+        android:layout_width="300dp"
+        android:layout_height="300dp"
+        android:src="@drawable/winscreenchest"
+        android:layout_gravity="center_vertical|bottom"/>
 
     <LinearLayout
         android:orientation="horizontal"
@@ -104,7 +108,8 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal|bottom"
         android:text="Back To Level Select"
-        android:id="@+id/backToLevelSelect" />
+        android:id="@+id/backToLevelSelect"
+        android:background="@drawable/buttonstyle"/>
 
 
 </FrameLayout>
