@@ -38,19 +38,16 @@ public class MainMenuFragment extends Fragment{
 
     void updateDB(User aUser){
         int completedLevels = aUser.getCompletedLevels().size() - currentLevel;
-        //Toast.makeText(getActivity().getApplicationContext(),"COMPLETED LEVELS: " + Integer.toString(completedLevels),Toast.LENGTH_SHORT).show();
 
         dbManager.addCompletedLevel(aUser, completedLevels);
         currentLevel = aUser.getCompletedLevels().size();
     }
     void updateMusic(){
-        Toast.makeText(getActivity().getApplicationContext(),"BEFORE: " + Boolean.toString(currentUser.getMusic()),Toast.LENGTH_SHORT).show();
 
         dbManager.updateUserMusic(currentUser);
         //update current user w/ music preference
         currentUser = dbManager.getUser(currentUser.getName());
         //Log.v("myApp", "AFTER UPDATE: " + Boolean.toString(dbManager.getUser(currentUser.getName()).getMusic()));
-        Toast.makeText(getActivity().getApplicationContext(),"AFTER" + Boolean.toString(currentUser.getMusic()),Toast.LENGTH_SHORT).show();
         ((MainMenu)getActivity()).Sound(currentUser.getMusic());
 
 
@@ -64,11 +61,11 @@ public class MainMenuFragment extends Fragment{
         db = new DBHandler(getActivity().getApplicationContext());
         dbManager = new UserTableManager(getActivity().getApplicationContext());
 
-
+/*
         if(GlobalApplicationClass.getClient()!=null){
             Toast.makeText(getActivity().getApplicationContext(),"got client",Toast.LENGTH_SHORT).show();
         }
-
+*/
         //get shared prefs
         SharedPreferences mPrefs = PreferenceManager.getDefaultSharedPreferences(this.getActivity().getApplicationContext());
         SharedPreferences.Editor editor = mPrefs.edit();
@@ -117,7 +114,7 @@ public class MainMenuFragment extends Fragment{
                 SharedPreferences.Editor editor = mPrefs.edit();
 
                 String userName = data.getStringExtra("name");
-                Toast.makeText(getActivity().getApplicationContext(), userName, Toast.LENGTH_SHORT).show();
+                //Toast.makeText(getActivity().getApplicationContext(), userName, Toast.LENGTH_SHORT).show();
                 User newUser = new User(userName);
                 dbManager.addUserData(newUser);
                 currentUser = newUser;
@@ -215,7 +212,7 @@ public class MainMenuFragment extends Fragment{
                 //bundle music setting
                 Bundle bundle = new Bundle();
                 bundle.putBoolean("bmusic",currentUser.getMusic());
-                Toast.makeText(getActivity().getApplicationContext(),Boolean.toString(currentUser.getMusic()),Toast.LENGTH_SHORT).show();
+                //Toast.makeText(getActivity().getApplicationContext(),Boolean.toString(currentUser.getMusic()),Toast.LENGTH_SHORT).show();
 
                 newFrag.setArguments(bundle);
                 FragmentTransaction transaction = getActivity().getSupportFragmentManager().beginTransaction();

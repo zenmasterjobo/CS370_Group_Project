@@ -8,7 +8,7 @@ import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.widget.Button;
-import android.widget.Toast;
+
 
 import com.google.android.gms.appindexing.Action;
 import com.google.android.gms.appindexing.AppIndex;
@@ -122,7 +122,7 @@ public class MainMenu extends AppCompatActivity implements
     public void Sound(Boolean Status){
         if(Status == true) {
             //play the sound when the app opens
-            Toast.makeText(this,"SOUND TRUE", Toast.LENGTH_SHORT).show();
+
 
             mainMenuSound.start();
         }

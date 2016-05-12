@@ -17,7 +17,7 @@ import android.widget.Switch;
 import android.widget.CompoundButton;
 import android.widget.CompoundButton.OnCheckedChangeListener;
 import android.widget.TextView;
-import android.widget.Toast;
+
 
 /**
  * Created by jordanbergero on 3/26/16.

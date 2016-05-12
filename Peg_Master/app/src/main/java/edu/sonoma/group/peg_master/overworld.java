@@ -175,8 +175,8 @@ public class overworld extends AppCompatActivity {
         if(requestCode ==1){
             if(resultCode == Activity.RESULT_OK){
                 dbManager.addCompletedLevel(GlobalApplicationClass.getCurrentUser(), 1);
-                Toast.makeText(getApplicationContext(),"added level",Toast.LENGTH_SHORT).show();
-                Toast.makeText(getApplicationContext(),"Completed Levels: " + currentUser.getCompletedLevels().size(),Toast.LENGTH_SHORT).show();
+                //Toast.makeText(getApplicationContext(),"added level",Toast.LENGTH_SHORT).show();
+                //Toast.makeText(getApplicationContext(),"Completed Levels: " + currentUser.getCompletedLevels().size(),Toast.LENGTH_SHORT).show();
 
             }
         }
@@ -317,15 +317,15 @@ public class overworld extends AppCompatActivity {
                     else{
                         Toast.makeText(getApplicationContext(),"PLAY PREVIOUS LEVEL TO UNLOCK",Toast.LENGTH_SHORT).show();
                         // just remove vvv
-                        Bundle numChests = new Bundle();
-                        numChests.putInt("numChests", numberOfChests(level));
-                        numChests.putInt("levelnum", level);
+                        //Bundle numChests = new Bundle();
+                        //numChests.putInt("numChests", numberOfChests(level));
+                        //numChests.putInt("levelnum", level);
                         //put bundle in the intent for transfer. Use getIntent().getExtras().getString/int/...(key)
                         //inside activity to access this data.
-                        intent.putExtras(numChests);
+                        //intent.putExtras(numChests);
                         //switch activity
                         //startActivity(intent);
-                        startActivityForResult(intent, requestCode);
+                        //startActivityForResult(intent, requestCode);
 
                     }
                 }
