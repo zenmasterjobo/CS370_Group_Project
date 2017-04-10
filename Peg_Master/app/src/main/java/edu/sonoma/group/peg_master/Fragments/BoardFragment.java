@@ -1,4 +1,4 @@
-package edu.sonoma.group.peg_master;
+package edu.sonoma.group.peg_master.Fragments;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -14,6 +14,8 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
+
+import edu.sonoma.group.peg_master.R;
 
 /**
  * Created by admin on 3/24/16.

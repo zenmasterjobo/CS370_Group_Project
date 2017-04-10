@@ -1,4 +1,4 @@
-package edu.sonoma.group.peg_master;
+package edu.sonoma.group.peg_master.Database;
 
 import android.app.Activity;
 import android.app.AlertDialog;
@@ -16,6 +16,8 @@ import android.widget.Toast;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+
+import edu.sonoma.group.peg_master.R;
 
 /**
  * Created by student on 4/14/16.

@@ -1,4 +1,4 @@
-package edu.sonoma.group.peg_master;
+package edu.sonoma.group.peg_master.Fragments;
 
 
 import android.os.Bundle;
@@ -13,6 +13,8 @@ import android.widget.Button;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+
+import edu.sonoma.group.peg_master.R;
 
 /**
  * Created by jordanbergero on 5/1/16.

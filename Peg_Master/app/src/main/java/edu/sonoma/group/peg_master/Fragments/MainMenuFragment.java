@@ -1,4 +1,4 @@
-package edu.sonoma.group.peg_master;
+package edu.sonoma.group.peg_master.Fragments;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -12,13 +12,20 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.ImageButton;
-import android.widget.Toast;
 
 import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.gms.games.Games;
 
 import java.util.List;
+
+import edu.sonoma.group.peg_master.Activities.MainMenu;
+import edu.sonoma.group.peg_master.Database.DBHandler;
+import edu.sonoma.group.peg_master.Database.User;
+import edu.sonoma.group.peg_master.Database.UserList;
+import edu.sonoma.group.peg_master.Database.UserTableManager;
+import edu.sonoma.group.peg_master.GlobalApplicationClass;
+import edu.sonoma.group.peg_master.R;
+import edu.sonoma.group.peg_master.Activities.overworld;
 
 
 public class MainMenuFragment extends Fragment{
@@ -235,47 +242,7 @@ public class MainMenuFragment extends Fragment{
         });
 
 
-
-
-        /*
-        createUserButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                User testUser = new User();
-                testUser.setName("nick");
-                testUser.setPlayed(100);
-                testUser.setScore(69);
-                testUser.setPlayed(100);
-                testUser.setChestsOpened(63);
-                dbManager.addUserData(testUser);
-
-            }
-        });
-        */
-
-        /*
-        changeUsersButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                //List<User>myUsers = new ArrayList<User>();
-                //update list of users, then create array of user.getName()
-                allUsers = dbManager.getAllUsers();
-                String[] userStrings = new String[allUsers.size()];
-                int idx =0;
-                for(User aUser: allUsers){
-                    userStrings[idx] = aUser.getName();
-                    idx++;
-                }
-                Intent userIntent = new Intent(getActivity(),UserList.class);
-                userIntent.putExtra("allUsers", userStrings);
-                startActivityForResult(userIntent, 1);
-                Toast.makeText(getActivity().getApplicationContext(), Integer.toString(allUsers.size()), Toast.LENGTH_LONG).show();
-
-
-
-            }
-        });
-    */
+        
         return view;
     }
 

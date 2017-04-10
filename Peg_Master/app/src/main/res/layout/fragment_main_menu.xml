@@ -2,7 +2,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    tools:context="edu.sonoma.group.peg_master.MainMenuFragment"
+    tools:context="edu.sonoma.group.peg_master.Fragments.MainMenuFragment"
     android:adjustViewBounds="true"
     android:background="@drawable/mainwallpaper">
 
@@ -28,7 +28,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:layout_gravity="center"
-    tools:context="edu.sonoma.group.peg_master.MainMenuFragment"
+    tools:context="edu.sonoma.group.peg_master.Fragments.MainMenuFragment"
     android:layout_marginTop="90dp">
     <Button
         android:layout_width="match_parent"

@@ -18,7 +18,7 @@
             android:value="@string/app_id" />
         <meta-data android:name="com.google.android.gms.version"
             android:value="@integer/google_play_services_version"/>
-        <activity android:name=".MainMenu">
+        <activity android:name=".Activities.MainMenu">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -34,23 +34,23 @@
             android:value="@integer/google_play_services_version" />
 
         <activity
-            android:name=".overworld"
+            android:name=".Activities.overworld"
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:label="@string/title_activity_overworld"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".levelActivity"
+            android:name=".Activities.levelActivity"
             android:label="@string/title_activity_level"
-            android:parentActivityName=".overworld"
+            android:parentActivityName=".Activities.overworld"
             android:theme="@style/AppTheme.NoActionBar">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="edu.sonoma.group.peg_master.overworld" />
+                android:value="edu.sonoma.group.peg_master.Activities.overworld" />
         </activity>
 
 
 
-        <activity android:name=".UserList"
+        <activity android:name=".Database.UserList"
             android:theme="@style/AppTheme.CustomTheme"></activity>
 
     </application>

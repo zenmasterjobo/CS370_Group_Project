@@ -1,4 +1,4 @@
-package edu.sonoma.group.peg_master;
+package edu.sonoma.group.peg_master.Database;
 
 /**
  * Created by jordanbergero on 4/14/16.

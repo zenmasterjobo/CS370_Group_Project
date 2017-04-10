@@ -1,12 +1,13 @@
 package edu.sonoma.group.peg_master;
 
 import android.app.Application;
-import android.content.res.Resources;
 import android.util.Log;
 
-import com.google.android.gms.appindexing.AppIndex;
 import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.gms.games.Games;
+
+import edu.sonoma.group.peg_master.Database.User;
+import edu.sonoma.group.peg_master.Database.UserSettings;
 
 /**
  * Created by jordanbergero on 4/14/16.

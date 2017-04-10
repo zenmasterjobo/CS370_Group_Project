@@ -62,9 +62,9 @@ public class Board {
             long l = System.nanoTime();
             int chest = new Random(l).nextInt(numChests);
             Key k = getChestAt(chest+1).makeMove(keyInHand);
-            keyInHand = null;
+            //keyInHand = null;
             keyInHand = new Key(Integer.parseInt(k.getNumber()));
-            k = null;
+            //k = null;
         }
         // Hack way around never having a green key on the field
         if (! (keyInHand.getNumber().equals("-1"))){

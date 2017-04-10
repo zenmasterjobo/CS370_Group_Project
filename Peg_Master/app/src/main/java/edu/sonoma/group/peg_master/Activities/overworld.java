@@ -1,13 +1,10 @@
-package edu.sonoma.group.peg_master;
+package edu.sonoma.group.peg_master.Activities;
 
 import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -17,11 +14,19 @@ import android.widget.Toast;
 import java.util.ArrayList;
 import java.util.Arrays;
 
+import edu.sonoma.group.peg_master.Database.DBHandler;
+import edu.sonoma.group.peg_master.Database.User;
+import edu.sonoma.group.peg_master.Database.UserTableManager;
+import edu.sonoma.group.peg_master.GlobalApplicationClass;
+import edu.sonoma.group.peg_master.R;
+
 /**
  * An example full-screen activity that shows and hides the system UI (i.e.
  * status bar and navigation/system bar) with user interaction.
  */
 public class overworld extends AppCompatActivity {
+
+    // DEFINITELY IMPLEMENT BUTTERKNIFE HERE
 
     /**
      * Whether or not the system UI should be auto-hidden after

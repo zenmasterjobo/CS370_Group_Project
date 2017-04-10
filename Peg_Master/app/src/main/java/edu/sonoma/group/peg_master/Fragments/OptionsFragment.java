@@ -1,14 +1,7 @@
-package edu.sonoma.group.peg_master;
+package edu.sonoma.group.peg_master.Fragments;
 
-import android.app.Activity;
-import android.app.Application;
-import android.content.Context;
-import android.media.MediaPlayer;
-import android.net.Uri;
 import android.os.Bundle;
-import android.provider.MediaStore;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentTransaction;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,6 +10,9 @@ import android.widget.Switch;
 import android.widget.CompoundButton;
 import android.widget.CompoundButton.OnCheckedChangeListener;
 import android.widget.TextView;
+
+import edu.sonoma.group.peg_master.Activities.MainMenu;
+import edu.sonoma.group.peg_master.R;
 
 
 /**

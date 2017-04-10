@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="edu.sonoma.group.peg_master.levelActivity"
+    tools:context="edu.sonoma.group.peg_master.Activities.levelActivity"
     android:id="@+id/main_menu"
     android:background="@drawable/boardbackground">
 

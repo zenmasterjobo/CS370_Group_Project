@@ -1,4 +1,4 @@
-package edu.sonoma.group.peg_master;
+package edu.sonoma.group.peg_master.Activities;
 import android.content.IntentSender;
 import android.media.MediaPlayer;
 import android.net.Uri;
@@ -15,6 +15,10 @@ import com.google.android.gms.appindexing.AppIndex;
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.gms.games.Games;
+
+import edu.sonoma.group.peg_master.GlobalApplicationClass;
+import edu.sonoma.group.peg_master.Fragments.MainMenuFragment;
+import edu.sonoma.group.peg_master.R;
 
 public class MainMenu extends AppCompatActivity implements
         GoogleApiClient.ConnectionCallbacks,

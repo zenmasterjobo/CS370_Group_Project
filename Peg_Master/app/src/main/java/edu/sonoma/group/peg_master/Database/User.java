@@ -1,6 +1,8 @@
-package edu.sonoma.group.peg_master;
+package edu.sonoma.group.peg_master.Database;
 
 import java.util.ArrayList;
+
+import edu.sonoma.group.peg_master.CompletedLevel;
 
 /**
  * Created by nick on 4/12/16.

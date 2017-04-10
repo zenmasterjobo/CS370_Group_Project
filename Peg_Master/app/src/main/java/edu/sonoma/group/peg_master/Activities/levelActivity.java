@@ -1,4 +1,4 @@
-package edu.sonoma.group.peg_master;
+package edu.sonoma.group.peg_master.Activities;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -14,15 +14,23 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.google.android.gms.common.api.GoogleApiClient;
-
 import java.util.ArrayList;
+
+import edu.sonoma.group.peg_master.Board;
+import edu.sonoma.group.peg_master.Fragments.BoardFragment;
+import edu.sonoma.group.peg_master.CompletedLevel;
+//import edu.sonoma.group.peg_master.GameFactory;
+import edu.sonoma.group.peg_master.GlobalApplicationClass;
+import edu.sonoma.group.peg_master.Key;
+import edu.sonoma.group.peg_master.R;
+import edu.sonoma.group.peg_master.Fragments.StarScreenFragment;
+import edu.sonoma.group.peg_master.Database.User;
 
 public class levelActivity extends AppCompatActivity {
 
     private int numChests;
     private int levelNum;
-    private GameFactory gf;
+    //private GameFactory gf;
     private Board board = new Board();
     private BoardFragment bf;
     private Key kih;

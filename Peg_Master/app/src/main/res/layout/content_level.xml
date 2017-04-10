@@ -9,7 +9,7 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context="edu.sonoma.group.peg_master.levelActivity"
+    tools:context="edu.sonoma.group.peg_master.Activities.levelActivity"
     tools:showIn="@layout/activity_level">
 
 </RelativeLayout>
