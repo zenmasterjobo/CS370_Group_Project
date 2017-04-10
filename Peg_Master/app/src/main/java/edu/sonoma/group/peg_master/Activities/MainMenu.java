@@ -16,7 +16,7 @@ import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.gms.games.Games;
 
-import edu.sonoma.group.peg_master.GlobalApplicationClass;
+import edu.sonoma.group.peg_master.Application_Classes.GlobalApplicationClass;
 import edu.sonoma.group.peg_master.Fragments.MainMenuFragment;
 import edu.sonoma.group.peg_master.R;
 

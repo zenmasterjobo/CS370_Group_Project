@@ -1,4 +1,4 @@
-package edu.sonoma.group.peg_master;
+package edu.sonoma.group.peg_master.Application_Classes;
 
 /**
  * Created by student on 3/6/16.

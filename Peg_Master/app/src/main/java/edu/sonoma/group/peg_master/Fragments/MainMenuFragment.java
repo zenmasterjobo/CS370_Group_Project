@@ -23,7 +23,7 @@ import edu.sonoma.group.peg_master.Database.DBHandler;
 import edu.sonoma.group.peg_master.Database.User;
 import edu.sonoma.group.peg_master.Database.UserList;
 import edu.sonoma.group.peg_master.Database.UserTableManager;
-import edu.sonoma.group.peg_master.GlobalApplicationClass;
+import edu.sonoma.group.peg_master.Application_Classes.GlobalApplicationClass;
 import edu.sonoma.group.peg_master.R;
 import edu.sonoma.group.peg_master.Activities.overworld;
 
@@ -242,7 +242,7 @@ public class MainMenuFragment extends Fragment{
         });
 
 
-        
+
         return view;
     }
 

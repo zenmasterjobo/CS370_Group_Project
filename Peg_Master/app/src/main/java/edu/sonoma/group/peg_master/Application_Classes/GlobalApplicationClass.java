@@ -1,4 +1,4 @@
-package edu.sonoma.group.peg_master;
+package edu.sonoma.group.peg_master.Application_Classes;
 
 import android.app.Application;
 import android.util.Log;

@@ -9,7 +9,7 @@ import android.util.Log;
 import java.util.ArrayList;
 import java.util.List;
 
-import edu.sonoma.group.peg_master.CompletedLevel;
+import edu.sonoma.group.peg_master.Application_Classes.CompletedLevel;
 
 /**
  * Created by nick on 4/12/16.

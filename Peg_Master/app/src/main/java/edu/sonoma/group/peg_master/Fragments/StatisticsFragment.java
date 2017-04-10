@@ -15,7 +15,7 @@ import com.google.android.gms.games.Games;
 
 import java.util.ArrayList;
 
-import edu.sonoma.group.peg_master.GlobalApplicationClass;
+import edu.sonoma.group.peg_master.Application_Classes.GlobalApplicationClass;
 import edu.sonoma.group.peg_master.R;
 import edu.sonoma.group.peg_master.Database.User;
 

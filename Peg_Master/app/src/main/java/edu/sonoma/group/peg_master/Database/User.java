@@ -2,7 +2,7 @@ package edu.sonoma.group.peg_master.Database;
 
 import java.util.ArrayList;
 
-import edu.sonoma.group.peg_master.CompletedLevel;
+import edu.sonoma.group.peg_master.Application_Classes.CompletedLevel;
 
 /**
  * Created by nick on 4/12/16.

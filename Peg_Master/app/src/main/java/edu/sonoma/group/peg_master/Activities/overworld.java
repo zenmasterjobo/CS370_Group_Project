@@ -14,10 +14,12 @@ import android.widget.Toast;
 import java.util.ArrayList;
 import java.util.Arrays;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
 import edu.sonoma.group.peg_master.Database.DBHandler;
 import edu.sonoma.group.peg_master.Database.User;
 import edu.sonoma.group.peg_master.Database.UserTableManager;
-import edu.sonoma.group.peg_master.GlobalApplicationClass;
+import edu.sonoma.group.peg_master.Application_Classes.GlobalApplicationClass;
 import edu.sonoma.group.peg_master.R;
 
 /**
@@ -26,7 +28,6 @@ import edu.sonoma.group.peg_master.R;
  */
 public class overworld extends AppCompatActivity {
 
-    // DEFINITELY IMPLEMENT BUTTERKNIFE HERE
 
     /**
      * Whether or not the system UI should be auto-hidden after
@@ -98,13 +99,43 @@ public class overworld extends AppCompatActivity {
         }
     };*/
 
-    //level buttons
-    private Button lvl1Btn,lvl2Btn,lvl3Btn, lvl4Btn,
-            lvl5Btn,lvl6Btn, lvl7Btn, lvl8Btn, lvl9Btn,lvl10Btn, lvl11Btn, lvl12Btn, lvl13Btn,
-            lvl14Btn, lvl15Btn, lvl16Btn, lvl17Btn, lvl18Btn, lvl19Btn, lvl20Btn, lvl21Btn,
-            lvl22Btn, lvl23Btn, lvl24Btn, lvl25Btn, lvl26Btn, lvl27Btn, lvl28Btn, lvl29Btn,
-            lvl30Btn, lvl31Btn, lvl32Btn;
 
+     //ButterKnife
+
+    @BindView(R.id.level1) Button lvl1Btn;
+    @BindView(R.id.level2) Button lvl2Btn;
+    @BindView(R.id.level3) Button lvl3Btn;
+    @BindView(R.id.level4) Button lvl4Btn;
+    @BindView(R.id.level5) Button lvl5Btn;
+    @BindView(R.id.level6) Button lvl6Btn;
+    @BindView(R.id.level7) Button lvl7Btn;
+    @BindView(R.id.level8) Button lvl8Btn;
+    @BindView(R.id.level9) Button lvl9Btn;
+    @BindView(R.id.level10) Button lvl10Btn;
+    @BindView(R.id.level11) Button lvl11Btn;
+    @BindView(R.id.level12) Button lvl12Btn;
+    @BindView(R.id.level13) Button lvl13Btn;
+    @BindView(R.id.level14) Button lvl14Btn;
+    @BindView(R.id.level15) Button lvl15Btn;
+    @BindView(R.id.level16) Button lvl16Btn;
+    @BindView(R.id.level17) Button lvl17Btn;
+    @BindView(R.id.level18) Button lvl18Btn;
+    @BindView(R.id.level19) Button lvl19Btn;
+    @BindView(R.id.level20) Button lvl20Btn;
+    @BindView(R.id.level21) Button lvl21Btn;
+    @BindView(R.id.level22) Button lvl22Btn;
+    @BindView(R.id.level23) Button lvl23Btn;
+    @BindView(R.id.level24) Button lvl24Btn;
+    @BindView(R.id.level25) Button lvl25Btn;
+    @BindView(R.id.level26) Button lvl26Btn;
+    @BindView(R.id.level27) Button lvl27Btn;
+    @BindView(R.id.level28) Button lvl28Btn;
+    @BindView(R.id.level29) Button lvl29Btn;
+    @BindView(R.id.level30) Button lvl30Btn;
+    @BindView(R.id.level31) Button lvl31Btn;
+    @BindView(R.id.level32) Button lvl32Btn;
+
+    
     private ImageView lvl1Stars, lvl2Stars, lvl3Stars,  lvl4Stars, lvl5Stars, lvl6Stars,
             lvl7Stars, lvl8Stars, lvl9Stars, lvl10Stars, lvl11Stars, lvl12Stars, lvl13Stars,
             lvl14Stars, lvl15Stars, lvl16Stars, lvl17Stars, lvl18Stars, lvl19Stars, lvl20Stars, lvl21Stars,
@@ -204,42 +235,11 @@ public class overworld extends AppCompatActivity {
 
         setContentView(R.layout.activity_overworld);
 
+        ButterKnife.bind(this);
+
         scroll = (ScrollView) findViewById(R.id.fullscreen_content);
         scroll.fullScroll(View.FOCUS_DOWN);
 
-        //set them level buttons to the ones in the layout
-        lvl1Btn = (Button)findViewById(R.id.level1);
-        lvl2Btn = (Button)findViewById(R.id.level2);
-        lvl3Btn = (Button)findViewById(R.id.level3);
-        lvl4Btn = (Button)findViewById(R.id.level4);
-        lvl5Btn = (Button)findViewById(R.id.level5);
-        lvl6Btn = (Button)findViewById(R.id.level6);
-        lvl7Btn = (Button)findViewById(R.id.level7);
-        lvl8Btn = (Button)findViewById(R.id.level8);
-        lvl9Btn = (Button)findViewById(R.id.level9);
-        lvl10Btn = (Button)findViewById(R.id.level10);
-        lvl11Btn = (Button)findViewById(R.id.level11);
-        lvl12Btn = (Button)findViewById(R.id.level12);
-        lvl13Btn = (Button)findViewById(R.id.level13);
-        lvl14Btn = (Button)findViewById(R.id.level14);
-        lvl15Btn = (Button)findViewById(R.id.level15);
-        lvl16Btn = (Button)findViewById(R.id.level16);
-        lvl17Btn = (Button)findViewById(R.id.level17);
-        lvl18Btn = (Button)findViewById(R.id.level18);
-        lvl19Btn = (Button)findViewById(R.id.level19);
-        lvl20Btn = (Button)findViewById(R.id.level20);
-        lvl21Btn = (Button)findViewById(R.id.level21);
-        lvl22Btn = (Button)findViewById(R.id.level22);
-        lvl23Btn = (Button)findViewById(R.id.level23);
-        lvl24Btn = (Button)findViewById(R.id.level24);
-        lvl25Btn = (Button)findViewById(R.id.level25);
-        lvl26Btn = (Button)findViewById(R.id.level26);
-        lvl27Btn = (Button)findViewById(R.id.level27);
-        lvl28Btn = (Button)findViewById(R.id.level28);
-        lvl29Btn = (Button)findViewById(R.id.level29);
-        lvl30Btn = (Button)findViewById(R.id.level30);
-        lvl31Btn = (Button)findViewById(R.id.level31);
-        lvl32Btn = (Button)findViewById(R.id.level32);
 
         lvl1Stars = (ImageView)findViewById(R.id.level1stars);
         lvl2Stars = (ImageView)findViewById(R.id.level2stars);
@@ -321,139 +321,14 @@ public class overworld extends AppCompatActivity {
                     }
                     else{
                         Toast.makeText(getApplicationContext(),"PLAY PREVIOUS LEVEL TO UNLOCK",Toast.LENGTH_SHORT).show();
-                        // just remove vvv
-                        //Bundle numChests = new Bundle();
-                        //numChests.putInt("numChests", numberOfChests(level));
-                        //numChests.putInt("levelnum", level);
-                        //put bundle in the intent for transfer. Use getIntent().getExtras().getString/int/...(key)
-                        //inside activity to access this data.
-                        //intent.putExtras(numChests);
-                        //switch activity
-                        //startActivity(intent);
-                        //startActivityForResult(intent, requestCode);
 
                     }
                 }
             });
         }
 
-        /* MIGHT BE REMOVABLE SOON IF ABOVE WORKS
-        //btn onclicklisteners
-        lvl1Btn.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View view){
-                //Create intent to switch to levelActivity
-                Intent intent = new Intent(overworld.this, levelActivity.class);
-                int requestCode = 1;
-
-                //make a bundle to transfer chest# for each level
-                int level = 1;
-                Bundle numChests = new Bundle();
-                numChests.putInt("numChests", numberOfChests(level));
-
-                //put bundle in the intent for transfer. Use getIntent().getExtras().getString/int/...(key)
-                //inside activity to access this data.
-                intent.putExtras(numChests);
-
-                //switch activity
-                //startActivity(intent);
-                startActivityForResult(intent, requestCode);
-
-            }
-        });
-
-        lvl2Btn.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View view){
-                //Create intent to switch to levelActivity
-                Intent intent = new Intent(overworld.this, levelActivity.class);
-
-                //make a bundle to transfer chest# for each level
-                int level = 2;
-                Bundle numChests = new Bundle();
-                numChests.putInt("numChests", numberOfChests(level));
-
-                //put bundle in the intent for transfer. Use getIntent().getExtras().getString/int/...(key)
-                //inside activity to access this data.
-                intent.putExtras(numChests);
-
-                //switch activity
-                startActivity(intent);
-            }
-        });
-
-        lvl3Btn.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View view){
-                //Create intent to switch to levelActivity
-                Intent intent = new Intent(overworld.this, levelActivity.class);
-
-                //make a bundle to transfer chest# for each level
-                int level = 3;
-                Bundle numChests = new Bundle();
-                numChests.putInt("numChests",numberOfChests(level));
-
-                //put bundle in the intent for transfer. Use getIntent().getExtras().getString/int/...(key)
-                //inside activity to access this data.
-                intent.putExtras(numChests);
-
-                //switch activity
-                startActivity(intent);
-            }
-        });
-
-        */
-        //auto generated
-       // mVisible = true;
-       // mControlsView = findViewById(R.id.fullscreen_content_controls);
-       // mContentView = findViewById(R.id.fullscreen_content);
     }
-
-    /*@Override
-    protected void onPostCreate(Bundle savedInstanceState) {
-        super.onPostCreate(savedInstanceState);
-
-        // Trigger the initial hide() shortly after the activity has been
-        // created, to briefly hint to the user that UI controls
-        // are available.
-        delayedHide(100);
-    }
-
-    private void toggle() {
-        if (mVisible) {
-            hide();
-        } else {
-            show();
-        }
-    }
-
-    private void hide() {
-        // Hide UI first
-        ActionBar actionBar = getSupportActionBar();
-        if (actionBar != null) {
-            actionBar.hide();
-        }
-        mControlsView.setVisibility(View.GONE);
-        mVisible = false;
-
-        // Schedule a runnable to remove the status and navigation bar after a delay
-        mHideHandler.removeCallbacks(mShowPart2Runnable);
-        mHideHandler.postDelayed(mHidePart2Runnable, UI_ANIMATION_DELAY);
-    }
-
-    @SuppressLint("InlinedApi")
-    private void show() {
-        // Show the system bar
-        mContentView.setSystemUiVisibility(View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
-                | View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION);
-        mVisible = true;
-
-        // Schedule a runnable to display UI elements after a delay
-        mHideHandler.removeCallbacks(mHidePart2Runnable);
-        mHideHandler.postDelayed(mShowPart2Runnable, UI_ANIMATION_DELAY);
-    }
-
-    *//**
+/**
      * Schedules a call to hide() in [delay] milliseconds, canceling any
      * previously scheduled calls.
      *//*
