@@ -14,14 +14,14 @@
         android:id="@+id/fullscreen_content"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical"
-        tools:context="edu.sonoma.group.peg_master.Activities.overworld"
+        android:background="@drawable/overworld"
         android:fillViewport="false"
         android:focusable="false"
-        android:transcriptMode="alwaysScroll"
+        android:orientation="vertical"
+        android:scrollIndicators="bottom"
         android:stackFromBottom="true"
-        android:background="@drawable/overworld"
-        android:scrollIndicators="bottom">
+        android:transcriptMode="alwaysScroll"
+        tools:context="edu.sonoma.group.peg_master.Activities.overworld">
         <!-- everything you already have
 
          This FrameLayout insets its children based on system windows using
@@ -38,610 +38,643 @@
                 android:id="@+id/level32stars"
                 android:layout_width="80dp"
                 android:layout_height="80dp"
-                android:src="@drawable/overworld0"
-                android:layout_marginRight="100dp"
                 android:layout_gravity="center_horizontal"
-                android:layout_marginBottom="-20dp"/>
+                android:layout_marginBottom="-20dp"
+                android:layout_marginRight="100dp"
+                android:src="@drawable/overworld0" />
+
             <Button
+                android:id="@+id/level32"
                 style="?android:attr/buttonStyleSmall"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="L32"
-                android:id="@+id/level32"
-                android:typeface="serif"
                 android:layout_gravity="center_horizontal"
+                android:layout_marginBottom="120dp"
                 android:layout_marginRight="100dp"
-                android:layout_marginBottom="120dp" />
+                android:text="L32"
+                android:typeface="serif" />
 
             <ImageView
                 android:id="@+id/level31stars"
                 android:layout_width="80dp"
                 android:layout_height="80dp"
-                android:src="@drawable/overworld0"
-                android:layout_marginLeft="0dp"
                 android:layout_gravity="center_horizontal"
-                android:layout_marginBottom="-20dp"/>
+                android:layout_marginBottom="-20dp"
+                android:layout_marginLeft="0dp"
+                android:src="@drawable/overworld0" />
+
             <Button
+                android:id="@+id/level31"
                 style="?android:attr/buttonStyleSmall"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="L31"
-                android:id="@+id/level31"
-                android:typeface="serif"
                 android:layout_gravity="center_horizontal"
+                android:layout_marginBottom="150dp"
                 android:layout_marginLeft="0dp"
-                android:layout_marginBottom="150dp" />
+                android:text="L31"
+                android:typeface="serif" />
 
             <ImageView
                 android:id="@+id/level30stars"
-                android:layout_marginLeft="80dp"
                 android:layout_width="80dp"
                 android:layout_height="80dp"
-                android:src="@drawable/overworld0"
                 android:layout_gravity="center_horizontal"
-                android:layout_marginBottom="-20dp"/>
+                android:layout_marginBottom="-20dp"
+                android:layout_marginLeft="80dp"
+                android:src="@drawable/overworld0" />
+
             <Button
+                android:id="@+id/level30"
                 style="?android:attr/buttonStyleSmall"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="L30"
-                android:id="@+id/level30"
-                android:typeface="serif"
                 android:layout_gravity="center_horizontal"
+                android:layout_marginBottom="150dp"
                 android:layout_marginLeft="80dp"
-                android:layout_marginBottom="150dp" />
+                android:text="L30"
+                android:typeface="serif" />
 
             <ImageView
                 android:id="@+id/level29stars"
-                android:layout_marginLeft="50dp"
                 android:layout_width="80dp"
                 android:layout_height="80dp"
-                android:src="@drawable/overworld0"
                 android:layout_gravity="center_horizontal"
-                android:layout_marginBottom="-20dp"/>
+                android:layout_marginBottom="-20dp"
+                android:layout_marginLeft="50dp"
+                android:src="@drawable/overworld0" />
+
             <Button
+                android:id="@+id/level29"
                 style="?android:attr/buttonStyleSmall"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="L29"
-                android:id="@+id/level29"
-                android:typeface="serif"
                 android:layout_gravity="center_horizontal"
+                android:layout_marginBottom="170dp"
                 android:layout_marginLeft="50dp"
-                android:layout_marginBottom="170dp" />
+                android:text="L29"
+                android:typeface="serif" />
 
             <ImageView
                 android:id="@+id/level28stars"
-                android:layout_marginLeft="70dp"
                 android:layout_width="80dp"
                 android:layout_height="80dp"
-                android:src="@drawable/overworld0"
                 android:layout_gravity="center_horizontal"
-                android:layout_marginBottom="-20dp"/>
+                android:layout_marginBottom="-20dp"
+                android:layout_marginLeft="70dp"
+                android:src="@drawable/overworld0" />
+
             <Button
+                android:id="@+id/level28"
                 style="?android:attr/buttonStyleSmall"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="L28"
-                android:id="@+id/level28"
-                android:typeface="serif"
                 android:layout_gravity="center_horizontal"
+                android:layout_marginBottom="150dp"
                 android:layout_marginLeft="70dp"
-                android:layout_marginBottom="150dp" />
+                android:text="L28"
+                android:typeface="serif" />
 
             <ImageView
                 android:id="@+id/level27stars"
-                android:layout_marginRight="120dp"
                 android:layout_width="80dp"
                 android:layout_height="80dp"
-                android:src="@drawable/overworld0"
                 android:layout_gravity="center_horizontal"
-                android:layout_marginBottom="-20dp"/>
+                android:layout_marginBottom="-20dp"
+                android:layout_marginRight="120dp"
+                android:src="@drawable/overworld0" />
+
             <Button
+                android:id="@+id/level27"
                 style="?android:attr/buttonStyleSmall"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="L27"
-                android:id="@+id/level27"
-                android:typeface="serif"
                 android:layout_gravity="center_horizontal"
+                android:layout_marginBottom="20dp"
                 android:layout_marginRight="120dp"
-                android:layout_marginBottom="20dp"/>
+                android:text="L27"
+                android:typeface="serif" />
 
             <ImageView
                 android:id="@+id/level26stars"
-                android:layout_marginLeft="9dp"
                 android:layout_width="80dp"
                 android:layout_height="80dp"
-                android:src="@drawable/overworld0"
                 android:layout_gravity="center_horizontal"
-                android:layout_marginBottom="-20dp"/>
+                android:layout_marginBottom="-20dp"
+                android:layout_marginLeft="9dp"
+                android:src="@drawable/overworld0" />
+
             <Button
+                android:id="@+id/level26"
                 style="?android:attr/buttonStyleSmall"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="l26"
-                android:id="@+id/level26"
-                android:typeface="serif"
                 android:layout_gravity="center_horizontal"
+                android:layout_marginBottom="10dp"
                 android:layout_marginLeft="9dp"
-                android:layout_marginBottom="10dp"/>
+                android:text="l26"
+                android:typeface="serif" />
 
             <ImageView
                 android:id="@+id/level25stars"
-                android:layout_marginRight="33dp"
                 android:layout_width="80dp"
                 android:layout_height="80dp"
-                android:src="@drawable/overworld0"
                 android:layout_gravity="center_horizontal|right"
-                android:layout_marginBottom="-20dp"/>
+                android:layout_marginBottom="-20dp"
+                android:layout_marginRight="33dp"
+                android:src="@drawable/overworld0" />
+
             <Button
+                android:id="@+id/level25"
                 style="?android:attr/buttonStyleSmall"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="L25"
-                android:id="@+id/level25"
                 android:layout_gravity="center_horizontal|right"
-                android:typeface="serif"
+                android:layout_marginBottom="25dp"
                 android:layout_marginRight="43dp"
-                android:layout_marginBottom="25dp"/>
+                android:text="L25"
+                android:typeface="serif" />
 
             <ImageView
                 android:id="@+id/level24stars"
-                android:layout_marginRight="100dp"
                 android:layout_width="80dp"
                 android:layout_height="80dp"
-                android:src="@drawable/overworld0"
                 android:layout_gravity="center_horizontal"
-                android:layout_marginBottom="-20dp"/>
+                android:layout_marginBottom="-20dp"
+                android:layout_marginRight="100dp"
+                android:src="@drawable/overworld0" />
+
             <Button
+                android:id="@+id/level24"
                 style="?android:attr/buttonStyleSmall"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="L24"
-                android:id="@+id/level24"
-                android:typeface="serif"
                 android:layout_gravity="center_horizontal"
+                android:layout_marginBottom="120dp"
                 android:layout_marginRight="100dp"
-                android:layout_marginBottom="120dp" />
+                android:text="L24"
+                android:typeface="serif" />
 
             <ImageView
                 android:id="@+id/level23stars"
-                android:layout_marginRight="0dp"
                 android:layout_width="80dp"
                 android:layout_height="80dp"
-                android:src="@drawable/overworld0"
                 android:layout_gravity="center_horizontal"
-                android:layout_marginBottom="-20dp"/>
+                android:layout_marginBottom="-20dp"
+                android:layout_marginRight="0dp"
+                android:src="@drawable/overworld0" />
+
             <Button
+                android:id="@+id/level23"
                 style="?android:attr/buttonStyleSmall"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="L23"
-                android:id="@+id/level23"
-                android:typeface="serif"
                 android:layout_gravity="center_horizontal"
+                android:layout_marginBottom="150dp"
                 android:layout_marginLeft="0dp"
-                android:layout_marginBottom="150dp" />
+                android:text="L23"
+                android:typeface="serif" />
 
             <ImageView
                 android:id="@+id/level22stars"
-                android:layout_marginLeft="80dp"
                 android:layout_width="80dp"
                 android:layout_height="80dp"
-                android:src="@drawable/overworld0"
                 android:layout_gravity="center_horizontal"
-                android:layout_marginBottom="-20dp"/>
+                android:layout_marginBottom="-20dp"
+                android:layout_marginLeft="80dp"
+                android:src="@drawable/overworld0" />
+
             <Button
+                android:id="@+id/level22"
                 style="?android:attr/buttonStyleSmall"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="L22"
-                android:id="@+id/level22"
-                android:typeface="serif"
                 android:layout_gravity="center_horizontal"
+                android:layout_marginBottom="150dp"
                 android:layout_marginLeft="80dp"
-                android:layout_marginBottom="150dp" />
+                android:text="L22"
+                android:typeface="serif" />
 
             <ImageView
                 android:id="@+id/level21stars"
-                android:layout_marginLeft="50dp"
                 android:layout_width="80dp"
                 android:layout_height="80dp"
-                android:src="@drawable/overworld0"
                 android:layout_gravity="center_horizontal"
-                android:layout_marginBottom="-20dp"/>
+                android:layout_marginBottom="-20dp"
+                android:layout_marginLeft="50dp"
+                android:src="@drawable/overworld0" />
+
             <Button
+                android:id="@+id/level21"
                 style="?android:attr/buttonStyleSmall"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="L21"
-                android:id="@+id/level21"
-                android:typeface="serif"
                 android:layout_gravity="center_horizontal"
+                android:layout_marginBottom="170dp"
                 android:layout_marginLeft="50dp"
-                android:layout_marginBottom="170dp" />
+                android:text="L21"
+                android:typeface="serif" />
 
             <ImageView
                 android:id="@+id/level20stars"
-                android:layout_marginLeft="50dp"
                 android:layout_width="80dp"
                 android:layout_height="80dp"
-                android:src="@drawable/overworld0"
                 android:layout_gravity="center_horizontal"
-                android:layout_marginBottom="-20dp"/>
+                android:layout_marginBottom="-20dp"
+                android:layout_marginLeft="50dp"
+                android:src="@drawable/overworld0" />
+
             <Button
+                android:id="@+id/level20"
                 style="?android:attr/buttonStyleSmall"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="L20"
-                android:id="@+id/level20"
-                android:typeface="serif"
                 android:layout_gravity="center_horizontal"
+                android:layout_marginBottom="50dp"
                 android:layout_marginLeft="50dp"
-                android:layout_marginBottom="50dp" />
+                android:text="L20"
+                android:typeface="serif" />
 
             <ImageView
                 android:id="@+id/level19stars"
-                android:layout_marginRight="120dp"
                 android:layout_width="80dp"
                 android:layout_height="80dp"
-                android:src="@drawable/overworld0"
                 android:layout_gravity="center_horizontal"
-                android:layout_marginBottom="-20dp"/>
+                android:layout_marginBottom="-20dp"
+                android:layout_marginRight="120dp"
+                android:src="@drawable/overworld0" />
+
             <Button
+                android:id="@+id/level19"
                 style="?android:attr/buttonStyleSmall"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="L19"
-                android:id="@+id/level19"
-                android:typeface="serif"
                 android:layout_gravity="center_horizontal"
+                android:layout_marginBottom="80dp"
                 android:layout_marginRight="120dp"
-                android:layout_marginBottom="80dp"/>
+                android:text="L19"
+                android:typeface="serif" />
 
             <ImageView
                 android:id="@+id/level18stars"
-                android:layout_marginRight="0dp"
                 android:layout_width="80dp"
                 android:layout_height="80dp"
-                android:src="@drawable/overworld0"
                 android:layout_gravity="center_horizontal"
-                android:layout_marginBottom="-20dp"/>
+                android:layout_marginBottom="-20dp"
+                android:layout_marginRight="0dp"
+                android:src="@drawable/overworld0" />
+
             <Button
+                android:id="@+id/level18"
                 style="?android:attr/buttonStyleSmall"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="L18"
-                android:id="@+id/level18"
-                android:typeface="serif"
                 android:layout_gravity="center_horizontal"
+                android:layout_marginBottom="40dp"
                 android:layout_marginLeft="0dp"
-                android:layout_marginBottom="40dp"/>
+                android:text="L18"
+                android:typeface="serif" />
 
             <ImageView
                 android:id="@+id/level17stars"
-                android:layout_marginRight="50dp"
                 android:layout_width="80dp"
                 android:layout_height="80dp"
-                android:src="@drawable/overworld0"
                 android:layout_gravity="center_horizontal|right"
-                android:layout_marginBottom="-20dp"/>
+                android:layout_marginBottom="-20dp"
+                android:layout_marginRight="50dp"
+                android:src="@drawable/overworld0" />
+
             <Button
+                android:id="@+id/level17"
                 style="?android:attr/buttonStyleSmall"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="L17"
-                android:id="@+id/level17"
                 android:layout_gravity="center_horizontal|right"
-                android:typeface="serif"
+                android:layout_marginBottom="25dp"
                 android:layout_marginRight="60dp"
-                android:layout_marginBottom="25dp"/>
+                android:text="L17"
+                android:typeface="serif" />
 
             <ImageView
                 android:id="@+id/level16stars"
-                android:layout_marginRight="100dp"
                 android:layout_width="80dp"
                 android:layout_height="80dp"
-                android:src="@drawable/overworld0"
                 android:layout_gravity="center_horizontal"
-                android:layout_marginBottom="-20dp"/>
-                <Button
-                    style="?android:attr/buttonStyleSmall"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="L16"
-                    android:id="@+id/level16"
-                    android:typeface="serif"
-                    android:layout_gravity="center_horizontal"
-                    android:layout_marginRight="100dp"
-                    android:layout_marginBottom="120dp" />
+                android:layout_marginBottom="-20dp"
+                android:layout_marginRight="100dp"
+                android:src="@drawable/overworld0" />
+
+            <Button
+                android:id="@+id/level16"
+                style="?android:attr/buttonStyleSmall"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginBottom="120dp"
+                android:layout_marginRight="100dp"
+                android:text="L16"
+                android:typeface="serif" />
 
             <ImageView
                 android:id="@+id/level15stars"
-                android:layout_marginRight="0dp"
                 android:layout_width="80dp"
                 android:layout_height="80dp"
-                android:src="@drawable/overworld0"
                 android:layout_gravity="center_horizontal"
-                android:layout_marginBottom="-20dp"/>
-                <Button
-                    style="?android:attr/buttonStyleSmall"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="L15"
-                    android:id="@+id/level15"
-                    android:typeface="serif"
-                    android:layout_gravity="center_horizontal"
-                    android:layout_marginLeft="0dp"
-                    android:layout_marginBottom="150dp" />
+                android:layout_marginBottom="-20dp"
+                android:layout_marginRight="0dp"
+                android:src="@drawable/overworld0" />
+
+            <Button
+                android:id="@+id/level15"
+                style="?android:attr/buttonStyleSmall"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginBottom="150dp"
+                android:layout_marginLeft="0dp"
+                android:text="L15"
+                android:typeface="serif" />
 
             <ImageView
                 android:id="@+id/level14stars"
-                android:layout_marginLeft="80dp"
                 android:layout_width="80dp"
                 android:layout_height="80dp"
-                android:src="@drawable/overworld0"
                 android:layout_gravity="center_horizontal"
-                android:layout_marginBottom="-20dp"/>
-                <Button
-                    style="?android:attr/buttonStyleSmall"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="L14"
-                    android:id="@+id/level14"
-                    android:typeface="serif"
-                    android:layout_gravity="center_horizontal"
-                    android:layout_marginLeft="80dp"
-                    android:layout_marginBottom="150dp" />
+                android:layout_marginBottom="-20dp"
+                android:layout_marginLeft="80dp"
+                android:src="@drawable/overworld0" />
+
+            <Button
+                android:id="@+id/level14"
+                style="?android:attr/buttonStyleSmall"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginBottom="150dp"
+                android:layout_marginLeft="80dp"
+                android:text="L14"
+                android:typeface="serif" />
+
             <ImageView
                 android:id="@+id/level13stars"
-                android:layout_marginLeft="50dp"
                 android:layout_width="80dp"
                 android:layout_height="80dp"
-                android:src="@drawable/overworld0"
                 android:layout_gravity="center_horizontal"
-                android:layout_marginBottom="-20dp"/>
-                <Button
-                    style="?android:attr/buttonStyleSmall"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="L13"
-                    android:id="@+id/level13"
-                    android:typeface="serif"
-                    android:layout_gravity="center_horizontal"
-                    android:layout_marginLeft="50dp"
-                    android:layout_marginBottom="170dp" />
+                android:layout_marginBottom="-20dp"
+                android:layout_marginLeft="50dp"
+                android:src="@drawable/overworld0" />
+
+            <Button
+                android:id="@+id/level13"
+                style="?android:attr/buttonStyleSmall"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginBottom="170dp"
+                android:layout_marginLeft="50dp"
+                android:text="L13"
+                android:typeface="serif" />
 
             <ImageView
                 android:id="@+id/level12stars"
-                android:layout_marginLeft="70dp"
                 android:layout_width="80dp"
                 android:layout_height="80dp"
-                android:src="@drawable/overworld0"
                 android:layout_gravity="center_horizontal"
-                android:layout_marginBottom="-20dp"/>
-                <Button
-                    style="?android:attr/buttonStyleSmall"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="L12"
-                    android:id="@+id/level12"
-                    android:typeface="serif"
-                    android:layout_gravity="center_horizontal"
-                    android:layout_marginLeft="70dp"
-                    android:layout_marginBottom="150dp" />
+                android:layout_marginBottom="-20dp"
+                android:layout_marginLeft="70dp"
+                android:src="@drawable/overworld0" />
+
+            <Button
+                android:id="@+id/level12"
+                style="?android:attr/buttonStyleSmall"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginBottom="150dp"
+                android:layout_marginLeft="70dp"
+                android:text="L12"
+                android:typeface="serif" />
 
             <ImageView
                 android:id="@+id/level11stars"
-                android:layout_marginRight="120dp"
                 android:layout_width="80dp"
                 android:layout_height="80dp"
-                android:src="@drawable/overworld0"
                 android:layout_gravity="center_horizontal"
-                android:layout_marginBottom="-20dp"/>
-                <Button
-                    style="?android:attr/buttonStyleSmall"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="L11"
-                    android:id="@+id/level11"
-                    android:typeface="serif"
-                    android:layout_gravity="center_horizontal"
-                    android:layout_marginRight="120dp"
-                    android:layout_marginBottom="20dp"/>
+                android:layout_marginBottom="-20dp"
+                android:layout_marginRight="120dp"
+                android:src="@drawable/overworld0" />
+
+            <Button
+                android:id="@+id/level11"
+                style="?android:attr/buttonStyleSmall"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginBottom="20dp"
+                android:layout_marginRight="120dp"
+                android:text="L11"
+                android:typeface="serif" />
 
             <ImageView
                 android:id="@+id/level10stars"
-                android:layout_marginLeft="9dp"
                 android:layout_width="80dp"
                 android:layout_height="80dp"
-                android:src="@drawable/overworld0"
                 android:layout_gravity="center_horizontal"
-                android:layout_marginBottom="-20dp"/>
-                <Button
-                    style="?android:attr/buttonStyleSmall"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="L10"
-                    android:id="@+id/level10"
-                    android:typeface="serif"
-                    android:layout_gravity="center_horizontal"
-                    android:layout_marginLeft="9dp"
-                    android:layout_marginBottom="10dp"/>
+                android:layout_marginBottom="-20dp"
+                android:layout_marginLeft="9dp"
+                android:src="@drawable/overworld0" />
+
+            <Button
+                android:id="@+id/level10"
+                style="?android:attr/buttonStyleSmall"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginBottom="10dp"
+                android:layout_marginLeft="9dp"
+                android:text="L10"
+                android:typeface="serif" />
 
             <ImageView
                 android:id="@+id/level9stars"
-                android:layout_marginRight="33dp"
                 android:layout_width="80dp"
                 android:layout_height="80dp"
-                android:src="@drawable/overworld0"
                 android:layout_gravity="center_horizontal|right"
-                android:layout_marginBottom="-20dp"/>
-                <Button
-                    style="?android:attr/buttonStyleSmall"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="L9"
-                    android:id="@+id/level9"
-                    android:layout_gravity="center_horizontal|right"
-                    android:typeface="serif"
-                    android:layout_marginRight="43dp"
-                    android:layout_marginBottom="25dp"/>
+                android:layout_marginBottom="-20dp"
+                android:layout_marginRight="33dp"
+                android:src="@drawable/overworld0" />
+
+            <Button
+                android:id="@+id/level9"
+                style="?android:attr/buttonStyleSmall"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal|right"
+                android:layout_marginBottom="25dp"
+                android:layout_marginRight="43dp"
+                android:text="L9"
+                android:typeface="serif" />
 
             <ImageView
                 android:id="@+id/level8stars"
-                android:layout_marginRight="100dp"
                 android:layout_width="80dp"
                 android:layout_height="80dp"
-                android:src="@drawable/overworld0"
                 android:layout_gravity="center_horizontal"
-                android:layout_marginBottom="-20dp"/>
-                <Button
-                    style="?android:attr/buttonStyleSmall"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="L8"
-                    android:id="@+id/level8"
-                    android:typeface="serif"
-                    android:layout_gravity="center_horizontal"
-                    android:layout_marginRight="100dp"
-                    android:layout_marginBottom="120dp" />
+                android:layout_marginBottom="-20dp"
+                android:layout_marginRight="100dp"
+                android:src="@drawable/overworld0" />
+
+            <Button
+                android:id="@+id/level8"
+                style="?android:attr/buttonStyleSmall"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginBottom="120dp"
+                android:layout_marginRight="100dp"
+                android:text="L8"
+                android:typeface="serif" />
 
             <ImageView
                 android:id="@+id/level7stars"
-                android:layout_marginRight="0dp"
                 android:layout_width="80dp"
                 android:layout_height="80dp"
-                android:src="@drawable/overworld0"
                 android:layout_gravity="center_horizontal"
-                android:layout_marginBottom="-20dp"/>
-                <Button
-                    style="?android:attr/buttonStyleSmall"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="L7"
-                    android:id="@+id/level7"
-                    android:typeface="serif"
-                    android:layout_gravity="center_horizontal"
-                    android:layout_marginLeft="0dp"
-                    android:layout_marginBottom="150dp" />
+                android:layout_marginBottom="-20dp"
+                android:layout_marginRight="0dp"
+                android:src="@drawable/overworld0" />
+
+            <Button
+                android:id="@+id/level7"
+                style="?android:attr/buttonStyleSmall"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginBottom="150dp"
+                android:layout_marginLeft="0dp"
+                android:text="L7"
+                android:typeface="serif" />
 
             <ImageView
                 android:id="@+id/level6stars"
-                android:layout_marginLeft="80dp"
                 android:layout_width="80dp"
                 android:layout_height="80dp"
-                android:src="@drawable/overworld0"
                 android:layout_gravity="center_horizontal"
-                android:layout_marginBottom="-20dp"/>
-                <Button
-                    style="?android:attr/buttonStyleSmall"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="L6"
-                    android:id="@+id/level6"
-                    android:typeface="serif"
-                    android:layout_gravity="center_horizontal"
-                    android:layout_marginLeft="80dp"
-                    android:layout_marginBottom="150dp" />
+                android:layout_marginBottom="-20dp"
+                android:layout_marginLeft="80dp"
+                android:src="@drawable/overworld0" />
+
+            <Button
+                android:id="@+id/level6"
+                style="?android:attr/buttonStyleSmall"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginBottom="150dp"
+                android:layout_marginLeft="80dp"
+                android:text="L6"
+                android:typeface="serif" />
 
             <ImageView
                 android:id="@+id/level5stars"
-                android:layout_marginLeft="50dp"
                 android:layout_width="80dp"
                 android:layout_height="80dp"
-                android:src="@drawable/overworld0"
                 android:layout_gravity="center_horizontal"
-                android:layout_marginBottom="-20dp"/>
-                <Button
-                    style="?android:attr/buttonStyleSmall"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="L5"
-                    android:id="@+id/level5"
-                    android:typeface="serif"
-                    android:layout_gravity="center_horizontal"
-                    android:layout_marginLeft="50dp"
-                    android:layout_marginBottom="170dp" />
+                android:layout_marginBottom="-20dp"
+                android:layout_marginLeft="50dp"
+                android:src="@drawable/overworld0" />
+
+            <Button
+                android:id="@+id/level5"
+                style="?android:attr/buttonStyleSmall"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginBottom="170dp"
+                android:layout_marginLeft="50dp"
+                android:text="L5"
+                android:typeface="serif" />
 
             <ImageView
                 android:id="@+id/level4stars"
-                android:layout_marginLeft="50dp"
                 android:layout_width="80dp"
                 android:layout_height="80dp"
-                android:src="@drawable/overworld0"
                 android:layout_gravity="center_horizontal"
-                android:layout_marginBottom="-20dp"/>
-                <Button
-                    style="?android:attr/buttonStyleSmall"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="L4"
-                    android:id="@+id/level4"
-                    android:typeface="serif"
-                    android:layout_gravity="center_horizontal"
-                    android:layout_marginLeft="50dp"
-                    android:layout_marginBottom="50dp" />
+                android:layout_marginBottom="-20dp"
+                android:layout_marginLeft="50dp"
+                android:src="@drawable/overworld0" />
+
+            <Button
+                android:id="@+id/level4"
+                style="?android:attr/buttonStyleSmall"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginBottom="50dp"
+                android:layout_marginLeft="50dp"
+                android:text="L4"
+                android:typeface="serif" />
 
             <ImageView
                 android:id="@+id/level3stars"
-                android:layout_marginRight="120dp"
                 android:layout_width="80dp"
                 android:layout_height="80dp"
-                android:src="@drawable/overworld0"
                 android:layout_gravity="center_horizontal"
-                android:layout_marginBottom="-20dp"/>
-                <Button
-                    style="?android:attr/buttonStyleSmall"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="L3"
-                    android:id="@+id/level3"
-                    android:typeface="serif"
-                    android:layout_gravity="center_horizontal"
-                    android:layout_marginRight="120dp"
-                    android:layout_marginBottom="80dp"/>
+                android:layout_marginBottom="-20dp"
+                android:layout_marginRight="120dp"
+                android:src="@drawable/overworld0" />
+
+            <Button
+                android:id="@+id/level3"
+                style="?android:attr/buttonStyleSmall"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginBottom="80dp"
+                android:layout_marginRight="120dp"
+                android:text="L3"
+                android:typeface="serif" />
 
             <ImageView
                 android:id="@+id/level2stars"
-                android:layout_marginRight="0dp"
                 android:layout_width="80dp"
                 android:layout_height="80dp"
-                android:src="@drawable/overworld0"
                 android:layout_gravity="center_horizontal"
-                android:layout_marginBottom="-20dp"/>
-                <Button
-                    style="?android:attr/buttonStyleSmall"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="L2"
-                    android:id="@+id/level2"
-                    android:typeface="serif"
-                    android:layout_gravity="center_horizontal"
-                    android:layout_marginLeft="0dp"
-                    android:layout_marginBottom="40dp"/>
+                android:layout_marginBottom="-20dp"
+                android:layout_marginRight="0dp"
+                android:src="@drawable/overworld0" />
+
+            <Button
+                android:id="@+id/level2"
+                style="?android:attr/buttonStyleSmall"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginBottom="40dp"
+                android:layout_marginLeft="0dp"
+                android:text="L2"
+                android:typeface="serif" />
 
             <ImageView
                 android:id="@+id/level1stars"
-                android:layout_marginRight="50dp"
                 android:layout_width="80dp"
                 android:layout_height="80dp"
-                android:src="@drawable/overworld0"
                 android:layout_gravity="center_horizontal|right"
-                android:layout_marginBottom="-20dp"/>
-                <Button
-                    style="?android:attr/buttonStyleSmall"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="L1"
-                    android:id="@+id/level1"
-                    android:layout_gravity="center_horizontal|right"
-                    android:typeface="serif"
-                    android:layout_marginRight="60dp"
-                    android:layout_marginBottom="25dp"/>
+                android:layout_marginBottom="-20dp"
+                android:layout_marginRight="50dp"
+                android:src="@drawable/overworld0" />
 
-            </LinearLayout>
+            <Button
+                android:id="@+id/level1"
+                style="?android:attr/buttonStyleSmall"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal|right"
+                android:layout_marginBottom="25dp"
+                android:layout_marginRight="60dp"
+                android:text="L1"
+                android:typeface="serif" />
+
+        </LinearLayout>
 
 
     </ScrollView>
